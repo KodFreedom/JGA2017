@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="75">
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="4123371977" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="4123246846" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="4123276869" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="4123477064" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Conversion Settings\Default Work Unit.wwu" DateLow="4123552141" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="4123632214" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="4123402004" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Effects\Default Work Unit.wwu" DateLow="4124208289" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Effects\Factory Effects.wwu" DateLow="4124298371" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Events\Default Work Unit.wwu" DateLow="4123777995" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="4123712262" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="4123828024" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\JGA2017_WwiseProject.wproj" DateLow="4123126790" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="4123216819" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Mixing Sessions\Default Work Unit.wwu" DateLow="4124168392" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Modulators\Default Work Unit.wwu" DateLow="4124078363" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Presets\Default Work Unit.wwu" DateLow="4124523663" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Queries\Default Work Unit.wwu" DateLow="4124663750" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Queries\Factory Queries.wwu" DateLow="4124583681" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="4124803865" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="4124733986" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\States\Default Work Unit.wwu" DateLow="4124883901" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Switches\Default Work Unit.wwu" DateLow="4123968115" DateHigh="30597909"/>
+	<ValidationCacheItem File="E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="4123898244" DateHigh="30597909"/>
 	<ValidationCacheItem File="E:\HAL\Unity\JGA2017_WwiseIntegrationTemp\JGA2017_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="3060877059" DateHigh="30597909"/>
 	<ValidationCacheItem File="E:\HAL\Unity\JGA2017_WwiseIntegrationTemp\JGA2017_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="3063203459" DateHigh="30597909"/>
 	<ValidationCacheItem File="E:\HAL\Unity\JGA2017_WwiseIntegrationTemp\JGA2017_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="3061559191" DateHigh="30597909"/>

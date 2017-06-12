@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3833651337	Jump			\Default Work Unit\Jump	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	165364288	03_jump	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\03_jump_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\03_jump		30274
+
