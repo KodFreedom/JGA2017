@@ -4,14 +4,14 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  productGUID: 8d06ea4167302ab459f1b563f9d7922e
+  productGUID: a2a3f865baf42f942a224a1267c25af0
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: JGA2017
+  productName: Tower
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21176471, a: 1}
@@ -500,14 +500,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: JGA2017
+  metroPackageName: Tower
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: JGA2017
+  metroApplicationDescription: Tower
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -605,8 +605,8 @@ PlayerSettings:
   cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
-  cloudProjectId: df5e0210-d0f2-4f02-86c0-6b944b91d189
-  projectName: JGA2017
+  cloudProjectId: 551c0fea-6077-440a-b2ae-57c9369bf025
+  projectName: Tower
   organizationId: kodfreedom
   cloudEnabled: 0
   enableNewInputSystem: 0

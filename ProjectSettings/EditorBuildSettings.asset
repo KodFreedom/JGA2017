@@ -4,4 +4,88 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/Title.unity
+    guid: dda41a0a8fba6134ea556b69d5440892
+  - enabled: 1
+    path: Assets/_Scenes/Stage Select.unity
+    guid: b95fc29673bcfcc448e62a8924cd9029
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Normal/Stage1-1.unity
+    guid: 3f55fd9834b8ac1428e68a4b45cfe469
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Normal/Stage1-2.unity
+    guid: a2821acf8b57d0440830c9550b4c41de
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Normal/Stage1-3.unity
+    guid: 4ed9daac50af85040bdce16df7e8833c
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Normal/Stage1-4.unity
+    guid: 6fac65e09e1978048bc85e45fd2cfca9
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Normal/Stage1-5.unity
+    guid: cb759e304b3a9694e89981cb177d4730
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Iron/Stage2-1.unity
+    guid: 7c8dc972ed828f949902050dd0449875
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Iron/Stage2-2.unity
+    guid: 1182512ff0edf1f41bf6f1e746885501
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Iron/Stage2-3.unity
+    guid: 2407d0ba47ebf454c88cb04facdfcb20
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Iron/Stage2-4.unity
+    guid: 855e20bc518e1324198ba7bb624c2066
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Iron/Stage2-5.unity
+    guid: 9ee3b6e92c79af14e96852d72fd0958f
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Gum/Stage3-1.unity
+    guid: 97117a075445f594ca8f05d91ac38b41
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Gum/Stage3-2.unity
+    guid: 887f6ca09b6c47d4cbeb5142aea51318
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Gum/Stage3-3.unity
+    guid: 41f34f2a04da85846b0d6c50f1266094
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Gum/Stage3-4.unity
+    guid: 7597e72ee33fa62409cf1a16f4bb55fb
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Gum/Stage3-5.unity
+    guid: 9f033ee1a3428da4e93516af0cfe8a0c
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Rubber/Stage4-1.unity
+    guid: ea1b1209d8f69bb40b0e0db81dfce86b
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Rubber/Stage4-2.unity
+    guid: 2cb5608b36a333144b047c09720f6464
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Rubber/Stage4-3.unity
+    guid: 15d6d6775431765458e8c5671fc45f17
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Rubber/Stage4-4.unity
+    guid: 44480caad85e3eb4597da87c458b52b0
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Rubber/Stage4-5.unity
+    guid: 33e6b1c760e07ed4d84e0875825cc242
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Ice/Stage5-1.unity
+    guid: 78a2cdfa101a1b646bf6232dd5a8e020
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Ice/Stage5-2.unity
+    guid: 81b71e6f882ec9c4ea2738fd2ec97767
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Ice/Stage5-3.unity
+    guid: c0a79579b8e922148973c378069e4f90
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Ice/Stage5-4.unity
+    guid: 3c42524e3dd2aa34799429df74f67a0f
+  - enabled: 1
+    path: Assets/_Scenes/Stage/Stage Ice/Stage5-5.unity
+    guid: 636b2b1bdd820bd4094ecd4d3f1353f7
+  - enabled: 1
+    path: Assets/_Scenes/Credit.unity
+    guid: 800bcd55f0dc4604c8ec7b602f0b5e71

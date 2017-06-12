@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 23105426638278028}
   - component: {fileID: 54576916913766546}
   - component: {fileID: 114600110312664496}
-  - component: {fileID: 114753351424305256}
   - component: {fileID: 114037784805971066}
   - component: {fileID: 114014580057003272}
   - component: {fileID: 114286680140086866}
@@ -182,18 +181,6 @@ MonoBehaviour:
   m_fMassFalling: 1
   m_fMassNormal: 0.01
   m_fStageClearForce: 1
---- !u!114 &114753351424305256
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744886333450900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84255597399e80743b6f6f0e7604c2b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listenerId: 0
 --- !u!135 &135766638342965020
 SphereCollider:
   m_ObjectHideFlags: 1
