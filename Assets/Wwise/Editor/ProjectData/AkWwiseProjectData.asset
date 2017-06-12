@@ -12,12 +12,66 @@ MonoBehaviour:
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
   CurrentPluginConfig: 
-  EventWwu: []
-  AuxBusWwu: []
-  StateWwu: []
-  SwitchWwu: []
-  BankWwu: []
-  ExpandedItems: []
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{384627C1-E94E-45EA-9050-1723C17F6C61}'
+    m_lastTimePsrt1: 1374630012
+    m_lastTimePart2: -1999326926
+    List:
+    - Name: Jump
+      Path: Default Work Unit\Jump
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Jump
+        ObjectType: 3
+      ID: -461315959
+      Guid: 4484a689d2954d448de6d042d2e2ecde
+      maxAttenuation: 0
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{9FE2982A-56DC-4A85-9979-9BF5882D0122}'
+    m_lastTimePsrt1: 406473651
+    m_lastTimePart2: -1999326931
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{04E0D8F6-3644-4656-975F-C5DF25B83B13}'
+    m_lastTimePsrt1: 408140733
+    m_lastTimePart2: -1999326931
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{EBF9BEB0-33C7-401F-BCA1-94BA6F5CD84E}'
+    m_lastTimePsrt1: 407224947
+    m_lastTimePart2: -1999326931
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{2B12E63F-0076-41CA-A2AB-DA0C4FB0B93E}'
+    m_lastTimePsrt1: 1658778759
+    m_lastTimePart2: -1999326926
+    List:
+    - Name: Jump
+      Path: Default Work Unit\Jump
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Jump
+        ObjectType: 7
+      ID: -461315959
+      Guid: faa6a19b453ad24498afef02e6053907
+  ExpandedItems:
+  - /JGA2017_WwiseProject
+  - /JGA2017_WwiseProject/Events
+  - /JGA2017_WwiseProject/Events/Default Work Unit
+  - /JGA2017_WwiseProject/SoundBanks
+  - /JGA2017_WwiseProject/SoundBanks/Default Work Unit
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1

@@ -221,7 +221,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96fe77c59c0362349b994c559c2f65e2, type: 2}
-  m_RootGameObject: {fileID: 1476296172}
   m_IsPrefabParent: 0
 --- !u!1 &173604347
 GameObject:
@@ -648,7 +647,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ead5b81b5eac0d840a0f4ebf1da3ba5a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 62dd6362dcf0c6949a0513894bfa520e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -950,14 +949,18 @@ Transform:
   m_Father: {fileID: 333102654}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &444918884
-AudioListener:
+--- !u!114 &444918884
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 81793468251809048, guid: 746e6e65b3b3e0441bbb3642dd7a12b1,
-    type: 2}
-  m_PrefabInternal: {fileID: 803662568}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 444918882}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84255597399e80743b6f6f0e7604c2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listenerId: 0
 --- !u!124 &444918885
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1241,7 +1244,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 703162bf37ffde34d9f05086316d9810, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b6a865e28859ee4288a54b9307c881e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1399,9 +1402,9 @@ Prefab:
       propertyPath: m_Name
       value: stage
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 746e6e65b3b3e0441bbb3642dd7a12b1, type: 2}
-  m_RootGameObject: {fileID: 333102651}
   m_IsPrefabParent: 0
 --- !u!1 &879555159
 GameObject:
@@ -1631,7 +1634,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 998b00024bb1b84448de735155024005, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6622d0ce51ccbd84cbaa1fe8efedd4c6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2269,6 +2272,66 @@ MeshFilter:
   m_PrefabInternal: {fileID: 803662568}
   m_GameObject: {fileID: 1760684855}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1824279857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1824279860}
+  - component: {fileID: 1824279859}
+  - component: {fileID: 1824279858}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1824279858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1824279857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114d935eefeb8794b8ba235ee1c5f221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePath: Audio\GeneratedSoundBanks
+  language: English(US)
+  defaultPoolSize: 4096
+  lowerPoolSize: 2048
+  streamingPoolSize: 1024
+  preparePoolSize: 0
+  memoryCutoffThreshold: 0.95
+  engineLogging: 1
+--- !u!114 &1824279859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1824279857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f37ad0b5a33241c4786f9babf03de9e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1824279860
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1824279857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1830230845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,7 +2411,6 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 114347819397822062, guid: 6649b0329d988624587f298098cf6ba8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6649b0329d988624587f298098cf6ba8, type: 2}
-  m_RootGameObject: {fileID: 1465177870}
   m_IsPrefabParent: 0
 --- !u!1 &2083831727
 GameObject:
