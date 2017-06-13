@@ -14,6 +14,9 @@ public class StageController : MonoBehaviour
     public GameObject m_objLeftWall;
     public GameObject m_objRightWall;
     public GameObject m_objPlane;
+    public Vector3 m_vLeftParticlePos = new Vector3(-3.5f, 0.0f);
+    public Vector3 m_vRightParticlePos = new Vector3(3.5f, 0.0f);
+    public ParticleSystem m_particleWall;
 
     //--------------------------------------------------------------------------
     //  変数
@@ -66,7 +69,6 @@ public class StageController : MonoBehaviour
             m_fLTOld = m_fLTValue;
             m_fRTOld = m_fRTValue;
 
-            Debug.Log(m_bCanControl.ToString());
             if (m_bCanControl)
             {
                 m_fLTValue = Input.GetAxis("LT");
@@ -80,13 +82,21 @@ public class StageController : MonoBehaviour
 
 
             if (m_bPushedL && !m_bPushedR && m_fLTValue > 0.0f && m_fLTValue >= m_fLTOld)
-            {
+            {//Left Wall
                 m_vVelocity = new Vector3(m_fVelocityX, m_vVelocity.y, 0.0f);
+                m_particleWall.transform.position = transform.position + m_vLeftParticlePos;
+                m_particleWall.transform.rotation = Quaternion.Euler(0f, -90.0f, 0f);
+                Debug.Log(m_particleWall.transform.position);
+                m_particleWall.Play();
             }
 
             if (m_bPushedR && !m_bPushedL && m_fRTValue < 0.0f && m_fRTValue <= m_fRTOld)
-            {
+            {//Right Wall
                 m_vVelocity = new Vector3(-m_fVelocityX, m_vVelocity.y, 0.0f);
+                m_particleWall.transform.position = transform.position + m_vRightParticlePos;
+                m_particleWall.transform.rotation = Quaternion.Euler(0f, 90.0f, 0f);
+                Debug.Log(m_particleWall.transform.position);
+                m_particleWall.Play();
             }
 
             m_vVelocity.y -= m_fGravity;
