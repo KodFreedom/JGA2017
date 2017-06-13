@@ -922,6 +922,11 @@ Prefab:
       objectReference: {fileID: 341697844}
     - target: {fileID: 114671916860311090, guid: b2e812b7d652fc543a87ef2fc48174b7,
         type: 2}
+      propertyPath: m_wall
+      value: 
+      objectReference: {fileID: 478703114}
+    - target: {fileID: 114671916860311090, guid: b2e812b7d652fc543a87ef2fc48174b7,
+        type: 2}
       propertyPath: m_stage
       value: 
       objectReference: {fileID: 1409249691}
@@ -932,16 +937,6 @@ Prefab:
       objectReference: {fileID: 1225428063}
     - target: {fileID: 114671916860311090, guid: b2e812b7d652fc543a87ef2fc48174b7,
         type: 2}
-      propertyPath: m_nIndexStageThis
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114671916860311090, guid: b2e812b7d652fc543a87ef2fc48174b7,
-        type: 2}
-      propertyPath: m_nIndexStageNext
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114671916860311090, guid: b2e812b7d652fc543a87ef2fc48174b7,
-        type: 2}
       propertyPath: m_clearPanel
       value: 
       objectReference: {fileID: 2078281093}
@@ -950,11 +945,6 @@ Prefab:
       propertyPath: m_failedPanel
       value: 
       objectReference: {fileID: 2078281092}
-    - target: {fileID: 114671916860311090, guid: b2e812b7d652fc543a87ef2fc48174b7,
-        type: 2}
-      propertyPath: m_wall
-      value: 
-      objectReference: {fileID: 478703114}
     - target: {fileID: 114671916860311090, guid: b2e812b7d652fc543a87ef2fc48174b7,
         type: 2}
       propertyPath: m_pausePanel
