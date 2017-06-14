@@ -84,7 +84,6 @@ public class WallController : MonoBehaviour {
         if(m_bCanControl)
         {
             m_fLTValue = Input.GetAxis("LT");
-            Debug.Log(m_fLTValue.ToString());
             m_fRTValue = Input.GetAxis("RT");
         }
         else

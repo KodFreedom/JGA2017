@@ -6,6 +6,15 @@ using UnityEngine.UI;
 public class StageController : MonoBehaviour
 {
     //--------------------------------------------------------------------------
+    //  Enum
+    //--------------------------------------------------------------------------
+    private enum EFFECT_IDX
+    {
+        LEFT = 0,
+        RIGHT
+    }
+
+    //--------------------------------------------------------------------------
     //  定数
     //--------------------------------------------------------------------------
     public float m_fVelocityX = 5.0f / 60.0f;
@@ -16,7 +25,7 @@ public class StageController : MonoBehaviour
     public GameObject m_objPlane;
     public Vector3 m_vLeftParticlePos = new Vector3(-3.5f, 0.0f);
     public Vector3 m_vRightParticlePos = new Vector3(3.5f, 0.0f);
-    public ParticleSystem m_particleWall;
+    public ParticleSystem[] m_particleWall;
 
     //--------------------------------------------------------------------------
     //  変数
@@ -29,6 +38,7 @@ public class StageController : MonoBehaviour
     private bool m_bPushedL;
     private bool m_bPushedR;
     private bool m_bCanControl;
+    private bool m_bPlayedNippedEffect;
 
     public Vector3 GetVelocity()
     {
@@ -51,6 +61,7 @@ public class StageController : MonoBehaviour
         m_bCanControl = true;
         m_bPushedL = false;
         m_bPushedR = false;
+        m_bPlayedNippedEffect = false;
         m_fLTValue = 0.0f;
         m_fRTValue = 0.0f;
         m_fLTOld = 0.0f;
@@ -81,22 +92,20 @@ public class StageController : MonoBehaviour
             }
 
 
-            if (m_bPushedL && !m_bPushedR && m_fLTValue > 0.0f && m_fLTValue >= m_fLTOld)
+            if (m_bPushedL && !m_bPushedR && m_fLTValue > 0.0f && m_fLTValue >= m_fLTOld && m_vVelocity.x <= 0.0f)
             {//Left Wall
                 m_vVelocity = new Vector3(m_fVelocityX, m_vVelocity.y, 0.0f);
-                m_particleWall.transform.position = transform.position + m_vLeftParticlePos;
-                m_particleWall.transform.rotation = Quaternion.Euler(0f, -90.0f, 0f);
-                Debug.Log(m_particleWall.transform.position);
-                m_particleWall.Play();
+
+                //Effect
+                PlayWallContactEffect(transform.position + m_vLeftParticlePos, Quaternion.Euler(0f, -90.0f, 0f), EFFECT_IDX.LEFT);
             }
 
-            if (m_bPushedR && !m_bPushedL && m_fRTValue < 0.0f && m_fRTValue <= m_fRTOld)
+            if (m_bPushedR && !m_bPushedL && m_fRTValue < 0.0f && m_fRTValue <= m_fRTOld && m_vVelocity.x >= 0.0f)
             {//Right Wall
                 m_vVelocity = new Vector3(-m_fVelocityX, m_vVelocity.y, 0.0f);
-                m_particleWall.transform.position = transform.position + m_vRightParticlePos;
-                m_particleWall.transform.rotation = Quaternion.Euler(0f, 90.0f, 0f);
-                Debug.Log(m_particleWall.transform.position);
-                m_particleWall.Play();
+
+                //Effect
+                PlayWallContactEffect(transform.position + m_vRightParticlePos, Quaternion.Euler(0f, 90.0f, 0f), EFFECT_IDX.RIGHT);
             }
 
             m_vVelocity.y -= m_fGravity;
@@ -111,7 +120,9 @@ public class StageController : MonoBehaviour
             m_bPushedL = false;
             m_bPushedR = false;
             Vector3 vPos = transform.position;
+            
             float fLengthWall = m_objLeftWall.transform.localScale.x;
+            Debug.Log(m_objLeftWall.transform.position.ToString());
             float fLengthStage = GetComponent<BoxCollider>().size.x;
             float fHeightStage = GetComponent<BoxCollider>().size.y;
 
@@ -170,11 +181,19 @@ public class StageController : MonoBehaviour
         {
             player.SetStatusNormal();
         }
-        
+       
 
         for(int nCnt = 0;nCnt < gimic.Length;nCnt++)
         {
             gimic[nCnt].SetStatusNormal();
+        }
+
+        //Effect
+        if(!m_bPlayedNippedEffect)
+        {
+            m_bPlayedNippedEffect = true;
+            PlayWallContactEffect(transform.position + m_vLeftParticlePos, Quaternion.Euler(0f, -90.0f, 0f), EFFECT_IDX.LEFT);
+            PlayWallContactEffect(transform.position + m_vRightParticlePos, Quaternion.Euler(0f, 90.0f, 0f), EFFECT_IDX.RIGHT);
         }
     }
 
@@ -192,6 +211,8 @@ public class StageController : MonoBehaviour
         {
             gimic[nCnt].SetStatusFalling();
         }
+
+        m_bPlayedNippedEffect = false;
     }
 
     private void GameOver()
@@ -221,5 +242,12 @@ public class StageController : MonoBehaviour
         }
 
         GameObject.FindGameObjectWithTag("StageSelecter").GetComponent<StageSelecter>().StageFailed();
+    }
+
+    private void PlayWallContactEffect(Vector3 vPos, Quaternion qRot, EFFECT_IDX idx)
+    {
+        m_particleWall[(int)idx].transform.position = vPos;
+        m_particleWall[(int)idx].transform.rotation = qRot;
+        m_particleWall[(int)idx].Play();
     }
 }
