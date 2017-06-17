@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="120">
 	<RootPaths>
-		<ProjectRoot>E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\Users\nikumaro\デスクトップ\JGA2017\JGA2017_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Users\nikumaro\デスクトップ\JGA2017\JGA2017_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Users\nikumaro\デスクトップ\JGA2017\JGA2017_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Users\nikumaro\デスクトップ\JGA2017\JGA2017_WwiseProject\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -21,12 +21,68 @@
 			<ShortName>Jump</ShortName>
 			<Path>Jump.bnk</Path>
 			<IncludedEvents>
+				<Event Id="3127392263" Name="cube_hit_wall" ObjectPath="\Events\Default Work Unit\wall_hit_cubes\cube_hit_wall"/>
+				<Event Id="551694363" Name="fall_start" ObjectPath="\Events\Default Work Unit\fall_player\fall_start"/>
+				<Event Id="1920253945" Name="fall_stop" ObjectPath="\Events\Default Work Unit\fall_player\fall_stop" MaxAttenuation="0.000000"/>
 				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Jump"/>
+				<Event Id="538056262" Name="LR_wall" ObjectPath="\Events\Default Work Unit\wall_sand\LR_wall"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="108098210" Language="SFX">
+					<ShortName>cube_hit_wall_hi_1.wav</ShortName>
+					<Path>SFX\cube_hit_wall_hi_1_9E69E797.wem</Path>
+				</File>
 				<File Id="165364288" Language="SFX">
 					<ShortName>03_jump.wav</ShortName>
 					<Path>SFX\03_jump_9E69E797.wem</Path>
+				</File>
+				<File Id="230263476" Language="SFX">
+					<ShortName>cube_hit_wall_hi_3.wav</ShortName>
+					<Path>SFX\cube_hit_wall_hi_3_9E69E797.wem</Path>
+				</File>
+				<File Id="253567958" Language="SFX">
+					<ShortName>cube_hit_wall_4.wav</ShortName>
+					<Path>SFX\cube_hit_wall_4_9E69E797.wem</Path>
+				</File>
+				<File Id="520808745" Language="SFX">
+					<ShortName>cube_hit_low_3.wav</ShortName>
+					<Path>SFX\cube_hit_low_3_9E69E797.wem</Path>
+				</File>
+				<File Id="588093008" Language="SFX">
+					<ShortName>cube_hit_wall_2.wav</ShortName>
+					<Path>SFX\cube_hit_wall_2_9E69E797.wem</Path>
+				</File>
+				<File Id="649785495" Language="SFX">
+					<ShortName>LR_wall.wav</ShortName>
+					<Path>SFX\LR_wall_9E69E797.wem</Path>
+				</File>
+				<File Id="735433458" Language="SFX">
+					<ShortName>cube_hit_low_1.wav</ShortName>
+					<Path>SFX\cube_hit_low_1_9E69E797.wem</Path>
+				</File>
+				<File Id="846105117" Language="SFX">
+					<ShortName>cube_hit_wall_hi_2.wav</ShortName>
+					<Path>SFX\cube_hit_wall_hi_2_9E69E797.wem</Path>
+				</File>
+				<File Id="867723774" Language="SFX">
+					<ShortName>cube_hit_wall_5.wav</ShortName>
+					<Path>SFX\cube_hit_wall_5_9E69E797.wem</Path>
+				</File>
+				<File Id="870541358" Language="SFX">
+					<ShortName>cube_hit_wall_1.wav</ShortName>
+					<Path>SFX\cube_hit_wall_1_9E69E797.wem</Path>
+				</File>
+				<File Id="884310061" Language="SFX">
+					<ShortName>cube_hit_wall_3.wav</ShortName>
+					<Path>SFX\cube_hit_wall_3_9E69E797.wem</Path>
+				</File>
+				<File Id="891615847" Language="SFX">
+					<ShortName>cube_hit_low_2.wav</ShortName>
+					<Path>SFX\cube_hit_low_2_9E69E797.wem</Path>
+				</File>
+				<File Id="983377988" Language="SFX">
+					<ShortName>Wind.wav</ShortName>
+					<Path>SFX\Wind_F008BE8B.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

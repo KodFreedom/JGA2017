@@ -14,6 +14,86 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="wall_hit_cubes" ID="{B3203B1E-AFF2-4628-BFEB-7652FC9A5B7E}" ShortID="727429453">
+					<ChildrenList>
+						<Event Name="cube_hit_wall" ID="{4113D9AC-0DC8-4BB2-992C-86DF5CEB2661}">
+							<ChildrenList>
+								<Action Name="Play" ID="{CDDA456E-770D-405A-A000-38E72E357613}" ShortID="753543870" Type="Play" Scope="One" Global="false">
+									<ElementList>
+										<Element ID="{AE50BE57-D008-4DEA-BB44-870D9AD389DB}" Global="false">
+											<ObjectRef Name="cube_hit_loundam" ID="{BEDF6A82-AC1D-45C1-B79C-ACAE6FD03A65}" WorkUnitID="{AD711411-4293-4775-AE67-53766A9537CE}"/>
+										</Element>
+									</ElementList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="iron_hit_wall" ID="{506A74F0-1EBE-4EE3-B7B5-160445C39590}"/>
+						<Event Name="ice_hit_wall" ID="{E03B6B6B-5F5E-4D5C-8320-C40538DF84C7}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="wall_sand" ID="{1B4C1BFA-023A-4DB3-954A-C263C561CB7A}" ShortID="245517884">
+					<ChildrenList>
+						<Event Name="right_wall" ID="{A56DF4A4-33C3-4076-A5D3-38EA04BB8A06}"/>
+						<Event Name="LR_wall" ID="{1B96E025-6572-42B5-A86E-F476B264EBB8}">
+							<ChildrenList>
+								<Action Name="Play" ID="{E72C26C9-DE85-4BD9-BC4F-89C4C0BE9943}" ShortID="822442143" Type="Play" Scope="One" Global="false">
+									<ElementList>
+										<Element ID="{4CE3FB9F-9599-427F-B26F-7C4FA56CB5FE}" Global="false">
+											<ObjectRef Name="LR_wall" ID="{15ECF638-DB22-47AF-BB16-7863FC1EA856}" WorkUnitID="{AD711411-4293-4775-AE67-53766A9537CE}"/>
+										</Element>
+									</ElementList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="left_wall" ID="{5BAC481E-7FA7-4397-9797-FEC8E8AC6E04}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="fall_player" ID="{F057FDFD-2E92-483F-895A-47085D8B348E}" ShortID="916253485">
+					<ChildrenList>
+						<Event Name="fall_start" ID="{0F78FD8E-3FF1-434C-B0B4-2F84178B32E5}">
+							<ChildrenList>
+								<Action Name="Play" ID="{7EB8ED0B-2239-4E53-B42B-467347592F9B}" ShortID="990235440" Type="Play" Scope="One" Global="false">
+									<ElementList>
+										<Element ID="{0ACD65BD-922F-45C2-A50E-3C17E63F3010}" Global="false">
+											<ObjectRef Name="falling_room" ID="{64CCECF0-5A9C-4012-AF20-ECA5B88B49EB}" WorkUnitID="{AD711411-4293-4775-AE67-53766A9537CE}"/>
+										</Element>
+									</ElementList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="fall_stop" ID="{9504E372-AB39-4038-BD3F-6D2FC4795DF3}">
+							<ChildrenList>
+								<Action Name="Stop" ID="{48DC53B5-BDC1-4E73-AB35-2B7258530D85}" ShortID="886550615" Type="Stop" Scope="One" Global="false">
+									<ElementList>
+										<Element ID="{1BA0BACF-3FA2-482A-90D3-3BD96F440446}" Global="false">
+											<ObjectRef Name="falling_room" ID="{64CCECF0-5A9C-4012-AF20-ECA5B88B49EB}" WorkUnitID="{AD711411-4293-4775-AE67-53766A9537CE}"/>
+										</Element>
+									</ElementList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Event Name="game_clear" ID="{D4C7C3C5-61FB-4C49-A172-272033501625}"/>
+				<Event Name="game_over" ID="{B566055D-C4FB-4DE6-B00E-C732837C5A6A}"/>
+				<Folder Name="cube_hit_cubes" ID="{70C9424F-C759-4896-AA67-92B4DB7C81B1}" ShortID="786172925">
+					<ChildrenList>
+						<Event Name="ice_break" ID="{FF8C2BA8-9E66-4685-915E-00C238F5C183}"/>
+						<Event Name="gom_hit_gom" ID="{74262F55-CBEF-44AD-8086-8A355EFE0112}"/>
+						<Event Name="gam_hit_gam" ID="{4673C512-42B2-4C0C-AB50-C63FD803348D}"/>
+						<Event Name="ice_hibi" ID="{ABAD46B7-9844-4622-93A2-4F051E18870A}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="BGM" ID="{E425C631-9706-406B-BE66-15398F2ADF5B}" ShortID="507233138">
+					<ChildrenList>
+						<Event Name="BGM_title_start" ID="{C099446B-F01B-4189-B7EC-FB2900555CFA}"/>
+						<Event Name="BGM_title_stop" ID="{2BF1D58E-189E-4854-84F0-B1E125F466DB}"/>
+						<Event Name="BGM_play_start" ID="{29B9AEC5-F2A7-44AF-9790-04648DD0CB0F}"/>
+						<Event Name="BGM_play_stop" ID="{8B3783D9-4A29-4F48-B97F-922A513A3156}"/>
+						<Event Name="BGM_stageselect_start" ID="{4DF8E85B-5DDC-466F-B085-AEE3A049BFE7}"/>
+						<Event Name="BGM_stageselect_stop" ID="{0C302A4E-1D75-4EAE-A8FF-6782E5843529}"/>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

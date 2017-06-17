@@ -5,7 +5,11 @@
 			<ChildrenList>
 				<SoundBank Name="Jump" ID="{9BA1A6FA-3A45-44D2-98AF-EF02E6053907}">
 					<ObjectInclusionList>
+						<ObjectRef Name="fall_stop" ID="{9504E372-AB39-4038-BD3F-6D2FC4795DF3}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="LR_wall" ID="{1B96E025-6572-42B5-A86E-F476B264EBB8}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="fall_start" ID="{0F78FD8E-3FF1-434C-B0B4-2F84178B32E5}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Jump" ID="{89A68444-95D2-444D-8DE6-D042D2E2ECDE}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="cube_hit_wall" ID="{4113D9AC-0DC8-4BB2-992C-86DF5CEB2661}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

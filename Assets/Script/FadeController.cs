@@ -37,6 +37,7 @@ public class FadeController : MonoBehaviour
         if(m_status == FADE_STATUS.FADE_OUT) { return; }
         //m_fAlpha = 0.0f;
         //m_fadeImg.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+        m_fadeImgL.canvas.sortingOrder = 1000;
         m_fadeImgL.rectTransform.sizeDelta = new Vector2(Screen.width * 2.0f, Screen.height * 3.0f);
         m_fadeImgR.rectTransform.sizeDelta = new Vector2(Screen.width * 2.0f, Screen.height * 3.0f);
         m_fadeImgL.rectTransform.anchoredPosition = new Vector2(-Screen.width * 3.0f, 0.0f);
@@ -53,6 +54,7 @@ public class FadeController : MonoBehaviour
         //m_fadeImg.color = new Color(0.0f, 0.0f, 0.0f, m_fAlpha);
         m_fadeImgL.gameObject.SetActive(true);
         m_fadeImgR.gameObject.SetActive(true);
+        m_fadeImgL.canvas.sortingOrder = 1000;
         m_fadeImgL.rectTransform.sizeDelta = new Vector2(Screen.width * 2.0f, Screen.height * 3.0f);
         m_fadeImgR.rectTransform.sizeDelta = new Vector2(Screen.width * 2.0f, Screen.height * 3.0f);
         m_fadeImgL.rectTransform.anchoredPosition = new Vector2(-Screen.width * 0.5f, 0.0f);

@@ -309,6 +309,30 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5474b97da88fb154abb559648b1d6ba2, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &356575448 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114706114812295950, guid: 5474b97da88fb154abb559648b1d6ba2,
+    type: 2}
+  m_PrefabInternal: {fileID: 356575447}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &356575449 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114674511275165332, guid: 5474b97da88fb154abb559648b1d6ba2,
+    type: 2}
+  m_PrefabInternal: {fileID: 356575447}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &356575450 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114928670282013186, guid: 5474b97da88fb154abb559648b1d6ba2,
+    type: 2}
+  m_PrefabInternal: {fileID: 356575447}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &356575451 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114495212619770896, guid: 5474b97da88fb154abb559648b1d6ba2,
+    type: 2}
+  m_PrefabInternal: {fileID: 356575447}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &712055702
 Prefab:
   m_ObjectHideFlags: 0
@@ -1035,6 +1059,30 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114147620200667108, guid: eac376f26e413854780af67bc852ca6b,
+        type: 2}
+      propertyPath: m_imgUIStage
+      value: 
+      objectReference: {fileID: 356575451}
+    - target: {fileID: 114147620200667108, guid: eac376f26e413854780af67bc852ca6b,
+        type: 2}
+      propertyPath: m_aImgUIStageNum.Array.data[0]
+      value: 
+      objectReference: {fileID: 356575450}
+    - target: {fileID: 114147620200667108, guid: eac376f26e413854780af67bc852ca6b,
+        type: 2}
+      propertyPath: m_aImgUIStageNum.Array.data[1]
+      value: 
+      objectReference: {fileID: 356575449}
+    - target: {fileID: 114147620200667108, guid: eac376f26e413854780af67bc852ca6b,
+        type: 2}
+      propertyPath: m_aImgUIStageNum.Array.data[2]
+      value: 
+      objectReference: {fileID: 356575448}
+    - target: {fileID: 1161396968217422, guid: eac376f26e413854780af67bc852ca6b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eac376f26e413854780af67bc852ca6b, type: 2}
   m_IsPrefabParent: 0
@@ -1177,6 +1225,14 @@ Prefab:
     - target: {fileID: 4629453609281716, guid: 67d85037573eeb140890a46c3f7ea580, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685004174531042, guid: 67d85037573eeb140890a46c3f7ea580, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494982933961466, guid: 67d85037573eeb140890a46c3f7ea580, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67d85037573eeb140890a46c3f7ea580, type: 2}

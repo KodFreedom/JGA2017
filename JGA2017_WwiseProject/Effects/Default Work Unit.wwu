@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{A226DE9A-8BF7-49BD-9D15-BF4E8FE20F41}" SchemaVersion="75">
 	<Effects>
-		<WorkUnit Name="Default Work Unit" ID="{A226DE9A-8BF7-49BD-9D15-BF4E8FE20F41}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{A226DE9A-8BF7-49BD-9D15-BF4E8FE20F41}" PersistMode="Standalone">
+			<ChildrenList>
+				<Effect Name="New_Wwise_Gain" ID="{DF0189C3-A7AA-446B-ADFF-E8F2C2FD22AA}" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3">
+					<PropertyList>
+						<Property Name="FullBandGain" Type="Real32" Value="0.2"/>
+						<Property Name="LFEGain" Type="Real32" Value="-1.3"/>
+					</PropertyList>
+				</Effect>
+			</ChildrenList>
+		</WorkUnit>
 	</Effects>
 </WwiseDocument>

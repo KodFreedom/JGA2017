@@ -187,13 +187,22 @@ public class GimicController : MonoBehaviour {
                         {
                             m_fCntHeight = 0.0f;
                             m_nLife--;
+
+                            //Sound
+                            if (m_nLife != 0){ AkSoundEngine.PostEvent("ice_hibi", gameObject); }
+                        }
+                        else
+                        {
+                            AkSoundEngine.PostEvent("ice_hit_wall", gameObject);
                         }
 
 
                         if (m_nLife == 0)
                         {
+                            AkSoundEngine.PostEvent("ice_break", gameObject);
                             gameObject.SetActive(false);
                         }
+                        
                     }
                 }
             }
@@ -215,6 +224,32 @@ public class GimicController : MonoBehaviour {
                     gameObject.AddComponent<FixedJoint>();
                     gameObject.GetComponent<FixedJoint>().connectedBody = collision.rigidbody;
                 }
+            }
+        }
+
+        //Sound
+        if(m_status == STATUS.GIMIC_NORMAL && !collision.gameObject.CompareTag("Player"))
+        {
+            switch (m_type)
+            {
+                case TYPE.CUBE:
+                    AkSoundEngine.PostEvent("cube_hit_wall", gameObject);
+                    break;
+                case TYPE.IRON:
+                    AkSoundEngine.PostEvent("iron_hit_wall", gameObject);
+                    break;
+                case TYPE.ICE:
+                    //AkSoundEngine.PostEvent("ice_hit_wall", gameObject);
+                    break;
+                case TYPE.GAM:
+                    AkSoundEngine.PostEvent("gam_hit_gam", gameObject);
+                    break;
+                case TYPE.GOM:
+                    AkSoundEngine.PostEvent("gom_hit_gom", gameObject);
+                    break;
+                default:
+                    AkSoundEngine.PostEvent("cube_hit_wall", gameObject);
+                    break;
             }
         }
     }

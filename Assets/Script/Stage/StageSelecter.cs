@@ -35,6 +35,9 @@ public class StageSelecter : MonoBehaviour
         //Show Clear Effect & UI
         m_clearPanel.SetActive(true);
         m_eventSystem.SetSelectedGameObject(m_clearPanel.transform.FindChild("Next Stage").gameObject);
+
+        //Sound
+        AkSoundEngine.PostEvent("game_clear", gameObject);
     }
 
     public void StageFailed()
@@ -48,6 +51,9 @@ public class StageSelecter : MonoBehaviour
         //Show Failed Effect & UI
         m_failedPanel.SetActive(true);
         m_eventSystem.SetSelectedGameObject(m_failedPanel.transform.FindChild("Retry").gameObject);
+
+        //Sound
+        AkSoundEngine.PostEvent("game_over", gameObject);
     }
    
     // Use this for initialization
@@ -59,6 +65,9 @@ public class StageSelecter : MonoBehaviour
         m_pausePanel.SetActive(false);
         m_bClear = false;
         m_bFailed = false;
+
+        //BGM
+        AkSoundEngine.PostEvent("BGM_play_start", gameObject);
     }
 
     // Update is called once per frame

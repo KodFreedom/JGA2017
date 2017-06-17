@@ -11,6 +11,10 @@ public class SelectController : MonoBehaviour
         GameObject.FindGameObjectWithTag("Fade").GetComponent<FadeController>().LoadStage(nIndex);
         //LoadingManager.LoadScene(nIndex);
         //SceneManager.LoadScene(nIndex);
+        //BGM
+        AkSoundEngine.PostEvent("BGM_play_stop", gameObject);
+        AkSoundEngine.PostEvent("BGM_stageselect_stop", gameObject);
+        AkSoundEngine.PostEvent("BGM_title_stop", gameObject);
     }
 
 }

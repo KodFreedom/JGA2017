@@ -16,9 +16,209 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{384627C1-E94E-45EA-9050-1723C17F6C61}'
-    m_lastTimePsrt1: 1374630012
-    m_lastTimePart2: -1999326926
+    m_lastTimePsrt1: -1995025432
+    m_lastTimePart2: -1999325834
     List:
+    - Name: BGM_play_start
+      Path: Default Work Unit\BGM\BGM_play_start
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BGM
+        ObjectType: 4
+      - ElementName: BGM_play_start
+        ObjectType: 3
+      ID: 604937079
+      Guid: c5aeb929a7f2af44979004648dd0cb0f
+      maxAttenuation: 0
+    - Name: BGM_play_stop
+      Path: Default Work Unit\BGM\BGM_play_stop
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BGM
+        ObjectType: 4
+      - ElementName: BGM_play_stop
+        ObjectType: 3
+      ID: -656884515
+      Guid: d983378b294a484fb97f922a513a3156
+      maxAttenuation: 0
+    - Name: BGM_stageselect_start
+      Path: Default Work Unit\BGM\BGM_stageselect_start
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BGM
+        ObjectType: 4
+      - ElementName: BGM_stageselect_start
+        ObjectType: 3
+      ID: 201470811
+      Guid: 5be8f84ddc5d6f46b085aee3a049bfe7
+      maxAttenuation: 0
+    - Name: BGM_stageselect_stop
+      Path: Default Work Unit\BGM\BGM_stageselect_stop
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BGM
+        ObjectType: 4
+      - ElementName: BGM_stageselect_stop
+        ObjectType: 3
+      ID: -1131321031
+      Guid: 4e2a300c751dae4ea8ff6782e5843529
+      maxAttenuation: 0
+    - Name: BGM_title_start
+      Path: Default Work Unit\BGM\BGM_title_start
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BGM
+        ObjectType: 4
+      - ElementName: BGM_title_start
+        ObjectType: 3
+      ID: -1294251845
+      Guid: 6b4499c01bf08941b7ecfb2900555cfa
+      maxAttenuation: 0
+    - Name: BGM_title_stop
+      Path: Default Work Unit\BGM\BGM_title_stop
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BGM
+        ObjectType: 4
+      - ElementName: BGM_title_stop
+        ObjectType: 3
+      ID: -1186987751
+      Guid: 8ed5f12b9e18544884f0b1e125f466db
+      maxAttenuation: 0
+    - Name: cube_hit_wall
+      Path: Default Work Unit\wall_hit_cubes\cube_hit_wall
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: wall_hit_cubes
+        ObjectType: 4
+      - ElementName: cube_hit_wall
+        ObjectType: 3
+      ID: -1167575033
+      Guid: acd91341c80db24b992c86df5ceb2661
+      maxAttenuation: 0
+    - Name: fall_start
+      Path: Default Work Unit\fall_player\fall_start
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: fall_player
+        ObjectType: 4
+      - ElementName: fall_start
+        ObjectType: 3
+      ID: 551694363
+      Guid: 8efd780ff13f4c43b0b42f84178b32e5
+      maxAttenuation: 0
+    - Name: fall_stop
+      Path: Default Work Unit\fall_player\fall_stop
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: fall_player
+        ObjectType: 4
+      - ElementName: fall_stop
+        ObjectType: 3
+      ID: 1920253945
+      Guid: 72e3049539ab3840bd3f6d2fc4795df3
+      maxAttenuation: 0
+    - Name: gam_hit_gam
+      Path: Default Work Unit\cube_hit_cubes\gam_hit_gam
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: cube_hit_cubes
+        ObjectType: 4
+      - ElementName: gam_hit_gam
+        ObjectType: 3
+      ID: -1762845288
+      Guid: 12c57346b2420c4cab50c63fd803348d
+      maxAttenuation: 0
+    - Name: game_clear
+      Path: Default Work Unit\game_clear
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: game_clear
+        ObjectType: 3
+      ID: -1469659627
+      Guid: c5c3c7d4fb61494ca172272033501625
+      maxAttenuation: 0
+    - Name: game_over
+      Path: Default Work Unit\game_over
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: game_over
+        ObjectType: 3
+      ID: 1432716332
+      Guid: 5d0566b5fbc4e64db00ec732837c5a6a
+      maxAttenuation: 0
+    - Name: gom_hit_gom
+      Path: Default Work Unit\cube_hit_cubes\gom_hit_gom
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: cube_hit_cubes
+        ObjectType: 4
+      - ElementName: gom_hit_gom
+        ObjectType: 3
+      ID: 662515672
+      Guid: 552f2674efcbad4480868a355efe0112
+      maxAttenuation: 0
+    - Name: ice_break
+      Path: Default Work Unit\cube_hit_cubes\ice_break
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: cube_hit_cubes
+        ObjectType: 4
+      - ElementName: ice_break
+        ObjectType: 3
+      ID: 1714959934
+      Guid: a82b8cff669e8546915e00c238f5c183
+      maxAttenuation: 0
+    - Name: ice_hibi
+      Path: Default Work Unit\cube_hit_cubes\ice_hibi
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: cube_hit_cubes
+        ObjectType: 4
+      - ElementName: ice_hibi
+        ObjectType: 3
+      ID: -669068077
+      Guid: b746adab4498224693a24f051e18870a
+      maxAttenuation: 0
+    - Name: ice_hit_wall
+      Path: Default Work Unit\wall_hit_cubes\ice_hit_wall
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: wall_hit_cubes
+        ObjectType: 4
+      - ElementName: ice_hit_wall
+        ObjectType: 3
+      ID: 625948599
+      Guid: 6b6b3be05e5f5c4d8320c40538df84c7
+      maxAttenuation: 0
+    - Name: iron_hit_wall
+      Path: Default Work Unit\wall_hit_cubes\iron_hit_wall
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: wall_hit_cubes
+        ObjectType: 4
+      - ElementName: iron_hit_wall
+        ObjectType: 3
+      ID: 950514464
+      Guid: f0746a50be1ee34eb7b5160445c39590
+      maxAttenuation: 0
     - Name: Jump
       Path: Default Work Unit\Jump
       PathAndIcons:
@@ -29,33 +229,69 @@ MonoBehaviour:
       ID: -461315959
       Guid: 4484a689d2954d448de6d042d2e2ecde
       maxAttenuation: 0
+    - Name: left_wall
+      Path: Default Work Unit\wall_sand\left_wall
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: wall_sand
+        ObjectType: 4
+      - ElementName: left_wall
+        ObjectType: 3
+      ID: 1320961589
+      Guid: 1e48ac5ba77f97439797fec8e8ac6e04
+      maxAttenuation: 0
+    - Name: LR_wall
+      Path: Default Work Unit\wall_sand\LR_wall
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: wall_sand
+        ObjectType: 4
+      - ElementName: LR_wall
+        ObjectType: 3
+      ID: 538056262
+      Guid: 25e0961b7265b542a86ef476b264ebb8
+      maxAttenuation: 0
+    - Name: right_wall
+      Path: Default Work Unit\wall_sand\right_wall
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: wall_sand
+        ObjectType: 4
+      - ElementName: right_wall
+        ObjectType: 3
+      ID: -564217992
+      Guid: a4f46da5c3337640a5d338ea04bb8a06
+      maxAttenuation: 0
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{9FE2982A-56DC-4A85-9979-9BF5882D0122}'
-    m_lastTimePsrt1: 406473651
-    m_lastTimePart2: -1999326931
+    m_lastTimePsrt1: 181379328
+    m_lastTimePart2: -1999326041
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{04E0D8F6-3644-4656-975F-C5DF25B83B13}'
-    m_lastTimePsrt1: 408140733
-    m_lastTimePart2: -1999326931
+    m_lastTimePsrt1: 321379328
+    m_lastTimePart2: -1999326041
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{EBF9BEB0-33C7-401F-BCA1-94BA6F5CD84E}'
-    m_lastTimePsrt1: 407224947
-    m_lastTimePart2: -1999326931
+    m_lastTimePsrt1: 321379328
+    m_lastTimePart2: -1999326041
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{2B12E63F-0076-41CA-A2AB-DA0C4FB0B93E}'
-    m_lastTimePsrt1: 1658778759
-    m_lastTimePart2: -1999326926
+    m_lastTimePsrt1: -1990116467
+    m_lastTimePart2: -1999325834
     List:
     - Name: Jump
       Path: Default Work Unit\Jump
@@ -69,9 +305,6 @@ MonoBehaviour:
   ExpandedItems:
   - /JGA2017_WwiseProject
   - /JGA2017_WwiseProject/Events
-  - /JGA2017_WwiseProject/Events/Default Work Unit
-  - /JGA2017_WwiseProject/SoundBanks
-  - /JGA2017_WwiseProject/SoundBanks/Default Work Unit
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1

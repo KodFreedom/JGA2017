@@ -23,9 +23,14 @@ public class StageController : MonoBehaviour
     public GameObject m_objLeftWall;
     public GameObject m_objRightWall;
     public GameObject m_objPlane;
-    public Vector3 m_vLeftParticlePos = new Vector3(-3.5f, 0.0f);
-    public Vector3 m_vRightParticlePos = new Vector3(3.5f, 0.0f);
     public ParticleSystem[] m_particleWall;
+    
+    //UI
+    public Image m_imgUIStage;
+    public Image[] m_aImgUIStageNum;
+    public Sprite[] m_aNumbers;
+    private const float c_fUIStageYMax = 235.0f;
+    private const float c_fUIStageYMin = -205.0f;
 
     //--------------------------------------------------------------------------
     //  変数
@@ -38,7 +43,10 @@ public class StageController : MonoBehaviour
     private bool m_bPushedL;
     private bool m_bPushedR;
     private bool m_bCanControl;
-    private bool m_bPlayedNippedEffect;
+    private bool m_bFirstNipped;
+    private bool m_bFirstUnNipped;
+    private Vector3 m_vLeftParticlePos;
+    private Vector3 m_vRightParticlePos;
 
     public Vector3 GetVelocity()
     {
@@ -50,27 +58,22 @@ public class StageController : MonoBehaviour
         m_bCanControl = false;
     }
 
-    private void Awake()
-    {
-        
-    }
-
     // Use this for initialization
     void Start()
     {
         m_bCanControl = true;
         m_bPushedL = false;
         m_bPushedR = false;
-        m_bPlayedNippedEffect = false;
+        m_bFirstNipped = false;
+        m_bFirstUnNipped = false;
         m_fLTValue = 0.0f;
         m_fRTValue = 0.0f;
         m_fLTOld = 0.0f;
         m_fRTOld = 0.0f;
         m_vVelocity = new Vector3(0.0f, 0.0f, 0.0f);
-    }
-
-    private void FixedUpdate()
-    {
+        float fSizeX = gameObject.GetComponent<BoxCollider>().size.x;
+        m_vLeftParticlePos = new Vector3(-fSizeX * 0.5f - 0.25f, 0.0f, 0.0f);
+        m_vRightParticlePos = new Vector3(fSizeX * 0.5f + 0.25f, 0.0f, 0.0f);
     }
 
     private void Update()
@@ -96,16 +99,18 @@ public class StageController : MonoBehaviour
             {//Left Wall
                 m_vVelocity = new Vector3(m_fVelocityX, m_vVelocity.y, 0.0f);
 
-                //Effect
+                //Effect & Soubd
                 PlayWallContactEffect(transform.position + m_vLeftParticlePos, Quaternion.Euler(0f, -90.0f, 0f), EFFECT_IDX.LEFT);
+                AkSoundEngine.PostEvent("left_wall", gameObject);
             }
 
             if (m_bPushedR && !m_bPushedL && m_fRTValue < 0.0f && m_fRTValue <= m_fRTOld && m_vVelocity.x >= 0.0f)
             {//Right Wall
                 m_vVelocity = new Vector3(-m_fVelocityX, m_vVelocity.y, 0.0f);
 
-                //Effect
+                //Effect & Soubd
                 PlayWallContactEffect(transform.position + m_vRightParticlePos, Quaternion.Euler(0f, 90.0f, 0f), EFFECT_IDX.RIGHT);
+                AkSoundEngine.PostEvent("right_wall", gameObject);
             }
 
             m_vVelocity.y -= m_fGravity;
@@ -122,7 +127,6 @@ public class StageController : MonoBehaviour
             Vector3 vPos = transform.position;
             
             float fLengthWall = m_objLeftWall.transform.localScale.x;
-            Debug.Log(m_objLeftWall.transform.position.ToString());
             float fLengthStage = GetComponent<BoxCollider>().size.x;
             float fHeightStage = GetComponent<BoxCollider>().size.y;
 
@@ -168,7 +172,9 @@ public class StageController : MonoBehaviour
                 m_vVelocity *= 0.0f;
 
             }
-        } 
+        }
+
+        UpdateUI();
     }
 
     private void UpdateWhenBeingNipped()
@@ -188,12 +194,15 @@ public class StageController : MonoBehaviour
             gimic[nCnt].SetStatusNormal();
         }
 
-        //Effect
-        if(!m_bPlayedNippedEffect)
+        //Effect & Sound
+        if(!m_bFirstNipped)
         {
-            m_bPlayedNippedEffect = true;
+            m_bFirstNipped = true;
+            m_bFirstUnNipped = false;
             PlayWallContactEffect(transform.position + m_vLeftParticlePos, Quaternion.Euler(0f, -90.0f, 0f), EFFECT_IDX.LEFT);
             PlayWallContactEffect(transform.position + m_vRightParticlePos, Quaternion.Euler(0f, 90.0f, 0f), EFFECT_IDX.RIGHT);
+            AkSoundEngine.PostEvent("LR_wall", gameObject);
+            AkSoundEngine.PostEvent("fall_stop", gameObject);
         }
     }
 
@@ -212,7 +221,13 @@ public class StageController : MonoBehaviour
             gimic[nCnt].SetStatusFalling();
         }
 
-        m_bPlayedNippedEffect = false;
+        //Effect & Sound
+        if(!m_bFirstUnNipped)
+        {
+            m_bFirstUnNipped = true;
+            m_bFirstNipped = false;
+            AkSoundEngine.PostEvent("fall_start", gameObject);
+        }
     }
 
     private void GameOver()
@@ -249,5 +264,24 @@ public class StageController : MonoBehaviour
         m_particleWall[(int)idx].transform.position = vPos;
         m_particleWall[(int)idx].transform.rotation = qRot;
         m_particleWall[(int)idx].Play();
+    }
+
+    private void UpdateUI()
+    {
+        if(m_aImgUIStageNum.Length == 0 || m_aNumbers.Length == 0) { return; }
+        float fDis = 1000.0f + transform.position.y;
+        float fY = c_fUIStageYMin + fDis * 0.001f * (c_fUIStageYMax - c_fUIStageYMin);
+
+        //Num
+        int nDis = (int)fDis >= 1000 ? 999 : (int)fDis <= 5 ? 0 : (int)fDis;
+        for(int nCnt = 0;nCnt < 3;nCnt++)
+        {
+            int nNum = nDis % 10;
+            nDis /= 10;
+            m_aImgUIStageNum[nCnt].sprite = m_aNumbers[nNum];
+        }
+
+        //Base
+        m_imgUIStage.rectTransform.anchoredPosition = new Vector2(m_imgUIStage.rectTransform.anchoredPosition.x, fY);
     }
 }
