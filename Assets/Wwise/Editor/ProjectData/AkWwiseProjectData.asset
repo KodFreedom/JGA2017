@@ -302,9 +302,7 @@ MonoBehaviour:
         ObjectType: 7
       ID: -461315959
       Guid: faa6a19b453ad24498afef02e6053907
-  ExpandedItems:
-  - /JGA2017_WwiseProject
-  - /JGA2017_WwiseProject/Events
+  ExpandedItems: []
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1
