@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     //--------------------------------------------------------------------------
     private Rigidbody m_rb;
     private bool m_bJump;
+    private bool m_bJumpPressed;
     private STATUS m_status;
     private float m_fDistoGround;
 
@@ -76,6 +77,7 @@ public class PlayerController : MonoBehaviour
     {
         m_status = STATUS.PLAYER_FALLING;
         m_bJump = false;
+        m_bJumpPressed = false;
         m_fDistoGround = GetComponent<Collider>().bounds.extents.y;
     }
 
@@ -83,46 +85,36 @@ public class PlayerController : MonoBehaviour
     {
         float fMoveHorizontal = Input.GetAxis("Horizontal");
         float fMoveVertical = Input.GetAxis("Vertical");
-        Vector3 vMovement = new Vector3(0.0f, 0.0f, 0.0f);
-        Vector3 vForceDir;
-
-        if(m_status == STATUS.PLAYER_FALLING && (fMoveHorizontal != 0.0f || fMoveVertical != 0.0f))
-        {
-            m_rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-        }
+        Vector3 vMovement = Vector3.zero;
 
         switch (m_status)
         {
             case STATUS.PLAYER_NORMAL:
                 m_rb.mass = m_fMassNormal;
                 vMovement = new Vector3(fMoveHorizontal, 0.0f, 0.0f) * m_fMoveSpeedNormal;
-                if (m_bJump && Input.GetKeyDown("joystick button 0"))
+                if (m_bJump /*&& !m_bJumpPressed*/ && m_rb.velocity.y <= 0.0f && Input.GetKey("joystick button 0"))
                 {
-                    m_rb.velocity += new Vector3(0.0f, m_fJumpSpeed, 0.0f);
+                    m_rb.velocity = new Vector3(m_rb.velocity.x, m_fJumpSpeed, m_rb.velocity.z);
                     m_bJump = false;
+                    m_bJumpPressed = true;
                     AkSoundEngine.PostEvent("Jump", gameObject);
                 }
-                vForceDir = new Vector3(0.0f, -1.0f, 0.0f);
-                m_rb.AddForce(vForceDir * m_fGravity * m_rb.mass * Time.deltaTime);
+                m_rb.AddForce(Vector3.down * m_fGravity * m_rb.mass * Time.deltaTime);
                 m_rb.MovePosition(m_rb.position + vMovement);
                 break;
             case STATUS.PLAYER_LANDING:
                 m_rb.mass = m_fMassFalling;
-                //vMovement = new Vector3(fMoveHorizontal, -fMoveVertical, 0.0f) * m_fMoveSpeedFalling;
-                vForceDir = new Vector3(0.0f, -1.0f, 0.0f);
-                m_rb.AddForce(vForceDir * m_fGravity * m_rb.mass * Time.deltaTime);
-                //m_rb.MovePosition(m_rb.position + vMovement);
+                m_rb.AddForce(Vector3.down * m_fGravity * m_rb.mass * Time.deltaTime);
                 break;
             case STATUS.PLAYER_FALLING:
+                if ((fMoveHorizontal != 0.0f || fMoveVertical != 0.0f)){ m_rb.velocity = Vector3.zero; }
                 m_rb.mass = m_fMassFalling;
-                vMovement = new Vector3(fMoveHorizontal, fMoveVertical, 0.0f) * m_fMoveSpeedFalling;
-                vForceDir = new Vector3(0.0f, 1.0f, 0.0f);
-                m_rb.AddForce(vForceDir * m_fBouyant * m_rb.mass * Time.deltaTime);
+                vMovement = new Vector3(fMoveHorizontal * 0.75f, fMoveVertical, 0.0f) * m_fMoveSpeedFalling;
+                m_rb.AddForce(Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
                 m_rb.MovePosition(m_rb.position + vMovement);
                 break;
             case STATUS.PLAYER_CLEAR:
-                vForceDir = new Vector3(0.0f, 1.0f, 0.0f);
-                m_rb.AddForce(vForceDir * m_fBouyant * m_rb.mass * Time.deltaTime);
+                m_rb.AddForce(Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
                 break;
             case STATUS.PLAYER_GAMEOVER:
                 break;
@@ -147,6 +139,9 @@ public class PlayerController : MonoBehaviour
             {
                 m_bJump = false;
             }
+
+            /*if (m_status == STATUS.PLAYER_NORMAL)*/ { m_rb.velocity = new Vector3(0f, m_rb.velocity.y, 0f); }
+            if (Input.GetKeyUp("joystick button 0")) { m_bJumpPressed = false; }
         }  
     }
 
@@ -163,15 +158,15 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        float fRadius = transform.localScale.x * 0.5f;
+        float fRadius = transform.localScale.x * 0.48f;
         Vector3[] avPos = new Vector3[3];
         avPos[0] = transform.position - new Vector3(fRadius, 0.0f, 0.0f);
         avPos[1] = transform.position;
         avPos[2] = transform.position + new Vector3(fRadius, 0.0f, 0.0f);
 
-        if(Physics.Raycast(avPos[0], -Vector3.up, m_fDistoGround + 0.1f, -1, QueryTriggerInteraction.Ignore)
-            || Physics.Raycast(avPos[1], -Vector3.up, m_fDistoGround + 0.1f, -1, QueryTriggerInteraction.Ignore)
-            || Physics.Raycast(avPos[2], -Vector3.up, m_fDistoGround + 0.1f, -1, QueryTriggerInteraction.Ignore))
+        if(Physics.Raycast(avPos[0], -Vector3.up, m_fDistoGround + 0.001f, -1, QueryTriggerInteraction.Ignore)
+            || Physics.Raycast(avPos[1], -Vector3.up, m_fDistoGround + 0.001f, -1, QueryTriggerInteraction.Ignore)
+            || Physics.Raycast(avPos[2], -Vector3.up, m_fDistoGround + 0.001f, -1, QueryTriggerInteraction.Ignore))
         {
             return true;
         }

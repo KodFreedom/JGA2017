@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GimicController : MonoBehaviour {
     //--------------------------------------------------------------------------
     //  構造体定義
@@ -39,6 +40,7 @@ public class GimicController : MonoBehaviour {
     public Material m_matVertical;
     public PhysicMaterial m_physicMatNormal;
     public PhysicMaterial m_physicMatGom;
+    public ParticleSystem m_landingEffect;
 
     //--------------------------------------------------------------------------
     //  変数
@@ -60,9 +62,9 @@ public class GimicController : MonoBehaviour {
         if(m_status != STATUS.GIMIC_FALLING) { return; }
         m_status = STATUS.GIMIC_NORMAL;
         m_rb.velocity *= 0.0f;
+        m_bFirstTouch = false;
         if (m_type == TYPE.ICE)
         {
-            m_bFirstTouch = false;
             m_fCntHeight = 0.0f;
             m_fOldY = m_rb.position.y;
         }
@@ -70,7 +72,12 @@ public class GimicController : MonoBehaviour {
 
     public void SetStatusFalling()
     {
+        if(m_status == STATUS.GIMIC_FALLING) { return; }
         m_status = STATUS.GIMIC_FALLING;
+        if(m_type == TYPE.HORIZONTAL || m_type == TYPE.VERTICAL)
+        {
+            m_rb.velocity *= -1.0f;
+        }
     }
 
     public void ResetSelf()
@@ -94,6 +101,8 @@ public class GimicController : MonoBehaviour {
     {
         m_status = STATUS.GIMIC_FALLING;
         m_bFirstTouch = false;
+        m_fDistoGround = GetComponent<Collider>().bounds.extents.y;
+        m_landingEffect.transform.parent = transform.parent;
 
         switch (m_type)
         {
@@ -111,7 +120,6 @@ public class GimicController : MonoBehaviour {
                 m_nLife = 2;
                 gameObject.GetComponent<MeshRenderer>().material = m_matIce;
                 gameObject.GetComponent<BoxCollider>().material = m_physicMatNormal;
-                m_fDistoGround = GetComponent<Collider>().bounds.extents.y;
                 break;
             case TYPE.GAM:
                 m_nLife = -1;
@@ -167,19 +175,17 @@ public class GimicController : MonoBehaviour {
     {
         if (Time.timeScale != 0)
         {
-            if (m_type == TYPE.ICE && m_status == STATUS.GIMIC_NORMAL)
+            if(m_status == STATUS.GIMIC_NORMAL)
             {
-                Debug.Log("Y" + m_rb.position.y.ToString());
-                Debug.Log("total" + m_fCntHeight.ToString());
-                if (m_fOldY > m_rb.position.y)
+                if (m_type == TYPE.ICE)
                 {
-                    m_fCntHeight += m_fOldY - m_rb.position.y;
-                }
+                    if (m_fOldY > m_rb.position.y)
+                    {
+                        m_fCntHeight += m_fOldY - m_rb.position.y;
+                    }
 
-                //ライフ減らす
-                if (IsGrounded())
-                {
-                    if (m_status == STATUS.GIMIC_NORMAL && !m_bFirstTouch)
+                    //ライフ減らす
+                    if (IsGrounded() && !m_bFirstTouch)
                     {
                         m_bFirstTouch = true;
 
@@ -189,20 +195,18 @@ public class GimicController : MonoBehaviour {
                             m_nLife--;
 
                             //Sound
-                            if (m_nLife != 0){ AkSoundEngine.PostEvent("ice_hibi", gameObject); }
+                            if (m_nLife != 0) { AkSoundEngine.PostEvent("ice_hibi", gameObject); }
                         }
                         else
                         {
                             AkSoundEngine.PostEvent("ice_hit_wall", gameObject);
                         }
 
-
                         if (m_nLife == 0)
                         {
                             AkSoundEngine.PostEvent("ice_break", gameObject);
                             gameObject.SetActive(false);
                         }
-                        
                     }
                 }
             }
@@ -227,35 +231,72 @@ public class GimicController : MonoBehaviour {
             }
         }
 
-        //Sound
-        if(m_status == STATUS.GIMIC_NORMAL && !collision.gameObject.CompareTag("Player"))
+        ////Sound
+        //if(m_status == STATUS.GIMIC_NORMAL && !collision.gameObject.CompareTag("Player"))
+        //{
+        //    switch (m_type)
+        //    {
+        //        case TYPE.CUBE:
+        //            AkSoundEngine.PostEvent("cube_hit_wall", gameObject);
+        //            break;
+        //        case TYPE.IRON:
+        //            AkSoundEngine.PostEvent("iron_hit_wall", gameObject);
+        //            break;
+        //        case TYPE.ICE:
+        //            //AkSoundEngine.PostEvent("ice_hit_wall", gameObject);
+        //            break;
+        //        case TYPE.GAM:
+        //            AkSoundEngine.PostEvent("gam_hit_gam", gameObject);
+        //            break;
+        //        case TYPE.GOM:
+        //            AkSoundEngine.PostEvent("gom_hit_gom", gameObject);
+        //            break;
+        //        default:
+        //            AkSoundEngine.PostEvent("cube_hit_wall", gameObject);
+        //            break;
+        //    }
+        //}
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (m_status == STATUS.GIMIC_NORMAL && m_rb.velocity.y == 0f)
         {
-            switch (m_type)
+            if (IsGrounded() && !m_bFirstTouch && !collision.gameObject.CompareTag("Player"))
             {
-                case TYPE.CUBE:
-                    AkSoundEngine.PostEvent("cube_hit_wall", gameObject);
-                    break;
-                case TYPE.IRON:
-                    AkSoundEngine.PostEvent("iron_hit_wall", gameObject);
-                    break;
-                case TYPE.ICE:
-                    //AkSoundEngine.PostEvent("ice_hit_wall", gameObject);
-                    break;
-                case TYPE.GAM:
-                    AkSoundEngine.PostEvent("gam_hit_gam", gameObject);
-                    break;
-                case TYPE.GOM:
-                    AkSoundEngine.PostEvent("gom_hit_gom", gameObject);
-                    break;
-                default:
-                    AkSoundEngine.PostEvent("cube_hit_wall", gameObject);
-                    break;
+                m_bFirstTouch = true;
+                Vector3 vP = transform.position;
+                Vector3 vS = transform.localScale;
+                m_landingEffect.transform.position = new Vector3(vP.x, vP.y - vS.y * 0.5f, vP.z);
+                m_landingEffect.Play();
+
+                switch (m_type)
+                {
+                    case TYPE.CUBE:
+                        AkSoundEngine.PostEvent("cube_hit_wall", gameObject);
+                        break;
+                    case TYPE.IRON:
+                        AkSoundEngine.PostEvent("iron_hit_wall", gameObject);
+                        break;
+                    case TYPE.ICE:
+                        //AkSoundEngine.PostEvent("ice_hit_wall", gameObject);
+                        break;
+                    case TYPE.GAM:
+                        AkSoundEngine.PostEvent("gam_hit_gam", gameObject);
+                        break;
+                    case TYPE.GOM:
+                        AkSoundEngine.PostEvent("gom_hit_gom", gameObject);
+                        break;
+                    default:
+                        AkSoundEngine.PostEvent("cube_hit_wall", gameObject);
+                        break;
+                }
             }
         }
     }
 
     private bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, m_fDistoGround + 0.1f);
+        return Physics.Raycast(transform.position, Vector3.down, m_fDistoGround + 0.05f);
     }
 }

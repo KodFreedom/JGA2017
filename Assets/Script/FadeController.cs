@@ -28,6 +28,7 @@ public class FadeController : MonoBehaviour
     public void LoadStage(int nIndex)
     {
         Time.timeScale = 0;
+        
         //m_fadeImg.gameObject.SetActive(true);
         m_fadeImgL.gameObject.SetActive(true);
         m_fadeImgR.gameObject.SetActive(true);

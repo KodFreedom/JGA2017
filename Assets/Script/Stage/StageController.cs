@@ -168,9 +168,9 @@ public class StageController : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, m_objPlane.transform.position.y + fHeightStage * 0.5f, transform.position.z);
 
                 //Game Over
+                AkSoundEngine.PostEvent("fall_stop", gameObject);
                 GameOver();
                 m_vVelocity *= 0.0f;
-
             }
         }
 
@@ -246,7 +246,8 @@ public class StageController : MonoBehaviour
             rb.useGravity = true;
             rb.isKinematic = false;
             rb.mass = 1.0f;
-            rb.velocity += m_vVelocity;
+            rb.AddForce(m_vVelocity);
+            //rb.velocity += m_vVelocity;
             rb.constraints = RigidbodyConstraints.None;
         }
 
