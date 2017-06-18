@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{384627C1-E94E-45EA-9050-1723C17F6C61}'
-    m_lastTimePsrt1: -160313856
-    m_lastTimePart2: -1999325788
+    m_lastTimePsrt1: -193580544
+    m_lastTimePart2: -1999325735
     List:
     - Name: BGM_play_start
       Path: Default Work Unit\BGM\BGM_play\BGM_play_start
@@ -115,6 +115,42 @@ MonoBehaviour:
       ID: -1167575033
       Guid: acd91341c80db24b992c86df5ceb2661
       maxAttenuation: 0
+    - Name: enter_SE
+      Path: Default Work Unit\system\enter_SE
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: system
+        ObjectType: 4
+      - ElementName: enter_SE
+        ObjectType: 3
+      ID: 193089016
+      Guid: 97869f90e7f33e42931dfa52a0efd4e6
+      maxAttenuation: 0
+    - Name: fall_pause
+      Path: Default Work Unit\pause\fall_pause
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: pause
+        ObjectType: 4
+      - ElementName: fall_pause
+        ObjectType: 3
+      ID: 637465657
+      Guid: 22171f6b3c71dd41a7cddd56e52abc98
+      maxAttenuation: 0
+    - Name: fall_replay
+      Path: Default Work Unit\pause\fall_replay
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: pause
+        ObjectType: 4
+      - ElementName: fall_replay
+        ObjectType: 3
+      ID: -2005256156
+      Guid: c81ca8a80c629845b650f3c6e221804b
+      maxAttenuation: 0
     - Name: fall_start
       Path: Default Work Unit\fall_player\fall_start
       PathAndIcons:
@@ -152,20 +188,24 @@ MonoBehaviour:
       Guid: 12c57346b2420c4cab50c63fd803348d
       maxAttenuation: 0
     - Name: game_clear
-      Path: Default Work Unit\game_clear
+      Path: Default Work Unit\system\game_clear
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: system
+        ObjectType: 4
       - ElementName: game_clear
         ObjectType: 3
       ID: -1469659627
       Guid: c5c3c7d4fb61494ca172272033501625
       maxAttenuation: 0
     - Name: game_over
-      Path: Default Work Unit\game_over
+      Path: Default Work Unit\system\game_over
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: system
+        ObjectType: 4
       - ElementName: game_over
         ObjectType: 3
       ID: 1432716332
@@ -265,6 +305,18 @@ MonoBehaviour:
       ID: 538056262
       Guid: 25e0961b7265b542a86ef476b264ebb8
       maxAttenuation: 0
+    - Name: pause_SE
+      Path: Default Work Unit\pause\pause_SE
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: pause
+        ObjectType: 4
+      - ElementName: pause_SE
+        ObjectType: 3
+      ID: -690176884
+      Guid: 1bf536c9cd4f8346a6fce89694027f72
+      maxAttenuation: 0
     - Name: right_wall
       Path: Default Work Unit\wall_sand\right_wall
       PathAndIcons:
@@ -277,21 +329,37 @@ MonoBehaviour:
       ID: -564217992
       Guid: a4f46da5c3337640a5d338ea04bb8a06
       maxAttenuation: 0
-    - Name: sound_pause
-      Path: Default Work Unit\sound_pause
+    - Name: select_SE
+      Path: Default Work Unit\system\select_SE
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: system
+        ObjectType: 4
+      - ElementName: select_SE
+        ObjectType: 3
+      ID: 1510973884
+      Guid: 463667b9cd1f514982c83738e98d49d5
+      maxAttenuation: 0
+    - Name: sound_pause
+      Path: Default Work Unit\pause\sound_pause
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: pause
+        ObjectType: 4
       - ElementName: sound_pause
         ObjectType: 3
       ID: 332328737
       Guid: bdcd4c3b29295146ad17f2dd31743644
       maxAttenuation: 0
     - Name: sound_replay
-      Path: Default Work Unit\sound_replay
+      Path: Default Work Unit\pause\sound_replay
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: pause
+        ObjectType: 4
       - ElementName: sound_replay
         ObjectType: 3
       ID: 1922221436
@@ -301,29 +369,29 @@ MonoBehaviour:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{9FE2982A-56DC-4A85-9979-9BF5882D0122}'
-    m_lastTimePsrt1: -100313856
-    m_lastTimePart2: -1999325788
+    m_lastTimePsrt1: -153580544
+    m_lastTimePart2: -1999325735
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{04E0D8F6-3644-4656-975F-C5DF25B83B13}'
-    m_lastTimePsrt1: 39686144
-    m_lastTimePart2: -1999325787
+    m_lastTimePsrt1: -33580544
+    m_lastTimePart2: -1999325735
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{EBF9BEB0-33C7-401F-BCA1-94BA6F5CD84E}'
-    m_lastTimePsrt1: 39686144
-    m_lastTimePart2: -1999325787
+    m_lastTimePsrt1: -13580544
+    m_lastTimePart2: -1999325735
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{2B12E63F-0076-41CA-A2AB-DA0C4FB0B93E}'
-    m_lastTimePsrt1: -313856
-    m_lastTimePart2: -1999325788
+    m_lastTimePsrt1: -73580544
+    m_lastTimePart2: -1999325735
     List:
     - Name: Jump
       Path: Default Work Unit\Jump
