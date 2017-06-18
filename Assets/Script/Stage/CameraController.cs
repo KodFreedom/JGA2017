@@ -45,15 +45,18 @@ public class CameraController : MonoBehaviour {
 	
 	void OnPreRender()
     {
-        if(m_moveMode == MOVE_MODE.IMMEDIATE)
+        if(m_target)
         {
-            //Vector3 vTarget = new Vector3(m_target.transform.position.x * 0.5f + m_vDefaultPos.x, m_target.transform.position.y + m_vDefaultPos.y, m_target.transform.position.z + m_vDefaultPos.z);
-            //transform.position = Vector3.Lerp(transform.position, vTarget, m_DampTime);
-            transform.position = new Vector3(m_target.transform.position.x * 0.5f + m_vDefaultPos.x, m_target.transform.position.y + m_vDefaultPos.y, m_target.transform.position.z + m_vDefaultPos.z);
-        }
-        else
-        {
-            transform.position = Vector3.Lerp(transform.position, m_target.transform.position + m_vDefaultPos, m_DampTime);
+            if (m_moveMode == MOVE_MODE.IMMEDIATE)
+            {
+                //Vector3 vTarget = new Vector3(m_target.transform.position.x * 0.5f + m_vDefaultPos.x, m_target.transform.position.y + m_vDefaultPos.y, m_target.transform.position.z + m_vDefaultPos.z);
+                //transform.position = Vector3.Lerp(transform.position, vTarget, m_DampTime);
+                transform.position = new Vector3(m_target.transform.position.x * 0.5f + m_vDefaultPos.x, m_target.transform.position.y + m_vDefaultPos.y, m_target.transform.position.z + m_vDefaultPos.z);
+            }
+            else
+            {
+                transform.position = Vector3.Lerp(transform.position, m_target.transform.position + m_vDefaultPos, m_DampTime);
+            }
         }
 	}
 }

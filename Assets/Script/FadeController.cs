@@ -68,6 +68,7 @@ public class FadeController : MonoBehaviour
         if (m_bCanChange)
         {
             Time.timeScale = 1;
+            UnloadScene();
             SceneManager.LoadScene(m_nIdxNextScene);
         }
 
@@ -122,4 +123,23 @@ public class FadeController : MonoBehaviour
                 break;
         }
     }
+
+    private void UnloadScene()
+    {
+        //BGM
+        AkSoundEngine.PostEvent("BGM_play_stop", gameObject);
+        AkSoundEngine.PostEvent("BGM_stageselect_stop", gameObject);
+        AkSoundEngine.PostEvent("BGM_title_stop", gameObject);
+        Scene sc = SceneManager.GetActiveScene();
+        GameObject[] objs = sc.GetRootGameObjects();
+        for(int nCnt = 0;nCnt<objs.Length;nCnt++)
+        {
+           if(objs[nCnt].CompareTag("Stage") || objs[nCnt].CompareTag("WwiseManager"))
+           {
+                Debug.Log("Destroy it!!!!!");
+                GameObject.DestroyImmediate(objs[nCnt]);
+           }
+        }
+    }
 }
+

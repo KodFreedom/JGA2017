@@ -75,9 +75,11 @@ GameObject:
   - component: {fileID: 114536874050566092}
   - component: {fileID: 114203262845299372}
   - component: {fileID: 114804243268835326}
+  - component: {fileID: 114066859720351916}
+  - component: {fileID: 114263167512492750}
   m_Layer: 0
   m_Name: WwiseManager
-  m_TagString: Untagged
+  m_TagString: WwiseManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -289,6 +291,30 @@ MonoBehaviour:
   decodeBank: 0
   saveDecodedBank: 0
   unloadTriggerList: 958ca0ea
+--- !u!114 &114066859720351916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275840421463394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef070da04693164e876972960d02f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: bdcd4c3b29295146ad17f2dd31743644
+  eventID: 332328737
+  soundEmitterObject: {fileID: 0}
+  enableActionOnEvent: 1
+  actionOnEventType: 0
+  curveInterpolation: 4
+  transitionDuration: 0
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  multiPositionTypeLabel: 0
+  multiPositionArray: []
 --- !u!114 &114147620200667108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -364,6 +390,30 @@ MonoBehaviour:
   useOtherObject: 0
   valueGuid: 6b6b3be05e5f5c4d8320c40538df84c7
   eventID: 625948599
+  soundEmitterObject: {fileID: 0}
+  enableActionOnEvent: 1
+  actionOnEventType: 0
+  curveInterpolation: 4
+  transitionDuration: 0
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  multiPositionTypeLabel: 0
+  multiPositionArray: []
+--- !u!114 &114263167512492750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275840421463394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef070da04693164e876972960d02f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: 013b76fb19c51249b4a896a6cd537cfe
+  eventID: 1922221436
   soundEmitterObject: {fileID: 0}
   enableActionOnEvent: 1
   actionOnEventType: 0

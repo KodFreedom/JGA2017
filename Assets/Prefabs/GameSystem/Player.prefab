@@ -128,4 +128,4 @@ MonoBehaviour:
   m_fGravity: 200
   m_fMassFalling: 1
   m_fMassNormal: 0.01
-  m_fStageClearForce: 1
+  m_fStageClearForce: 1.2

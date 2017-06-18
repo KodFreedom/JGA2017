@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33491480866985342}
   - component: {fileID: 65773118944207104}
   - component: {fileID: 23716855304685910}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Parts
   m_TagString: StageParts
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8b8d3bee9f168124c9c58dfc85d0f244, type: 2}
+  - {fileID: 2100000, guid: 878b6dc6fe34480428362b3b5a4aef26, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

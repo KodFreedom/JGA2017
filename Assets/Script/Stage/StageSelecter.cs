@@ -93,15 +93,20 @@ public class StageSelecter : MonoBehaviour
     {
         Time.timeScale = 0;
         m_pausePanel.SetActive(true);
-        m_eventSystem.SetSelectedGameObject(m_pausePanel.transform.FindChild("Retry").gameObject);
+        GameObject selectObj = m_pausePanel.transform.FindChild("Retry").gameObject;
+        m_eventSystem.SetSelectedGameObject(selectObj);
+        
         //Disable scripts that still work while timescale is set to 0
+        AkSoundEngine.PostEvent("sound_pause", gameObject);
     }
 
     private void ContinueGame()
     {
         Time.timeScale = 1;
+        m_eventSystem.SetSelectedGameObject(null);
         m_pausePanel.SetActive(false);
         //enable the scripts again
+        AkSoundEngine.PostEvent("sound_replay", gameObject);
     }
 
 }

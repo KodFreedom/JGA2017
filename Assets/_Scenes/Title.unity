@@ -1561,6 +1561,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1036879599271450, guid: 7c59f0691472c4d4497393bac46074ae, type: 2}
+      propertyPath: m_TagString
+      value: WwiseManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c59f0691472c4d4497393bac46074ae, type: 2}
   m_IsPrefabParent: 0
@@ -1624,6 +1628,7 @@ MonoBehaviour:
   m_matVertical: {fileID: 0}
   m_physicMatNormal: {fileID: 13400000, guid: 882123130430bea41a4608de6a8e6fda, type: 2}
   m_physicMatGom: {fileID: 13400000, guid: 869dff8a0c3fc0f4e8ff01f8304768cf, type: 2}
+  m_landingEffect: {fileID: 0}
 --- !u!54 &1500858544
 Rigidbody:
   m_ObjectHideFlags: 0

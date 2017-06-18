@@ -28,7 +28,7 @@
 							<PropertyList>
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
-										<Value>33</Value>
+										<Value>41</Value>
 									</ValueList>
 								</Property>
 								<Property Name="Pitch" Type="int32">
@@ -45,6 +45,11 @@
 									</ModifierList>
 								</Property>
 								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -348,42 +353,207 @@
 						<ActiveSource Name="Wind" ID="{8692F94B-B504-470E-B405-40D7418B4E4A}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="LR_wall" ID="{15ECF638-DB22-47AF-BB16-7863FC1EA856}" ShortID="651376515" Type="SoundFX">
-					<PropertyList>
-						<Property Name="Pitch" Type="int32">
-							<ValueList>
-								<Value>-250</Value>
-							</ValueList>
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{71ADA075-4A77-41E7-9BAB-F3F07539862D}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="101"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A900714F-2354-44CB-AE34-C67712CEB031}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9FE2982A-56DC-4A85-9979-9BF5882D0122}"/>
-						</Reference>
-					</ReferenceList>
+				<Folder Name="BGM" ID="{1D7D1725-5DF9-43A9-B27C-2B23949CD6CF}" ShortID="785497916">
 					<ChildrenList>
-						<AudioFileSource Name="LR_wall" ID="{F4EB2EC8-1D74-48B9-B936-20EB6FB081C9}" ShortID="649785495">
-							<Language>SFX</Language>
-							<AudioFile>LR_wall.wav</AudioFile>
-						</AudioFileSource>
+						<Sound Name="title_BGM" ID="{9F63C19E-82D7-4B70-9B6B-DB15CB1D8453}" ShortID="887485233" Type="SoundFX">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A900714F-2354-44CB-AE34-C67712CEB031}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9FE2982A-56DC-4A85-9979-9BF5882D0122}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="play_BGM" ID="{381A7AA6-058D-4E28-9A58-644DC6BDA990}" ShortID="897658505">
+									<Language>SFX</Language>
+									<AudioFile>play_BGM.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="play_BGM" ID="{381A7AA6-058D-4E28-9A58-644DC6BDA990}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="select_BGM" ID="{EC4A6EA3-C99C-45FF-A636-E39F3EEFF5FC}" ShortID="931219382" Type="SoundFX">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A900714F-2354-44CB-AE34-C67712CEB031}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9FE2982A-56DC-4A85-9979-9BF5882D0122}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="stage_select_2mix" ID="{0925E58F-84D7-4C1F-B92F-DFFD8894F04D}" ShortID="429576407">
+									<Language>SFX</Language>
+									<AudioFile>stage_select_2mix.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="stage_select_2mix" ID="{0925E58F-84D7-4C1F-B92F-DFFD8894F04D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="play_BGM" ID="{49344082-7A35-40C5-8B8C-2B5B9401C651}" ShortID="1042210094" Type="SoundFX">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A900714F-2354-44CB-AE34-C67712CEB031}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9FE2982A-56DC-4A85-9979-9BF5882D0122}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="title_BGM" ID="{DA813CBA-7D9F-4541-9247-AE8CFFF4ADE5}" ShortID="59706004">
+									<Language>SFX</Language>
+									<AudioFile>title_BGM.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="title_BGM" ID="{DA813CBA-7D9F-4541-9247-AE8CFFF4ADE5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="LR_wall" ID="{F4EB2EC8-1D74-48B9-B936-20EB6FB081C9}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
+				</Folder>
+				<Folder Name="wall_sand" ID="{1004694D-1CD3-4CB5-B9AD-3512C8062B05}" ShortID="574938571">
+					<ChildrenList>
+						<Sound Name="LR_wall" ID="{15ECF638-DB22-47AF-BB16-7863FC1EA856}" ShortID="651376515" Type="SoundFX">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-250</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{71ADA075-4A77-41E7-9BAB-F3F07539862D}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="101"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A900714F-2354-44CB-AE34-C67712CEB031}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9FE2982A-56DC-4A85-9979-9BF5882D0122}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="LR_wall" ID="{F4EB2EC8-1D74-48B9-B936-20EB6FB081C9}" ShortID="649785495">
+									<Language>SFX</Language>
+									<AudioFile>LR_wall.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="LR_wall" ID="{F4EB2EC8-1D74-48B9-B936-20EB6FB081C9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="left_wall" ID="{1B9710EE-436F-4079-81D7-B9918143E5B1}" ShortID="796474637" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A900714F-2354-44CB-AE34-C67712CEB031}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Wwise_Parametric_EQ" ID="{620402FA-69B1-4283-B53E-CFCAB7FBF2FF}" WorkUnitID="{A226DE9A-8BF7-49BD-9D15-BF4E8FE20F41}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9FE2982A-56DC-4A85-9979-9BF5882D0122}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="left_wall" ID="{6B8ABA5D-3D71-4ACE-8AD4-2FD6BD790317}" ShortID="731689439">
+									<Language>SFX</Language>
+									<AudioFile>left_wall.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="left_wall" ID="{6B8ABA5D-3D71-4ACE-8AD4-2FD6BD790317}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="right_wall" ID="{E05C9814-1D35-424F-BF74-2D0396B7E4E2}" ShortID="620247524" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A900714F-2354-44CB-AE34-C67712CEB031}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<ObjectRef Name="New_Wwise_Parametric_EQ_01" ID="{92EC6BFB-2F3A-483C-BAF8-9E681B2DE38B}" WorkUnitID="{A226DE9A-8BF7-49BD-9D15-BF4E8FE20F41}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9FE2982A-56DC-4A85-9979-9BF5882D0122}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="right_wall" ID="{D70C4011-90DA-4813-8C30-2E9027E7E15F}" ShortID="177599809">
+									<Language>SFX</Language>
+									<AudioFile>right_wall.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="right_wall" ID="{D70C4011-90DA-4813-8C30-2E9027E7E15F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="game_system" ID="{120FEC1F-94BB-42E2-829C-09CD819607E1}" ShortID="780425161">
+					<ChildrenList>
+						<Sound Name="Game_clear" ID="{E93C7875-D17C-40D6-BB8C-C715F05CBDF4}" ShortID="695987073" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A900714F-2354-44CB-AE34-C67712CEB031}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9FE2982A-56DC-4A85-9979-9BF5882D0122}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Gool" ID="{760B82E7-8DAE-42A0-B65C-C68226EADCAE}" ShortID="397639319">
+									<Language>SFX</Language>
+									<AudioFile>Gool.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Gool" ID="{760B82E7-8DAE-42A0-B65C-C68226EADCAE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pause" ID="{A79B2AFA-72F0-4A43-B581-7773ACFD81AB}" ShortID="202914804" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A900714F-2354-44CB-AE34-C67712CEB031}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{9FE2982A-56DC-4A85-9979-9BF5882D0122}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pause" ID="{FF6829F9-295B-44A2-A4C8-FC155FD34994}" ShortID="704763641">
+									<Language>SFX</Language>
+									<AudioFile>pause.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pause" ID="{FF6829F9-295B-44A2-A4C8-FC155FD34994}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

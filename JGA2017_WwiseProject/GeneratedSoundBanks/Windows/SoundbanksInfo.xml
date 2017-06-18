@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="120">
 	<RootPaths>
-		<ProjectRoot>D:\Users\nikumaro\デスクトップ\JGA2017\JGA2017_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Users\nikumaro\デスクトップ\JGA2017\JGA2017_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Users\nikumaro\デスクトップ\JGA2017\JGA2017_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\Users\nikumaro\デスクトップ\JGA2017_20170618\JGA2017_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Users\nikumaro\デスクトップ\JGA2017_20170618\JGA2017_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Users\nikumaro\デスクトップ\JGA2017_20170618\JGA2017_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Users\nikumaro\デスクトップ\JGA2017\JGA2017_WwiseProject\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Users\nikumaro\デスクトップ\JGA2017_20170618\JGA2017_WwiseProject\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -21,13 +21,31 @@
 			<ShortName>Jump</ShortName>
 			<Path>Jump.bnk</Path>
 			<IncludedEvents>
+				<Event Id="604937079" Name="BGM_play_start" ObjectPath="\Events\Default Work Unit\BGM\BGM_play\BGM_play_start"/>
+				<Event Id="3638082781" Name="BGM_play_stop" ObjectPath="\Events\Default Work Unit\BGM\BGM_play\BGM_play_stop" MaxAttenuation="0.000000"/>
+				<Event Id="201470811" Name="BGM_stageselect_start" ObjectPath="\Events\Default Work Unit\BGM\BGM_stage_select\BGM_stageselect_start"/>
+				<Event Id="3163646265" Name="BGM_stageselect_stop" ObjectPath="\Events\Default Work Unit\BGM\BGM_stage_select\BGM_stageselect_stop" MaxAttenuation="0.000000"/>
+				<Event Id="3000715451" Name="BGM_title_start" ObjectPath="\Events\Default Work Unit\BGM\BGM_title\BGM_title_start"/>
+				<Event Id="3107979545" Name="BGM_title_stop" ObjectPath="\Events\Default Work Unit\BGM\BGM_title\BGM_title_stop" MaxAttenuation="0.000000"/>
 				<Event Id="3127392263" Name="cube_hit_wall" ObjectPath="\Events\Default Work Unit\wall_hit_cubes\cube_hit_wall"/>
+				<Event Id="637465657" Name="fall_pause" ObjectPath="\Events\Default Work Unit\pause\fall_pause" MaxAttenuation="0.000000"/>
+				<Event Id="2289711140" Name="fall_replay" ObjectPath="\Events\Default Work Unit\pause\fall_replay" MaxAttenuation="0.000000"/>
 				<Event Id="551694363" Name="fall_start" ObjectPath="\Events\Default Work Unit\fall_player\fall_start"/>
 				<Event Id="1920253945" Name="fall_stop" ObjectPath="\Events\Default Work Unit\fall_player\fall_stop" MaxAttenuation="0.000000"/>
+				<Event Id="2825307669" Name="game_clear" ObjectPath="\Events\Default Work Unit\system\game_clear"/>
 				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Jump"/>
+				<Event Id="1320961589" Name="left_wall" ObjectPath="\Events\Default Work Unit\wall_sand\left_wall"/>
 				<Event Id="538056262" Name="LR_wall" ObjectPath="\Events\Default Work Unit\wall_sand\LR_wall"/>
+				<Event Id="3604790412" Name="pause_SE" ObjectPath="\Events\Default Work Unit\pause\pause_SE"/>
+				<Event Id="3730749304" Name="right_wall" ObjectPath="\Events\Default Work Unit\wall_sand\right_wall"/>
+				<Event Id="332328737" Name="sound_pause" ObjectPath="\Events\Default Work Unit\pause\sound_pause" MaxAttenuation="0.000000"/>
+				<Event Id="1922221436" Name="sound_replay" ObjectPath="\Events\Default Work Unit\pause\sound_replay" MaxAttenuation="0.000000"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="59706004" Language="SFX">
+					<ShortName>title_BGM.wav</ShortName>
+					<Path>SFX\title_BGM_4B8CC0C5.wem</Path>
+				</File>
 				<File Id="108098210" Language="SFX">
 					<ShortName>cube_hit_wall_hi_1.wav</ShortName>
 					<Path>SFX\cube_hit_wall_hi_1_9E69E797.wem</Path>
@@ -36,6 +54,10 @@
 					<ShortName>03_jump.wav</ShortName>
 					<Path>SFX\03_jump_9E69E797.wem</Path>
 				</File>
+				<File Id="177599809" Language="SFX">
+					<ShortName>right_wall.wav</ShortName>
+					<Path>SFX\right_wall_9E69E797.wem</Path>
+				</File>
 				<File Id="230263476" Language="SFX">
 					<ShortName>cube_hit_wall_hi_3.wav</ShortName>
 					<Path>SFX\cube_hit_wall_hi_3_9E69E797.wem</Path>
@@ -43,6 +65,14 @@
 				<File Id="253567958" Language="SFX">
 					<ShortName>cube_hit_wall_4.wav</ShortName>
 					<Path>SFX\cube_hit_wall_4_9E69E797.wem</Path>
+				</File>
+				<File Id="397639319" Language="SFX">
+					<ShortName>Gool.wav</ShortName>
+					<Path>SFX\Gool_9E69E797.wem</Path>
+				</File>
+				<File Id="429576407" Language="SFX">
+					<ShortName>stage_select_2mix.wav</ShortName>
+					<Path>SFX\stage_select_2mix_4B8CC0C5.wem</Path>
 				</File>
 				<File Id="520808745" Language="SFX">
 					<ShortName>cube_hit_low_3.wav</ShortName>
@@ -55,6 +85,14 @@
 				<File Id="649785495" Language="SFX">
 					<ShortName>LR_wall.wav</ShortName>
 					<Path>SFX\LR_wall_9E69E797.wem</Path>
+				</File>
+				<File Id="704763641" Language="SFX">
+					<ShortName>pause.wav</ShortName>
+					<Path>SFX\pause_9E69E797.wem</Path>
+				</File>
+				<File Id="731689439" Language="SFX">
+					<ShortName>left_wall.wav</ShortName>
+					<Path>SFX\left_wall_9E69E797.wem</Path>
 				</File>
 				<File Id="735433458" Language="SFX">
 					<ShortName>cube_hit_low_1.wav</ShortName>
@@ -79,6 +117,10 @@
 				<File Id="891615847" Language="SFX">
 					<ShortName>cube_hit_low_2.wav</ShortName>
 					<Path>SFX\cube_hit_low_2_9E69E797.wem</Path>
+				</File>
+				<File Id="897658505" Language="SFX">
+					<ShortName>play_BGM.wav</ShortName>
+					<Path>SFX\play_BGM_4B8CC0C5.wem</Path>
 				</File>
 				<File Id="983377988" Language="SFX">
 					<ShortName>Wind.wav</ShortName>

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65084641355151416}
   - component: {fileID: 23189905180166200}
   - component: {fileID: 54017308110456574}
-  - component: {fileID: 114495007315842966}
+  - component: {fileID: 114273033406270940}
   m_Layer: 8
   m_Name: Horizontal
   m_TagString: Gimic
@@ -141,7 +141,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114495007315842966
+--- !u!114 &114273033406270940
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -149,23 +149,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1321886089006964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419f5d70914cc2e4daf193c9a62a7158, type: 3}
+  m_Script: {fileID: 11500000, guid: bdc6bdd3161f7a74b9bb75102b1b266d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fBouyant: 100
-  m_fGravity: 200
-  m_fIceBreakHeight: 5
-  m_type: 5
-  m_matCube: {fileID: 2100000, guid: ce93ddcdb515c294dba606cff7a39f5e, type: 2}
-  m_matIron: {fileID: 2100000, guid: 78d9506e64959de47840344386e2c9d0, type: 2}
-  m_matIce: {fileID: 2100000, guid: 185da89904255d34b96338ee844514d1, type: 2}
-  m_matGam: {fileID: 2100000, guid: 4e4aabc2ea0bc77479cb4416666dd9fd, type: 2}
-  m_matGom: {fileID: 2100000, guid: 3203b744e93a5e2409d09ac03bf349e6, type: 2}
-  m_matHorizontal: {fileID: 2100000, guid: 11452345a5a13f84abb7063253a39f7b, type: 2}
-  m_matVertical: {fileID: 2100000, guid: 4b7e810b573295342bc5b017af63d531, type: 2}
-  m_physicMatNormal: {fileID: 13400000, guid: 882123130430bea41a4608de6a8e6fda, type: 2}
-  m_physicMatGom: {fileID: 13400000, guid: 869dff8a0c3fc0f4e8ff01f8304768cf, type: 2}
-  m_landingEffect: {fileID: 198503830503652004}
+  m_fBouyant: 10000
+  m_fGravity: 10000
+  m_mat: {fileID: 2100000, guid: 11452345a5a13f84abb7063253a39f7b, type: 2}
+  m_phyMat: {fileID: 13400000, guid: 882123130430bea41a4608de6a8e6fda, type: 2}
+  m_psLanding: {fileID: 198503830503652004}
 --- !u!198 &198503830503652004
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -368,7 +359,7 @@ ParticleSystem:
       maxColor: {r: 0.44117647, g: 0.25735295, b: 0.15517242, a: 1}
     startSize:
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.4
       maxCurve:
         serializedVersion: 2
         m_Curve:

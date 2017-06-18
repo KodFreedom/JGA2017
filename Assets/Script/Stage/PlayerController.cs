@@ -86,13 +86,12 @@ public class PlayerController : MonoBehaviour
         float fMoveHorizontal = Input.GetAxis("Horizontal");
         float fMoveVertical = Input.GetAxis("Vertical");
         Vector3 vMovement = Vector3.zero;
-
         switch (m_status)
         {
             case STATUS.PLAYER_NORMAL:
                 m_rb.mass = m_fMassNormal;
                 vMovement = new Vector3(fMoveHorizontal, 0.0f, 0.0f) * m_fMoveSpeedNormal;
-                if (m_bJump /*&& !m_bJumpPressed*/ && m_rb.velocity.y <= 0.0f && Input.GetKey("joystick button 0"))
+                if (m_bJump && !m_bJumpPressed /*&& m_rb.velocity.y <= 0.0f*/ && Input.GetKey("joystick button 0"))
                 {
                     m_rb.velocity = new Vector3(m_rb.velocity.x, m_fJumpSpeed, m_rb.velocity.z);
                     m_bJump = false;
@@ -115,6 +114,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case STATUS.PLAYER_CLEAR:
                 m_rb.AddForce(Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
+                AkSoundEngine.PostEvent("fall_stop", gameObject);
                 break;
             case STATUS.PLAYER_GAMEOVER:
                 break;
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
                 m_bJump = false;
             }
 
-            /*if (m_status == STATUS.PLAYER_NORMAL)*/ { m_rb.velocity = new Vector3(0f, m_rb.velocity.y, 0f); }
+            /*if (m_status == STATUS.PLAYER_NORMAL)*/ { m_rb.velocity = new Vector3(0f, m_rb.velocity.y, m_rb.velocity.z); }
             if (Input.GetKeyUp("joystick button 0")) { m_bJumpPressed = false; }
         }  
     }
@@ -164,9 +164,9 @@ public class PlayerController : MonoBehaviour
         avPos[1] = transform.position;
         avPos[2] = transform.position + new Vector3(fRadius, 0.0f, 0.0f);
 
-        if(Physics.Raycast(avPos[0], -Vector3.up, m_fDistoGround + 0.001f, -1, QueryTriggerInteraction.Ignore)
-            || Physics.Raycast(avPos[1], -Vector3.up, m_fDistoGround + 0.001f, -1, QueryTriggerInteraction.Ignore)
-            || Physics.Raycast(avPos[2], -Vector3.up, m_fDistoGround + 0.001f, -1, QueryTriggerInteraction.Ignore))
+        if(Physics.Raycast(avPos[0], -Vector3.up, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore)
+            || Physics.Raycast(avPos[1], -Vector3.up, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore)
+            || Physics.Raycast(avPos[2], -Vector3.up, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore))
         {
             return true;
         }

@@ -16,15 +16,17 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{384627C1-E94E-45EA-9050-1723C17F6C61}'
-    m_lastTimePsrt1: -1995025432
-    m_lastTimePart2: -1999325834
+    m_lastTimePsrt1: -160313856
+    m_lastTimePart2: -1999325788
     List:
     - Name: BGM_play_start
-      Path: Default Work Unit\BGM\BGM_play_start
+      Path: Default Work Unit\BGM\BGM_play\BGM_play_start
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: BGM
+        ObjectType: 4
+      - ElementName: BGM_play
         ObjectType: 4
       - ElementName: BGM_play_start
         ObjectType: 3
@@ -32,11 +34,13 @@ MonoBehaviour:
       Guid: c5aeb929a7f2af44979004648dd0cb0f
       maxAttenuation: 0
     - Name: BGM_play_stop
-      Path: Default Work Unit\BGM\BGM_play_stop
+      Path: Default Work Unit\BGM\BGM_play\BGM_play_stop
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: BGM
+        ObjectType: 4
+      - ElementName: BGM_play
         ObjectType: 4
       - ElementName: BGM_play_stop
         ObjectType: 3
@@ -44,11 +48,13 @@ MonoBehaviour:
       Guid: d983378b294a484fb97f922a513a3156
       maxAttenuation: 0
     - Name: BGM_stageselect_start
-      Path: Default Work Unit\BGM\BGM_stageselect_start
+      Path: Default Work Unit\BGM\BGM_stage_select\BGM_stageselect_start
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: BGM
+        ObjectType: 4
+      - ElementName: BGM_stage_select
         ObjectType: 4
       - ElementName: BGM_stageselect_start
         ObjectType: 3
@@ -56,11 +62,13 @@ MonoBehaviour:
       Guid: 5be8f84ddc5d6f46b085aee3a049bfe7
       maxAttenuation: 0
     - Name: BGM_stageselect_stop
-      Path: Default Work Unit\BGM\BGM_stageselect_stop
+      Path: Default Work Unit\BGM\BGM_stage_select\BGM_stageselect_stop
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: BGM
+        ObjectType: 4
+      - ElementName: BGM_stage_select
         ObjectType: 4
       - ElementName: BGM_stageselect_stop
         ObjectType: 3
@@ -68,11 +76,13 @@ MonoBehaviour:
       Guid: 4e2a300c751dae4ea8ff6782e5843529
       maxAttenuation: 0
     - Name: BGM_title_start
-      Path: Default Work Unit\BGM\BGM_title_start
+      Path: Default Work Unit\BGM\BGM_title\BGM_title_start
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: BGM
+        ObjectType: 4
+      - ElementName: BGM_title
         ObjectType: 4
       - ElementName: BGM_title_start
         ObjectType: 3
@@ -80,11 +90,13 @@ MonoBehaviour:
       Guid: 6b4499c01bf08941b7ecfb2900555cfa
       maxAttenuation: 0
     - Name: BGM_title_stop
-      Path: Default Work Unit\BGM\BGM_title_stop
+      Path: Default Work Unit\BGM\BGM_title\BGM_title_stop
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: BGM
+        ObjectType: 4
+      - ElementName: BGM_title
         ObjectType: 4
       - ElementName: BGM_title_stop
         ObjectType: 3
@@ -265,33 +277,53 @@ MonoBehaviour:
       ID: -564217992
       Guid: a4f46da5c3337640a5d338ea04bb8a06
       maxAttenuation: 0
+    - Name: sound_pause
+      Path: Default Work Unit\sound_pause
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: sound_pause
+        ObjectType: 3
+      ID: 332328737
+      Guid: bdcd4c3b29295146ad17f2dd31743644
+      maxAttenuation: 0
+    - Name: sound_replay
+      Path: Default Work Unit\sound_replay
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: sound_replay
+        ObjectType: 3
+      ID: 1922221436
+      Guid: 013b76fb19c51249b4a896a6cd537cfe
+      maxAttenuation: 0
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{9FE2982A-56DC-4A85-9979-9BF5882D0122}'
-    m_lastTimePsrt1: 181379328
-    m_lastTimePart2: -1999326041
+    m_lastTimePsrt1: -100313856
+    m_lastTimePart2: -1999325788
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{04E0D8F6-3644-4656-975F-C5DF25B83B13}'
-    m_lastTimePsrt1: 321379328
-    m_lastTimePart2: -1999326041
+    m_lastTimePsrt1: 39686144
+    m_lastTimePart2: -1999325787
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{EBF9BEB0-33C7-401F-BCA1-94BA6F5CD84E}'
-    m_lastTimePsrt1: 321379328
-    m_lastTimePart2: -1999326041
+    m_lastTimePsrt1: 39686144
+    m_lastTimePart2: -1999325787
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{2B12E63F-0076-41CA-A2AB-DA0C4FB0B93E}'
-    m_lastTimePsrt1: -1990116467
-    m_lastTimePart2: -1999325834
+    m_lastTimePsrt1: -313856
+    m_lastTimePart2: -1999325788
     List:
     - Name: Jump
       Path: Default Work Unit\Jump
