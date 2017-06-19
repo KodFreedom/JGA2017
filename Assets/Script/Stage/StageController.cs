@@ -202,6 +202,7 @@ public class StageController : MonoBehaviour
             PlayWallContactEffect(transform.position + m_vLeftParticlePos, Quaternion.Euler(0f, -90.0f, 0f), EFFECT_IDX.LEFT);
             PlayWallContactEffect(transform.position + m_vRightParticlePos, Quaternion.Euler(0f, 90.0f, 0f), EFFECT_IDX.RIGHT);
             AkSoundEngine.PostEvent("LR_wall", gameObject);
+            Debug.Log("fall stop");
             AkSoundEngine.PostEvent("fall_stop", gameObject);
         }
     }
@@ -226,6 +227,7 @@ public class StageController : MonoBehaviour
         {
             m_bFirstUnNipped = true;
             m_bFirstNipped = false;
+            Debug.Log("fall start");
             AkSoundEngine.PostEvent("fall_start", gameObject);
         }
     }

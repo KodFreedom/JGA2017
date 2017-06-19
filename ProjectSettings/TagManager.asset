@@ -15,6 +15,7 @@ TagManager:
   - StageSelecter
   - Fade
   - WwiseManager
+  - Gom
   layers:
   - Default
   - TransparentFX

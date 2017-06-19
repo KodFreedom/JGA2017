@@ -10,12 +10,11 @@ public class StageSeletSceneManager : MonoBehaviour
     //--------------------------------------------------------------------------
     public GameObject m_panelNow;
     public GameObject m_panelNext;
-    public EventSystem m_eventSystem;
 
     public void ChangePanel()
     {
         m_panelNow.SetActive(false);
         m_panelNext.SetActive(true);
-        m_eventSystem.SetSelectedGameObject(m_panelNext.transform.GetChild(0).gameObject);
+        EventSystem.current.SetSelectedGameObject(m_panelNext.transform.GetChild(0).gameObject);
     }
 }

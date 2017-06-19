@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class FadeController : MonoBehaviour
 {
-    //public Image m_fadeImg;
-    public Image m_fadeImgL;
-    public Image m_fadeImgR;
-    public float m_fFadeMoveSpeed = 25.0f;
-
+    //--------------------------------------------------------------------------
+    //  列挙型
+    //--------------------------------------------------------------------------
     private enum FADE_STATUS
     {
         NONE,
@@ -18,49 +17,67 @@ public class FadeController : MonoBehaviour
         FADE_OUT
     }
 
+    //--------------------------------------------------------------------------
+    //  定数
+    //--------------------------------------------------------------------------
+    public Image m_fadeImgL;
+    public Image m_fadeImgR;
+    public float m_fFadeMoveSpeed = 25.0f;
+
+    //--------------------------------------------------------------------------
+    //  変数
+    //--------------------------------------------------------------------------
     private int m_nIdxNextScene;
     private bool m_bCanChange;
     private FADE_STATUS m_status;
-    //private float m_fAlpha;
-    //private float m_fFadeRate = 1.0f / 60.0f;
-    
+    private Vector2 m_vCanvuaSize;
 
     public void LoadStage(int nIndex)
     {
+        if(m_status == FADE_STATUS.FADE_OUT) { return; }
+
+        //ゲームを停止させる
         Time.timeScale = 0;
-        
-        //m_fadeImg.gameObject.SetActive(true);
+
+        //Eventsystem停止
+        EventSystem es = EventSystem.current;
+        if(es)
+        {
+            es.SetSelectedGameObject(null);
+        }
+
+        //初期化
         m_fadeImgL.gameObject.SetActive(true);
         m_fadeImgR.gameObject.SetActive(true);
         gameObject.SetActive(true);
         m_nIdxNextScene = nIndex;
-
-        if(m_status == FADE_STATUS.FADE_OUT) { return; }
-        //m_fAlpha = 0.0f;
-        //m_fadeImg.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
-        m_fadeImgL.canvas.sortingOrder = 1000;
-        m_fadeImgL.rectTransform.sizeDelta = new Vector2(Screen.width * 2.0f, Screen.height * 3.0f);
-        m_fadeImgR.rectTransform.sizeDelta = new Vector2(Screen.width * 2.0f, Screen.height * 3.0f);
-        m_fadeImgL.rectTransform.anchoredPosition = new Vector2(-Screen.width * 3.0f, 0.0f);
-        m_fadeImgR.rectTransform.anchoredPosition = new Vector2(Screen.width * 3.0f, 0.0f);
         m_bCanChange = false;
         m_status = FADE_STATUS.FADE_OUT;
+
+        //イメージ位置初期化
+        m_fadeImgL.rectTransform.anchoredPosition = new Vector2(-m_vCanvuaSize.x * 0.5f - m_fFadeMoveSpeed * 2f, 0f);
+        m_fadeImgR.rectTransform.anchoredPosition = new Vector2(m_vCanvuaSize.x * 1f + m_fFadeMoveSpeed * 2f, 0f);
+
     }
 
     private void Start()
     {
+        //初期化
         m_bCanChange = false;
-        //m_fadeImg.gameObject.SetActive(true);
-        //m_fAlpha = 1.0f;
-        //m_fadeImg.color = new Color(0.0f, 0.0f, 0.0f, m_fAlpha);
+        m_fadeImgL.canvas.sortingOrder = 1000;
         m_fadeImgL.gameObject.SetActive(true);
         m_fadeImgR.gameObject.SetActive(true);
-        m_fadeImgL.canvas.sortingOrder = 1000;
-        m_fadeImgL.rectTransform.sizeDelta = new Vector2(Screen.width * 2.0f, Screen.height * 3.0f);
-        m_fadeImgR.rectTransform.sizeDelta = new Vector2(Screen.width * 2.0f, Screen.height * 3.0f);
-        m_fadeImgL.rectTransform.anchoredPosition = new Vector2(-Screen.width * 0.5f, 0.0f);
-        m_fadeImgR.rectTransform.anchoredPosition = new Vector2(Screen.width * 0.5f, 0.0f);
         m_status = FADE_STATUS.FADE_IN;
+
+        //Canvasのサイズを計算する
+        Canvas canvas = GetComponentInParent<Canvas>();
+        m_vCanvuaSize = canvas.GetComponent<CanvasScaler>().referenceResolution;
+        
+        //イメージサイズと位置初期化(画像の位置は左下頂点)
+        m_fadeImgL.rectTransform.sizeDelta = new Vector2(m_vCanvuaSize.x * 0.5f + m_fFadeMoveSpeed, m_vCanvuaSize.y);
+        m_fadeImgR.rectTransform.sizeDelta = new Vector2(m_vCanvuaSize.x * 0.5f + m_fFadeMoveSpeed, m_vCanvuaSize.y);
+        m_fadeImgL.rectTransform.anchoredPosition = new Vector2(0f + m_fFadeMoveSpeed * 2f, 0f);
+        m_fadeImgR.rectTransform.anchoredPosition = new Vector2(m_vCanvuaSize.x * 0.5f - m_fFadeMoveSpeed * 2f, 0f);
     }
 
     private void Update()
@@ -77,20 +94,13 @@ public class FadeController : MonoBehaviour
             case FADE_STATUS.NONE:
                 return;
             case FADE_STATUS.FADE_IN:
-                //m_fadeImg.color = new Color(0.0f, 0.0f, 0.0f, m_fAlpha);
-                //m_fAlpha -= m_fFadeRate;
-                //if (m_fAlpha <= 0.0f)
-                //{
-                //    m_fAlpha = 0.0f;
-                //    m_status = FADE_STATUS.NONE;
-                //}
             {
                 Vector2 vSpeed = new Vector2(m_fFadeMoveSpeed, 0.0f);
                 m_fadeImgL.rectTransform.anchoredPosition -= vSpeed;
                 m_fadeImgR.rectTransform.anchoredPosition += vSpeed;
 
-                if (m_fadeImgL.rectTransform.anchoredPosition.x <= -Screen.width * 3.0f
-                    || m_fadeImgR.rectTransform.anchoredPosition.x >= Screen.width * 3.0f)
+                if (m_fadeImgL.rectTransform.anchoredPosition.x <= -m_vCanvuaSize.x * 0.5f - m_fFadeMoveSpeed
+                    || m_fadeImgR.rectTransform.anchoredPosition.x >= m_vCanvuaSize.x * 1.0f + m_fFadeMoveSpeed)
                 {
                     m_status = FADE_STATUS.NONE;
                 }
@@ -98,20 +108,12 @@ public class FadeController : MonoBehaviour
             }
                 
             case FADE_STATUS.FADE_OUT:
-                //m_fAlpha += m_fFadeRate;
-                //if (m_fAlpha >= 1.0f)
-                //{
-                //    m_fAlpha = 1.0f;
-                //    m_bCanChange = true;
-                //    m_status = FADE_STATUS.NONE;
-                //}
-                //m_fadeImg.color = new Color(0.0f, 0.0f, 0.0f, m_fAlpha);
             {
                 Vector2 vSpeed = new Vector2(m_fFadeMoveSpeed, 0.0f);
                 m_fadeImgL.rectTransform.anchoredPosition += vSpeed;
                 m_fadeImgR.rectTransform.anchoredPosition -= vSpeed;
-                if (m_fadeImgL.rectTransform.anchoredPosition.x >= -Screen.width * 0.5f
-                    || m_fadeImgR.rectTransform.anchoredPosition.x <= Screen.width * 0.5f)
+                if (m_fadeImgL.rectTransform.anchoredPosition.x >= 0.0f - m_fFadeMoveSpeed
+                    || m_fadeImgR.rectTransform.anchoredPosition.x <= m_vCanvuaSize.x * 0.5f + m_fFadeMoveSpeed)
                 {
                     m_status = FADE_STATUS.NONE;
                     m_bCanChange = true;

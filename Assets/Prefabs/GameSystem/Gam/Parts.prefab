@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33324753260620608}
   - component: {fileID: 65425390605400614}
   - component: {fileID: 23897886953382434}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Parts
   m_TagString: StageParts
   m_Icon: {fileID: 0}

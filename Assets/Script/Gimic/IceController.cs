@@ -44,6 +44,7 @@ public class IceController : GimicController
 
     protected override void PlayHitSound()
     {
+        Debug.Log("Ice Hit");
         AkSoundEngine.PostEvent("ice_hit_wall", gameObject);
     }
 }

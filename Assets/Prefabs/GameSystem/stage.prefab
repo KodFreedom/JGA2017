@@ -77,6 +77,11 @@ GameObject:
   - component: {fileID: 114804243268835326}
   - component: {fileID: 114066859720351916}
   - component: {fileID: 114263167512492750}
+  - component: {fileID: 114539019386910654}
+  - component: {fileID: 114605717177173324}
+  - component: {fileID: 114216277151237492}
+  - component: {fileID: 114590797353111872}
+  - component: {fileID: 114643178292030102}
   m_Layer: 0
   m_Name: WwiseManager
   m_TagString: WwiseManager
@@ -375,6 +380,30 @@ MonoBehaviour:
   playingId: 0
   multiPositionTypeLabel: 0
   multiPositionArray: []
+--- !u!114 &114216277151237492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275840421463394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef070da04693164e876972960d02f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: 1bf536c9cd4f8346a6fce89694027f72
+  eventID: -690176884
+  soundEmitterObject: {fileID: 0}
+  enableActionOnEvent: 1
+  actionOnEventType: 0
+  curveInterpolation: 4
+  transitionDuration: 0
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  multiPositionTypeLabel: 0
+  multiPositionArray: []
 --- !u!114 &114244566582443484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -630,6 +659,102 @@ MonoBehaviour:
   useOtherObject: 0
   valueGuid: 4e2a300c751dae4ea8ff6782e5843529
   eventID: -1131321031
+  soundEmitterObject: {fileID: 0}
+  enableActionOnEvent: 1
+  actionOnEventType: 0
+  curveInterpolation: 4
+  transitionDuration: 0
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  multiPositionTypeLabel: 0
+  multiPositionArray: []
+--- !u!114 &114539019386910654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275840421463394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef070da04693164e876972960d02f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: 22171f6b3c71dd41a7cddd56e52abc98
+  eventID: 637465657
+  soundEmitterObject: {fileID: 0}
+  enableActionOnEvent: 1
+  actionOnEventType: 0
+  curveInterpolation: 4
+  transitionDuration: 0
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  multiPositionTypeLabel: 0
+  multiPositionArray: []
+--- !u!114 &114590797353111872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275840421463394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef070da04693164e876972960d02f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: 97869f90e7f33e42931dfa52a0efd4e6
+  eventID: 193089016
+  soundEmitterObject: {fileID: 0}
+  enableActionOnEvent: 1
+  actionOnEventType: 0
+  curveInterpolation: 4
+  transitionDuration: 0
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  multiPositionTypeLabel: 0
+  multiPositionArray: []
+--- !u!114 &114605717177173324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275840421463394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef070da04693164e876972960d02f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: c81ca8a80c629845b650f3c6e221804b
+  eventID: -2005256156
+  soundEmitterObject: {fileID: 0}
+  enableActionOnEvent: 1
+  actionOnEventType: 0
+  curveInterpolation: 4
+  transitionDuration: 0
+  m_callbackData: {fileID: 0}
+  playingId: 0
+  multiPositionTypeLabel: 0
+  multiPositionArray: []
+--- !u!114 &114643178292030102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275840421463394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef070da04693164e876972960d02f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: 463667b9cd1f514982c83738e98d49d5
+  eventID: 1510973884
   soundEmitterObject: {fileID: 0}
   enableActionOnEvent: 1
   actionOnEventType: 0

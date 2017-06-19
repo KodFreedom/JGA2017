@@ -98,6 +98,8 @@ public class StageSelecter : MonoBehaviour
         
         //Disable scripts that still work while timescale is set to 0
         AkSoundEngine.PostEvent("sound_pause", gameObject);
+        AkSoundEngine.PostEvent("fall_pause", gameObject);
+        AkSoundEngine.PostEvent("pause_SE", gameObject);
     }
 
     private void ContinueGame()
@@ -107,6 +109,8 @@ public class StageSelecter : MonoBehaviour
         m_pausePanel.SetActive(false);
         //enable the scripts again
         AkSoundEngine.PostEvent("sound_replay", gameObject);
+        AkSoundEngine.PostEvent("fall_replay", gameObject);
+        AkSoundEngine.PostEvent("pause_SE", gameObject);
     }
 
 }

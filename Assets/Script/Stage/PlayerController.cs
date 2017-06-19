@@ -16,7 +16,12 @@ public class PlayerController : MonoBehaviour
     public float m_fMassFalling;
     public float m_fMassNormal;
     public float m_fStageClearForce;
+    public float m_modelRotTime;
+    public GameObject m_model;
+
     private RigidbodyConstraints m_constraintsClearMode = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
+    private Quaternion m_qRotLeft = Quaternion.Euler(0f, 270f, 0f);
+    private Quaternion m_qRotRight = Quaternion.Euler(0f, 90f, 0f);
 
     //--------------------------------------------------------------------------
     //  構造体定義
@@ -41,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetStatusNormal()
     {
+       
         if (m_status == STATUS.PLAYER_CLEAR) { return; }
         if (m_status != STATUS.PLAYER_FALLING) { return; }
         m_status = STATUS.PLAYER_LANDING;
@@ -100,6 +106,9 @@ public class PlayerController : MonoBehaviour
                 }
                 m_rb.AddForce(Vector3.down * m_fGravity * m_rb.mass * Time.deltaTime);
                 m_rb.MovePosition(m_rb.position + vMovement);
+
+                //Model Rotation
+                RotModel(fMoveHorizontal);
                 break;
             case STATUS.PLAYER_LANDING:
                 m_rb.mass = m_fMassFalling;
@@ -111,6 +120,9 @@ public class PlayerController : MonoBehaviour
                 vMovement = new Vector3(fMoveHorizontal * 0.75f, fMoveVertical, 0.0f) * m_fMoveSpeedFalling;
                 m_rb.AddForce(Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
                 m_rb.MovePosition(m_rb.position + vMovement);
+
+                //ModelRotation
+                RotModel(fMoveHorizontal);
                 break;
             case STATUS.PLAYER_CLEAR:
                 m_rb.AddForce(Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
@@ -172,4 +184,42 @@ public class PlayerController : MonoBehaviour
         }
         return false;
     }
+
+    private void RotModel(float fMoveHorizontal)
+    {
+        if (!m_model) { return; }
+
+        if(fMoveHorizontal < 0f)
+        {//左向き
+            m_model.transform.rotation = Quaternion.Lerp(m_model.transform.rotation, m_qRotLeft, m_modelRotTime);
+        }
+        else if(fMoveHorizontal > 0f)
+        {//右向き
+            m_model.transform.rotation = Quaternion.Lerp(m_model.transform.rotation, m_qRotRight, m_modelRotTime);
+        }
+    }
+
+    //private void RotMovingModel(float fMoveHorizontal)
+    //{
+    //    if (!m_model) { return; }
+    //    Quaternion m_qRotMove = Quaternion.Euler(0f, 45f, 0f);   //移動する時の回転
+    //    if (fMoveHorizontal < 0f)
+    //    {//左向き
+    //        Quaternion qTarget = Quaternion.Euler(m_qRotLeft.eulerAngles + m_qRotMove.eulerAngles);
+    //        if(m_model.transform.rotation == qTarget)
+    //        {
+    //            qTarget = Quaternion.Euler(m_qRotLeft.eulerAngles - m_qRotMove.eulerAngles);
+    //        }
+    //        m_model.transform.rotation = Quaternion.Lerp(m_model.transform.rotation, qTarget, m_modelRotTime * 0.5f);
+    //    }
+    //    else if (fMoveHorizontal > 0f)
+    //    {//右向き
+    //        Quaternion qTarget = Quaternion.Euler(m_qRotRight.eulerAngles + m_qRotMove.eulerAngles);
+    //        if (m_model.transform.rotation == qTarget)
+    //        {
+    //            qTarget = Quaternion.Euler(m_qRotRight.eulerAngles - m_qRotMove.eulerAngles);
+    //        }
+    //        m_model.transform.rotation = Quaternion.Lerp(m_model.transform.rotation, qTarget, m_modelRotTime * 0.5f);
+    //    }
+    //}
 }

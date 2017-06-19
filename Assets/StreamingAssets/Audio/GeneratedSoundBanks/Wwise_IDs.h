@@ -20,16 +20,25 @@ namespace AK
         static const AkUniqueID BGM_TITLE_START = 3000715451U;
         static const AkUniqueID BGM_TITLE_STOP = 3107979545U;
         static const AkUniqueID CUBE_HIT_WALL = 3127392263U;
+        static const AkUniqueID ENTER_SE = 193089016U;
         static const AkUniqueID FALL_PAUSE = 637465657U;
         static const AkUniqueID FALL_REPLAY = 2289711140U;
         static const AkUniqueID FALL_START = 551694363U;
         static const AkUniqueID FALL_STOP = 1920253945U;
+        static const AkUniqueID GAM_HIT_GAM = 2532122008U;
         static const AkUniqueID GAME_CLEAR = 2825307669U;
+        static const AkUniqueID GAME_OVER = 1432716332U;
+        static const AkUniqueID GOM_HIT_GOM = 662515672U;
+        static const AkUniqueID ICE_BREAK = 1714959934U;
+        static const AkUniqueID ICE_HIBI = 3625899219U;
+        static const AkUniqueID ICE_HIT_WALL = 625948599U;
+        static const AkUniqueID IRON_HIT_WALL = 950514464U;
         static const AkUniqueID JUMP = 3833651337U;
         static const AkUniqueID LEFT_WALL = 1320961589U;
         static const AkUniqueID LR_WALL = 538056262U;
         static const AkUniqueID PAUSE_SE = 3604790412U;
         static const AkUniqueID RIGHT_WALL = 3730749304U;
+        static const AkUniqueID SELECT_SE = 1510973884U;
         static const AkUniqueID SOUND_PAUSE = 332328737U;
         static const AkUniqueID SOUND_REPLAY = 1922221436U;
     } // namespace EVENTS
