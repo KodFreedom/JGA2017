@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{1F7ED353-25CB-471E-996B-E5AFDEE52C6B}" SchemaVersion="75">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{1F7ED353-25CB-471E-996B-E5AFDEE52C6B}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{1F7ED353-25CB-471E-996B-E5AFDEE52C6B}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="room_height" ID="{5DDE7A20-DAD0-4326-BFDA-7E8838446602}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="120">
 	<RootPaths>
-		<ProjectRoot>D:\Users\nikumaro\デスクトップ\JGA2017_20170618\JGA2017_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Users\nikumaro\デスクトップ\JGA2017_20170618\JGA2017_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Users\nikumaro\デスクトップ\JGA2017_20170618\JGA2017_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Users\nikumaro\デスクトップ\JGA2017_20170618\JGA2017_WwiseProject\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -28,16 +28,25 @@
 				<Event Id="3000715451" Name="BGM_title_start" ObjectPath="\Events\Default Work Unit\BGM\BGM_title\BGM_title_start"/>
 				<Event Id="3107979545" Name="BGM_title_stop" ObjectPath="\Events\Default Work Unit\BGM\BGM_title\BGM_title_stop" MaxAttenuation="0.000000"/>
 				<Event Id="3127392263" Name="cube_hit_wall" ObjectPath="\Events\Default Work Unit\wall_hit_cubes\cube_hit_wall"/>
+				<Event Id="193089016" Name="enter_SE" ObjectPath="\Events\Default Work Unit\system\enter_SE"/>
 				<Event Id="637465657" Name="fall_pause" ObjectPath="\Events\Default Work Unit\pause\fall_pause" MaxAttenuation="0.000000"/>
 				<Event Id="2289711140" Name="fall_replay" ObjectPath="\Events\Default Work Unit\pause\fall_replay" MaxAttenuation="0.000000"/>
 				<Event Id="551694363" Name="fall_start" ObjectPath="\Events\Default Work Unit\fall_player\fall_start"/>
 				<Event Id="1920253945" Name="fall_stop" ObjectPath="\Events\Default Work Unit\fall_player\fall_stop" MaxAttenuation="0.000000"/>
+				<Event Id="2532122008" Name="gam_hit_gam" ObjectPath="\Events\Default Work Unit\cube_hit_cubes\gam_hit_gam"/>
 				<Event Id="2825307669" Name="game_clear" ObjectPath="\Events\Default Work Unit\system\game_clear"/>
+				<Event Id="1432716332" Name="game_over" ObjectPath="\Events\Default Work Unit\system\game_over"/>
+				<Event Id="662515672" Name="gom_hit_gom" ObjectPath="\Events\Default Work Unit\cube_hit_cubes\gom_hit_gom"/>
+				<Event Id="1714959934" Name="ice_break" ObjectPath="\Events\Default Work Unit\cube_hit_cubes\ice_break"/>
+				<Event Id="3625899219" Name="ice_hibi" ObjectPath="\Events\Default Work Unit\cube_hit_cubes\ice_hibi"/>
+				<Event Id="625948599" Name="ice_hit_wall" ObjectPath="\Events\Default Work Unit\wall_hit_cubes\ice_hit_wall"/>
+				<Event Id="950514464" Name="iron_hit_wall" ObjectPath="\Events\Default Work Unit\wall_hit_cubes\iron_hit_wall"/>
 				<Event Id="3833651337" Name="Jump" ObjectPath="\Events\Default Work Unit\Jump"/>
 				<Event Id="1320961589" Name="left_wall" ObjectPath="\Events\Default Work Unit\wall_sand\left_wall"/>
 				<Event Id="538056262" Name="LR_wall" ObjectPath="\Events\Default Work Unit\wall_sand\LR_wall"/>
 				<Event Id="3604790412" Name="pause_SE" ObjectPath="\Events\Default Work Unit\pause\pause_SE"/>
 				<Event Id="3730749304" Name="right_wall" ObjectPath="\Events\Default Work Unit\wall_sand\right_wall"/>
+				<Event Id="1510973884" Name="select_SE" ObjectPath="\Events\Default Work Unit\system\select_SE"/>
 				<Event Id="332328737" Name="sound_pause" ObjectPath="\Events\Default Work Unit\pause\sound_pause" MaxAttenuation="0.000000"/>
 				<Event Id="1922221436" Name="sound_replay" ObjectPath="\Events\Default Work Unit\pause\sound_replay" MaxAttenuation="0.000000"/>
 			</IncludedEvents>
@@ -50,6 +59,14 @@
 					<ShortName>cube_hit_wall_hi_1.wav</ShortName>
 					<Path>SFX\cube_hit_wall_hi_1_9E69E797.wem</Path>
 				</File>
+				<File Id="113924308" Language="SFX">
+					<ShortName>Ice_broken_1.wav</ShortName>
+					<Path>SFX\Ice_broken_1_9E69E797.wem</Path>
+				</File>
+				<File Id="132671150" Language="SFX">
+					<ShortName>gam_1.wav</ShortName>
+					<Path>SFX\gam_1_9E69E797.wem</Path>
+				</File>
 				<File Id="165364288" Language="SFX">
 					<ShortName>03_jump.wav</ShortName>
 					<Path>SFX\03_jump_9E69E797.wem</Path>
@@ -57,6 +74,10 @@
 				<File Id="177599809" Language="SFX">
 					<ShortName>right_wall.wav</ShortName>
 					<Path>SFX\right_wall_9E69E797.wem</Path>
+				</File>
+				<File Id="186350985" Language="SFX">
+					<ShortName>gom_2.wav</ShortName>
+					<Path>SFX\gom_2_9E69E797.wem</Path>
 				</File>
 				<File Id="230263476" Language="SFX">
 					<ShortName>cube_hit_wall_hi_3.wav</ShortName>
@@ -66,17 +87,69 @@
 					<ShortName>cube_hit_wall_4.wav</ShortName>
 					<Path>SFX\cube_hit_wall_4_9E69E797.wem</Path>
 				</File>
+				<File Id="279924637" Language="SFX">
+					<ShortName>enter.wav</ShortName>
+					<Path>SFX\enter_1C04E41F.wem</Path>
+				</File>
+				<File Id="286477445" Language="SFX">
+					<ShortName>Ice_hibi_2.wav</ShortName>
+					<Path>SFX\Ice_hibi_2_9E69E797.wem</Path>
+				</File>
+				<File Id="363118692" Language="SFX">
+					<ShortName>gam_2.wav</ShortName>
+					<Path>SFX\gam_2_9E69E797.wem</Path>
+				</File>
+				<File Id="364292509" Language="SFX">
+					<ShortName>Ice_hibi_4.wav</ShortName>
+					<Path>SFX\Ice_hibi_4_9E69E797.wem</Path>
+				</File>
+				<File Id="366033590" Language="SFX">
+					<ShortName>Ice_hibi_3.wav</ShortName>
+					<Path>SFX\Ice_hibi_3_9E69E797.wem</Path>
+				</File>
 				<File Id="397639319" Language="SFX">
 					<ShortName>Gool.wav</ShortName>
 					<Path>SFX\Gool_9E69E797.wem</Path>
+				</File>
+				<File Id="418902939" Language="SFX">
+					<ShortName>Ice_hibi_1.wav</ShortName>
+					<Path>SFX\Ice_hibi_1_9E69E797.wem</Path>
 				</File>
 				<File Id="429576407" Language="SFX">
 					<ShortName>stage_select_2mix.wav</ShortName>
 					<Path>SFX\stage_select_2mix_4B8CC0C5.wem</Path>
 				</File>
+				<File Id="434136927" Language="SFX">
+					<ShortName>gom_2(2).wav</ShortName>
+					<Path>SFX\gom_2(2)_9E69E797.wem</Path>
+				</File>
+				<File Id="455313790" Language="SFX">
+					<ShortName>Ice_broken_4.wav</ShortName>
+					<Path>SFX\Ice_broken_4_9E69E797.wem</Path>
+				</File>
+				<File Id="456341729" Language="SFX">
+					<ShortName>ice_wall_3.wav</ShortName>
+					<Path>SFX\ice_wall_3_9E69E797.wem</Path>
+				</File>
+				<File Id="517269892" Language="SFX">
+					<ShortName>ice_wall.wav</ShortName>
+					<Path>SFX\ice_wall_9E69E797.wem</Path>
+				</File>
 				<File Id="520808745" Language="SFX">
 					<ShortName>cube_hit_low_3.wav</ShortName>
 					<Path>SFX\cube_hit_low_3_9E69E797.wem</Path>
+				</File>
+				<File Id="536798074" Language="SFX">
+					<ShortName>Ice_broken_2.wav</ShortName>
+					<Path>SFX\Ice_broken_2_9E69E797.wem</Path>
+				</File>
+				<File Id="545239246" Language="SFX">
+					<ShortName>Ice_broken_3.wav</ShortName>
+					<Path>SFX\Ice_broken_3_9E69E797.wem</Path>
+				</File>
+				<File Id="549285108" Language="SFX">
+					<ShortName>gam_3.wav</ShortName>
+					<Path>SFX\gam_3_9E69E797.wem</Path>
 				</File>
 				<File Id="588093008" Language="SFX">
 					<ShortName>cube_hit_wall_2.wav</ShortName>
@@ -85,6 +158,14 @@
 				<File Id="649785495" Language="SFX">
 					<ShortName>LR_wall.wav</ShortName>
 					<Path>SFX\LR_wall_9E69E797.wem</Path>
+				</File>
+				<File Id="678659850" Language="SFX">
+					<ShortName>iron_2.wav</ShortName>
+					<Path>SFX\iron_2_D2DAD465.wem</Path>
+				</File>
+				<File Id="683904617" Language="SFX">
+					<ShortName>ice_wall_2.wav</ShortName>
+					<Path>SFX\ice_wall_2_9E69E797.wem</Path>
 				</File>
 				<File Id="704763641" Language="SFX">
 					<ShortName>pause.wav</ShortName>
@@ -114,17 +195,33 @@
 					<ShortName>cube_hit_wall_3.wav</ShortName>
 					<Path>SFX\cube_hit_wall_3_9E69E797.wem</Path>
 				</File>
+				<File Id="886876869" Language="SFX">
+					<ShortName>select.wav</ShortName>
+					<Path>SFX\select_9E69E797.wem</Path>
+				</File>
 				<File Id="891615847" Language="SFX">
 					<ShortName>cube_hit_low_2.wav</ShortName>
 					<Path>SFX\cube_hit_low_2_9E69E797.wem</Path>
+				</File>
+				<File Id="894366757" Language="SFX">
+					<ShortName>game_over.wav</ShortName>
+					<Path>SFX\game_over_9E69E797.wem</Path>
 				</File>
 				<File Id="897658505" Language="SFX">
 					<ShortName>play_BGM.wav</ShortName>
 					<Path>SFX\play_BGM_4B8CC0C5.wem</Path>
 				</File>
+				<File Id="911327795" Language="SFX">
+					<ShortName>iron_1.wav</ShortName>
+					<Path>SFX\iron_1_85DF6A8A.wem</Path>
+				</File>
 				<File Id="983377988" Language="SFX">
 					<ShortName>Wind.wav</ShortName>
 					<Path>SFX\Wind_F008BE8B.wem</Path>
+				</File>
+				<File Id="1010055538" Language="SFX">
+					<ShortName>Ice_broken_5.wav</ShortName>
+					<Path>SFX\Ice_broken_5_9E69E797.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

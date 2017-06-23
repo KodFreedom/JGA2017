@@ -9,20 +9,29 @@
 						<ObjectRef Name="right_wall" ID="{A56DF4A4-33C3-4076-A5D3-38EA04BB8A06}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="BGM_title_start" ID="{C099446B-F01B-4189-B7EC-FB2900555CFA}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="fall_pause" ID="{6B1F1722-713C-41DD-A7CD-DD56E52ABC98}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="enter_SE" ID="{909F8697-F3E7-423E-931D-FA52A0EFD4E6}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="LR_wall" ID="{1B96E025-6572-42B5-A86E-F476B264EBB8}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="fall_start" ID="{0F78FD8E-3FF1-434C-B0B4-2F84178B32E5}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="left_wall" ID="{5BAC481E-7FA7-4397-9797-FEC8E8AC6E04}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Jump" ID="{89A68444-95D2-444D-8DE6-D042D2E2ECDE}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="gom_hit_gom" ID="{74262F55-CBEF-44AD-8086-8A355EFE0112}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="BGM_play_start" ID="{29B9AEC5-F2A7-44AF-9790-04648DD0CB0F}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="fall_replay" ID="{A8A81CC8-620C-4598-B650-F3C6E221804B}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="ice_hibi" ID="{ABAD46B7-9844-4622-93A2-4F051E18870A}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="sound_pause" ID="{3B4CCDBD-2929-4651-AD17-F2DD31743644}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="BGM_stageselect_start" ID="{4DF8E85B-5DDC-466F-B085-AEE3A049BFE7}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="pause_SE" ID="{C936F51B-4FCD-4683-A6FC-E89694027F72}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="ice_break" ID="{FF8C2BA8-9E66-4685-915E-00C238F5C183}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="BGM_title_stop" ID="{2BF1D58E-189E-4854-84F0-B1E125F466DB}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="sound_replay" ID="{FB763B01-C519-4912-B4A8-96A6CD537CFE}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="select_SE" ID="{B9673646-1FCD-4951-82C8-3738E98D49D5}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="cube_hit_wall" ID="{4113D9AC-0DC8-4BB2-992C-86DF5CEB2661}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="gam_hit_gam" ID="{4673C512-42B2-4C0C-AB50-C63FD803348D}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="game_clear" ID="{D4C7C3C5-61FB-4C49-A172-272033501625}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="ice_hit_wall" ID="{E03B6B6B-5F5E-4D5C-8320-C40538DF84C7}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="game_over" ID="{B566055D-C4FB-4DE6-B00E-C732837C5A6A}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="BGM_stageselect_stop" ID="{0C302A4E-1D75-4EAE-A8FF-6782E5843529}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="iron_hit_wall" ID="{506A74F0-1EBE-4EE3-B7B5-160445C39590}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="BGM_play_stop" ID="{8B3783D9-4A29-4F48-B97F-922A513A3156}" WorkUnitID="{384627C1-E94E-45EA-9050-1723C17F6C61}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>

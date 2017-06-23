@@ -1,27 +1,82 @@
 Event	ID	Name			Wwise Object Path	Notes
+	193089016	enter_SE			\Default Work Unit\system\enter_SE	
 	201470811	BGM_stageselect_start			\Default Work Unit\BGM\BGM_stage_select\BGM_stageselect_start	
 	332328737	sound_pause			\Default Work Unit\pause\sound_pause	
 	538056262	LR_wall			\Default Work Unit\wall_sand\LR_wall	
 	551694363	fall_start			\Default Work Unit\fall_player\fall_start	
 	604937079	BGM_play_start			\Default Work Unit\BGM\BGM_play\BGM_play_start	
+	625948599	ice_hit_wall			\Default Work Unit\wall_hit_cubes\ice_hit_wall	
 	637465657	fall_pause			\Default Work Unit\pause\fall_pause	
+	662515672	gom_hit_gom			\Default Work Unit\cube_hit_cubes\gom_hit_gom	
+	950514464	iron_hit_wall			\Default Work Unit\wall_hit_cubes\iron_hit_wall	
 	1320961589	left_wall			\Default Work Unit\wall_sand\left_wall	
+	1432716332	game_over			\Default Work Unit\system\game_over	
+	1510973884	select_SE			\Default Work Unit\system\select_SE	
+	1714959934	ice_break			\Default Work Unit\cube_hit_cubes\ice_break	
 	1920253945	fall_stop			\Default Work Unit\fall_player\fall_stop	
 	1922221436	sound_replay			\Default Work Unit\pause\sound_replay	
 	2289711140	fall_replay			\Default Work Unit\pause\fall_replay	
+	2532122008	gam_hit_gam			\Default Work Unit\cube_hit_cubes\gam_hit_gam	
 	2825307669	game_clear			\Default Work Unit\system\game_clear	
 	3000715451	BGM_title_start			\Default Work Unit\BGM\BGM_title\BGM_title_start	
 	3107979545	BGM_title_stop			\Default Work Unit\BGM\BGM_title\BGM_title_stop	
 	3127392263	cube_hit_wall			\Default Work Unit\wall_hit_cubes\cube_hit_wall	
 	3163646265	BGM_stageselect_stop			\Default Work Unit\BGM\BGM_stage_select\BGM_stageselect_stop	
 	3604790412	pause_SE			\Default Work Unit\pause\pause_SE	
+	3625899219	ice_hibi			\Default Work Unit\cube_hit_cubes\ice_hibi	
 	3638082781	BGM_play_stop			\Default Work Unit\BGM\BGM_play\BGM_play_stop	
 	3730749304	right_wall			\Default Work Unit\wall_sand\right_wall	
 	3833651337	Jump			\Default Work Unit\Jump	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	425699222	room_height			\Default Work Unit\room_height	
 
 Effect plug-ins	ID	Name	Type				Notes
 	2689776681	New_Wwise_Parametric_EQ_01	Wwise Parametric EQ			
 	4180247629	New_Wwise_Parametric_EQ	Wwise Parametric EQ			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	59706004	play_BGM	D:\Users\nikumaro\	108098210	cube_hit_hi_1	D:\Users\nikumaro\	165364288	03_jump	D:\Users\nikumaro\	177599809	right_wall	D:\Users\nikumaro\	230263476	cube_hit_hi_3	D:\Users\nikumaro\	253567958	cube_hit_wall_4	D:\Users\nikumaro\	397639319	Game_clear	D:\Users\nikumaro\	429576407	select_BGM	D:\Users\nikumaro\	520808745	cube_hit_low_3	D:\Users\nikumaro\	588093008	cube_hit_wall_2	D:\Users\nikumaro\	649785495	LR_wall	D:\Users\nikumaro\	704763641	pause	D:\Users\nikumaro\	731689439	left_wall	D:\Users\nikumaro\	735433458	cube_hit_low_1	D:\Users\nikumaro\	846105117	cube_hit_hi_2	D:\Users\nikumaro\	867723774	cube_hit_wall_5	D:\Users\nikumaro\	870541358	cube_hit_wall_1	D:\Users\nikumaro\	884310061	cube_hit_wall_3	D:\Users\nikumaro\	891615847	cube_hit_low_2	D:\Users\nikumaro\	897658505	title_BGM	D:\Users\nikumaro\	983377988	falling_room	D:\Users\nikumaro\
+	59706004	play_BGM	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\title_BGM_4B8CC0C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\play_BGM		48384064
+	108098210	cube_hit_hi_1	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\cube_hit_wall_hi_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\cube_hit_walls\cube_hit_loundam\cube_blend\cube_hit_hies\cube_hit_hi_1		147584
+	113924308	ice_broken_1	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\Ice_broken_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ice\ice_brokens\ice_broken_1		361788
+	132671150	gam_1	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\gam_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\gams\gam_1		153076
+	165364288	03_jump	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\03_jump_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\03_jump		30274
+	177599809	right_wall	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\right_wall_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\wall_sand\right_wall		301424
+	186350985	gom_1	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\gom_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\goms\gom_1		335840
+	230263476	cube_hit_hi_3	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\cube_hit_wall_hi_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\cube_hit_walls\cube_hit_loundam\cube_blend\cube_hit_hies\cube_hit_hi_3		147584
+	253567958	cube_hit_wall_4	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\cube_hit_wall_4_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\cube_hit_walls\cube_hit_loundam\cube_hit_wall_4		147584
+	279924637	Enter	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\enter_1C04E41F.wem		\Actor-Mixer Hierarchy\Default Work Unit\game_system\Enter		195024
+	286477445	ice_hibi_2	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\Ice_hibi_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ice\ice_hibis\ice_hibi_2		186036
+	363118692	gam_2	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\gam_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\gams\gam_2		149648
+	364292509	ice_hibi_4	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\Ice_hibi_4_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ice\ice_hibis\ice_hibi_4		186036
+	366033590	ice_hibi_3	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\Ice_hibi_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ice\ice_hibis\ice_hibi_3		186036
+	397639319	Game_clear	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\Gool_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\game_system\Game_clear		215124
+	418902939	ice_hibi_1	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\Ice_hibi_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ice\ice_hibis\ice_hibi_1		186036
+	429576407	select_BGM	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\stage_select_2mix_4B8CC0C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\select_BGM		28445772
+	434136927	gom_2	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\gom_2(2)_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\goms\gom_2		306400
+	455313790	ice_broken_4	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\Ice_broken_4_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ice\ice_brokens\ice_broken_4		361788
+	456341729	ice_wall_3	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\ice_wall_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ice\ice_walls\ice_wall_3		232808
+	517269892	ice_wall_1	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\ice_wall_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ice\ice_walls\ice_wall_1		232808
+	520808745	cube_hit_low_3	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\cube_hit_low_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\cube_hit_walls\cube_hit_loundam\cube_blend\cube_hit_lows\cube_hit_low_3		147584
+	536798074	ice_broken_2	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\Ice_broken_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ice\ice_brokens\ice_broken_2		361788
+	545239246	ice_broken_3	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\Ice_broken_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ice\ice_brokens\ice_broken_3		361788
+	549285108	gam_3	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\gam_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\gams\gam_3		149648
+	588093008	cube_hit_wall_2	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\cube_hit_wall_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\cube_hit_walls\cube_hit_loundam\cube_hit_wall_2		147584
+	649785495	LR_wall	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\LR_wall_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\wall_sand\LR_wall		301424
+	678659850	iron2	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\iron_2_D2DAD465.wem		\Actor-Mixer Hierarchy\Default Work Unit\irons\iron2		330692
+	683904617	ice_wall_2	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\ice_wall_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ice\ice_walls\ice_wall_2		232808
+	704763641	pause	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\pause_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\game_system\pause		224876
+	731689439	left_wall	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\left_wall_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\wall_sand\left_wall		301424
+	735433458	cube_hit_low_1	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\cube_hit_low_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\cube_hit_walls\cube_hit_loundam\cube_blend\cube_hit_lows\cube_hit_low_1		147584
+	846105117	cube_hit_hi_2	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\cube_hit_wall_hi_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\cube_hit_walls\cube_hit_loundam\cube_blend\cube_hit_hies\cube_hit_hi_2		147584
+	867723774	cube_hit_wall_5	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\cube_hit_wall_5_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\cube_hit_walls\cube_hit_loundam\cube_hit_wall_5		147584
+	870541358	cube_hit_wall_1	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\cube_hit_wall_1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\cube_hit_walls\cube_hit_loundam\cube_hit_wall_1		147584
+	884310061	cube_hit_wall_3	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\cube_hit_wall_3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\cube_hit_walls\cube_hit_loundam\cube_hit_wall_3		147584
+	886876869	select	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\select_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\game_system\select		114712
+	891615847	cube_hit_low_2	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\cube_hit_low_2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\cube_hit_walls\cube_hit_loundam\cube_blend\cube_hit_lows\cube_hit_low_2		147584
+	894366757	Game_over	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\game_over_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\game_system\Game_over		537480
+	897658505	title_BGM	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\play_BGM_4B8CC0C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\BGM\title_BGM		74970072
+	911327795	iron_1	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\iron_1_85DF6A8A.wem		\Actor-Mixer Hierarchy\Default Work Unit\irons\iron_1		330692
+	983377988	falling_room	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\Wind_F008BE8B.wem		\Actor-Mixer Hierarchy\Default Work Unit\falling_room		1370212
+	1010055538	ice_broken_5	E:\HAL\Unity\JGA2017\JGA2017_WwiseProject\.cache\Windows\SFX\Ice_broken_5_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\ice\ice_brokens\ice_broken_5		361788
+

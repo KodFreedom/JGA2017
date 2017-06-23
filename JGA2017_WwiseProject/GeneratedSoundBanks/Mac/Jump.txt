@@ -1,20 +1,29 @@
 Event	ID	Name			Wwise Object Path	Notes
+	193089016	enter_SE			\Default Work Unit\system\enter_SE	
 	201470811	BGM_stageselect_start			\Default Work Unit\BGM\BGM_stage_select\BGM_stageselect_start	
 	332328737	sound_pause			\Default Work Unit\pause\sound_pause	
 	538056262	LR_wall			\Default Work Unit\wall_sand\LR_wall	
 	551694363	fall_start			\Default Work Unit\fall_player\fall_start	
 	604937079	BGM_play_start			\Default Work Unit\BGM\BGM_play\BGM_play_start	
+	625948599	ice_hit_wall			\Default Work Unit\wall_hit_cubes\ice_hit_wall	
 	637465657	fall_pause			\Default Work Unit\pause\fall_pause	
+	662515672	gom_hit_gom			\Default Work Unit\cube_hit_cubes\gom_hit_gom	
+	950514464	iron_hit_wall			\Default Work Unit\wall_hit_cubes\iron_hit_wall	
 	1320961589	left_wall			\Default Work Unit\wall_sand\left_wall	
+	1432716332	game_over			\Default Work Unit\system\game_over	
+	1510973884	select_SE			\Default Work Unit\system\select_SE	
+	1714959934	ice_break			\Default Work Unit\cube_hit_cubes\ice_break	
 	1920253945	fall_stop			\Default Work Unit\fall_player\fall_stop	
 	1922221436	sound_replay			\Default Work Unit\pause\sound_replay	
 	2289711140	fall_replay			\Default Work Unit\pause\fall_replay	
+	2532122008	gam_hit_gam			\Default Work Unit\cube_hit_cubes\gam_hit_gam	
 	2825307669	game_clear			\Default Work Unit\system\game_clear	
 	3000715451	BGM_title_start			\Default Work Unit\BGM\BGM_title\BGM_title_start	
 	3107979545	BGM_title_stop			\Default Work Unit\BGM\BGM_title\BGM_title_stop	
 	3127392263	cube_hit_wall			\Default Work Unit\wall_hit_cubes\cube_hit_wall	
 	3163646265	BGM_stageselect_stop			\Default Work Unit\BGM\BGM_stage_select\BGM_stageselect_stop	
 	3604790412	pause_SE			\Default Work Unit\pause\pause_SE	
+	3625899219	ice_hibi			\Default Work Unit\cube_hit_cubes\ice_hibi	
 	3638082781	BGM_play_stop			\Default Work Unit\BGM\BGM_play\BGM_play_stop	
 	3730749304	right_wall			\Default Work Unit\wall_sand\right_wall	
 	3833651337	Jump			\Default Work Unit\Jump	
@@ -24,4 +33,4 @@ Effect plug-ins	ID	Name	Type				Notes
 	4180247629	New_Wwise_Parametric_EQ	Wwise Parametric EQ			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	59706004	play_BGM	D:\Users\nikumaro\	108098210	cube_hit_hi_1	D:\Users\nikumaro\	165364288	03_jump	D:\Users\nikumaro\	177599809	right_wall	D:\Users\nikumaro\	230263476	cube_hit_hi_3	D:\Users\nikumaro\	253567958	cube_hit_wall_4	D:\Users\nikumaro\	397639319	Game_clear	D:\Users\nikumaro\	429576407	select_BGM	D:\Users\nikumaro\	520808745	cube_hit_low_3	D:\Users\nikumaro\	588093008	cube_hit_wall_2	D:\Users\nikumaro\	649785495	LR_wall	D:\Users\nikumaro\	704763641	pause	D:\Users\nikumaro\	731689439	left_wall	D:\Users\nikumaro\	735433458	cube_hit_low_1	D:\Users\nikumaro\	846105117	cube_hit_hi_2	D:\Users\nikumaro\	867723774	cube_hit_wall_5	D:\Users\nikumaro\	870541358	cube_hit_wall_1	D:\Users\nikumaro\	884310061	cube_hit_wall_3	D:\Users\nikumaro\	891615847	cube_hit_low_2	D:\Users\nikumaro\	897658505	title_BGM	D:\Users\nikumaro\	983377988	falling_room	D:\Users\nikumaro\
+	59706004	play_BGM	D:\Users\nikumaro\	108098210	cube_hit_hi_1	D:\Users\nikumaro\	113924308	ice_broken_1	D:\Users\nikumaro\	132671150	gam_1	D:\Users\nikumaro\	165364288	03_jump	D:\Users\nikumaro\	177599809	right_wall	D:\Users\nikumaro\	186350985	gom_1	D:\Users\nikumaro\	230263476	cube_hit_hi_3	D:\Users\nikumaro\	253567958	cube_hit_wall_4	D:\Users\nikumaro\	279924637	Enter	D:\Users\nikumaro\	286477445	ice_hibi_2	D:\Users\nikumaro\	363118692	gam_2	D:\Users\nikumaro\	364292509	ice_hibi_4	D:\Users\nikumaro\	366033590	ice_hibi_3	D:\Users\nikumaro\	397639319	Game_clear	D:\Users\nikumaro\	418902939	ice_hibi_1	D:\Users\nikumaro\	429576407	select_BGM	D:\Users\nikumaro\	434136927	gom_2	D:\Users\nikumaro\	455313790	ice_broken_4	D:\Users\nikumaro\	456341729	ice_wall_3	D:\Users\nikumaro\	517269892	ice_wall_1	D:\Users\nikumaro\	520808745	cube_hit_low_3	D:\Users\nikumaro\	536798074	ice_broken_2	D:\Users\nikumaro\	545239246	ice_broken_3	D:\Users\nikumaro\	549285108	gam_3	D:\Users\nikumaro\	588093008	cube_hit_wall_2	D:\Users\nikumaro\	649785495	LR_wall	D:\Users\nikumaro\	678659850	iron2	D:\Users\nikumaro\	683904617	ice_wall_2	D:\Users\nikumaro\	704763641	pause	D:\Users\nikumaro\	731689439	left_wall	D:\Users\nikumaro\	735433458	cube_hit_low_1	D:\Users\nikumaro\	846105117	cube_hit_hi_2	D:\Users\nikumaro\	867723774	cube_hit_wall_5	D:\Users\nikumaro\	870541358	cube_hit_wall_1	D:\Users\nikumaro\	884310061	cube_hit_wall_3	D:\Users\nikumaro\	886876869	select	D:\Users\nikumaro\	891615847	cube_hit_low_2	D:\Users\nikumaro\	894366757	Game_over	D:\Users\nikumaro\	897658505	title_BGM	D:\Users\nikumaro\	911327795	iron_1	D:\Users\nikumaro\	983377988	falling_room	D:\Users\nikumaro\	1010055538	ice_broken_5	D:\Users\nikumaro\
