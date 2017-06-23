@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : MonoBehaviour
+{
     //--------------------------------------------------------------------------
     //  定数
     //--------------------------------------------------------------------------
@@ -25,6 +26,11 @@ public class CameraController : MonoBehaviour {
     //--------------------------------------------------------------------------
     //  関数
     //--------------------------------------------------------------------------
+    public void StageClearCamera()
+    {
+        m_vDefaultPos = new Vector3(0f, 0f, -3f);
+    }
+
     public void SetTarget(GameObject target)
     {
         m_target = target;

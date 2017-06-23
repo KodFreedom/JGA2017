@@ -277,7 +277,7 @@ public class StageController : MonoBehaviour
         float fY = c_fUIStageYMin + fDis * 0.001f * (c_fUIStageYMax - c_fUIStageYMin);
 
         //Num
-        int nDis = (int)fDis >= 1000 ? 999 : (int)fDis <= 5 ? 0 : (int)fDis;
+        int nDis = (int)fDis >= 1000 ? 999 : (int)fDis <= 3 ? 0 : (int)fDis;
         for(int nCnt = 0;nCnt < 3;nCnt++)
         {
             int nNum = nDis % 10;

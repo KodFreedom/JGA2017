@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
 
     public void SetStatusNormal()
     {
-       
         if (m_status == STATUS.PLAYER_CLEAR) { return; }
         if (m_status != STATUS.PLAYER_FALLING) { return; }
         m_status = STATUS.PLAYER_LANDING;
@@ -65,7 +64,13 @@ public class PlayerController : MonoBehaviour
     {
         if (m_status == STATUS.PLAYER_CLEAR) { return; }
         m_status = STATUS.PLAYER_CLEAR;
+        Transform[] children = gameObject.GetComponentsInChildren<Transform>();
+        for (int nCnt = 0; nCnt < children.Length; nCnt++)
+        {
+            children[nCnt].localRotation = Quaternion.Euler(0f, 180f, 0f);
+        }
         transform.SetParent(null, true);
+        GameObject.Find("Main Camera").GetComponent<CameraController>().StageClearCamera();
         GameObject.FindGameObjectWithTag("StageSelecter").GetComponent<StageSelecter>().StageClear();
     }
 
