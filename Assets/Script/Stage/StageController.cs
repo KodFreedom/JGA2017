@@ -198,6 +198,7 @@ public class StageController : MonoBehaviour
         //Effect & Sound
         if(!m_bFirstNipped)
         {
+            GameObject.Find("Main Camera").GetComponent<CameraController>().ShakeCamera();
             m_bFirstNipped = true;
             m_bFirstUnNipped = false;
             PlayWallContactEffect(transform.position + m_vLeftParticlePos, Quaternion.Euler(0f, -90.0f, 0f), EFFECT_IDX.LEFT);
@@ -212,7 +213,7 @@ public class StageController : MonoBehaviour
     {
         GimicController[] gimic = GetComponentsInChildren<GimicController>();
         PlayerController player = GetComponentInChildren<PlayerController>();
-
+       
         if(player)
         {
             player.SetStatusFalling();
@@ -250,7 +251,6 @@ public class StageController : MonoBehaviour
             rb.isKinematic = false;
             rb.mass = 1.0f;
             rb.AddForce(m_vVelocity);
-            //rb.velocity += m_vVelocity;
             rb.constraints = RigidbodyConstraints.None;
         }
 

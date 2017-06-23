@@ -9,6 +9,7 @@ public class StageSelectEffecter : MonoBehaviour {
     public GameObject[] m_aChild;
     public EventSystem m_eventSystem;
     public Image m_screenshot;
+    public Sprite m_noneTexture;
 
     // Update is called once per frame
     void Update () {
@@ -18,6 +19,10 @@ public class StageSelectEffecter : MonoBehaviour {
             {
                 m_screenshot.sprite = m_aScreenshot[nCnt];
                 break;
+            }
+            else
+            {
+                m_screenshot.sprite = m_noneTexture;
             }
         }
 	}

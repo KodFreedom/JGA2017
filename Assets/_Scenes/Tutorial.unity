@@ -331,11 +331,11 @@ VideoPlayer:
   m_TargetTexture: {fileID: 8400000, guid: 9cd5ed01e4331e346b59a9cd7662883f, type: 2}
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
-  m_RenderMode: 2
+  m_RenderMode: 1
   m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
-  m_AudioOutputMode: 1
+  m_AudioOutputMode: 0
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:

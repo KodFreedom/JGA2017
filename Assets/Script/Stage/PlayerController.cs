@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
         if (m_status == STATUS.PLAYER_CLEAR) { return; }
         if (m_status != STATUS.PLAYER_FALLING) { return; }
         m_status = STATUS.PLAYER_LANDING;
+        m_rb.mass = m_fMassFalling;
+        m_rb.velocity = Vector3.zero;
 		m_nCnt = 3;
     }
 
@@ -58,6 +60,8 @@ public class PlayerController : MonoBehaviour
         if (m_status == STATUS.PLAYER_CLEAR) { return; }
         if (m_status == STATUS.PLAYER_FALLING || m_status == STATUS.PLAYER_CLEAR) { return; }
         m_status = STATUS.PLAYER_FALLING;
+        m_rb.mass = m_fMassFalling;
+        m_rb.velocity = Vector3.zero;
     }
 
     public void SetStatusClear()
@@ -80,15 +84,12 @@ public class PlayerController : MonoBehaviour
         m_status = STATUS.PLAYER_GAMEOVER;
     }
 
-    private void Awake()
-    {
-        m_rb = GetComponent<Rigidbody>();
-    }
-
     // Use this for initialization
     private void Start()
     {
+        m_rb = GetComponent<Rigidbody>();
         m_status = STATUS.PLAYER_FALLING;
+        m_rb.mass = m_fMassFalling;
         m_bJump = false;
         m_bJumpPressed = false;
         m_fDistoGround = GetComponent<Collider>().bounds.extents.y;
@@ -102,44 +103,46 @@ public class PlayerController : MonoBehaviour
         Vector3 vMovement = Vector3.zero;
         switch (m_status)
         {
-		case STATUS.PLAYER_NORMAL:
-			m_rb.mass = m_fMassNormal;
-			vMovement = new Vector3 (fMoveHorizontal, 0.0f, 0.0f) * m_fMoveSpeedNormal;
-			if (m_bJump && !m_bJumpPressed /*&& m_rb.velocity.y <= 0.0f*/ && Input.GetKey ("joystick button 0")) {
-				m_rb.velocity = new Vector3 (m_rb.velocity.x, m_fJumpSpeed, m_rb.velocity.z);
-				m_bJump = false;
-				m_bJumpPressed = true;
-				AkSoundEngine.PostEvent ("Jump", gameObject);
-			}
-			m_fGravity = 200.0f;
-			m_rb.AddForce (Vector3.down * m_fGravity * m_rb.mass * Time.deltaTime);
-			m_rb.MovePosition (m_rb.position + vMovement);
-                //Model Rotation
-                RotModel(fMoveHorizontal);
-                break;
-        case STATUS.PLAYER_LANDING:
-			if (m_nCnt > 0) {
-				m_nCnt--;
-				m_fGravity = 3000.0f;
-			} else {
-				m_fGravity = 200.0f;
-			}
-                m_rb.mass = m_fMassFalling;
+            case STATUS.PLAYER_NORMAL:
+                {
+                    vMovement = new Vector3(fMoveHorizontal, 0.0f, 0.0f) * m_fMoveSpeedNormal;
+                    float fGravity = m_fGravity * m_rb.mass * Time.deltaTime;
+
+                    //ジャンプ
+                    if (m_rb.velocity.y >= -fGravity &&
+                        m_bJump && !m_bJumpPressed &&
+                        Input.GetKey("joystick button 0"))
+                    {
+                        m_rb.velocity = new Vector3(m_rb.velocity.x, m_fJumpSpeed, m_rb.velocity.z);
+                        m_bJump = false;
+                        m_bJumpPressed = true;
+                        AkSoundEngine.PostEvent("Jump", gameObject);
+                    }
+                    //m_fGravity = 200.0f;
+                    m_rb.AddForce(Vector3.down * fGravity);
+                    m_rb.MovePosition(m_rb.position + vMovement);
+
+                    //Model Rotation
+                    RotModel(fMoveHorizontal);
+                    break;
+                }
+            case STATUS.PLAYER_LANDING:
                 m_rb.AddForce(Vector3.down * m_fGravity * m_rb.mass * Time.deltaTime);
                 break;
-		case STATUS.PLAYER_FALLING:
-			if ((fMoveHorizontal != 0.0f || fMoveVertical != 0.0f)) {
-				m_rb.velocity = Vector3.zero;
-			}
-			m_rb.mass = m_fMassFalling;
-			vMovement = new Vector3 (fMoveHorizontal * 0.75f, fMoveVertical, 0.0f) * m_fMoveSpeedFalling;
-			m_rb.AddForce (Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
-			m_rb.MovePosition (m_rb.position + vMovement);
+            case STATUS.PLAYER_FALLING:
+                {
+                    //操作する時速度を0にする
+                    if ((fMoveHorizontal != 0.0f || fMoveVertical != 0.0f)) { m_rb.velocity = Vector3.zero; }
 
+                    //移動処理
+                    vMovement = new Vector3(fMoveHorizontal * 0.75f, fMoveVertical, 0.0f) * m_fMoveSpeedFalling;
+                    m_rb.AddForce(Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
+                    m_rb.MovePosition(m_rb.position + vMovement);
 
-                //ModelRotation
-                RotModel(fMoveHorizontal);
-                break;
+                    //ModelRotation
+                    RotModel(fMoveHorizontal);
+                    break;
+                }
             case STATUS.PLAYER_CLEAR:
                 m_rb.AddForce(Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
                 AkSoundEngine.PostEvent("fall_stop", gameObject);
@@ -161,6 +164,7 @@ public class PlayerController : MonoBehaviour
                 if (m_status == STATUS.PLAYER_LANDING)
                 {
                     m_status = STATUS.PLAYER_NORMAL;
+                    m_rb.mass = m_fMassNormal;
                 }
             }
             else
@@ -188,9 +192,9 @@ public class PlayerController : MonoBehaviour
     {
         float fRadius = transform.localScale.x * 0.48f;
         Vector3[] avPos = new Vector3[3];
-        avPos[0] = transform.position - new Vector3(fRadius*0.35f, 0.0f, 0.0f);
+        avPos[0] = transform.position - new Vector3(fRadius * 0.5f, 0.0f, 0.0f);
         avPos[1] = transform.position;
-        avPos[2] = transform.position + new Vector3(fRadius*0.35f, 0.0f, 0.0f);
+        avPos[2] = transform.position + new Vector3(fRadius * 0.5f, 0.0f, 0.0f);
 
         if(Physics.Raycast(avPos[0], -Vector3.up, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore)
             || Physics.Raycast(avPos[1], -Vector3.up, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore)
@@ -214,28 +218,4 @@ public class PlayerController : MonoBehaviour
             m_model.transform.rotation = Quaternion.Lerp(m_model.transform.rotation, m_qRotRight, m_modelRotTime);
         }
     }
-
-    //private void RotMovingModel(float fMoveHorizontal)
-    //{
-    //    if (!m_model) { return; }
-    //    Quaternion m_qRotMove = Quaternion.Euler(0f, 45f, 0f);   //移動する時の回転
-    //    if (fMoveHorizontal < 0f)
-    //    {//左向き
-    //        Quaternion qTarget = Quaternion.Euler(m_qRotLeft.eulerAngles + m_qRotMove.eulerAngles);
-    //        if(m_model.transform.rotation == qTarget)
-    //        {
-    //            qTarget = Quaternion.Euler(m_qRotLeft.eulerAngles - m_qRotMove.eulerAngles);
-    //        }
-    //        m_model.transform.rotation = Quaternion.Lerp(m_model.transform.rotation, qTarget, m_modelRotTime * 0.5f);
-    //    }
-    //    else if (fMoveHorizontal > 0f)
-    //    {//右向き
-    //        Quaternion qTarget = Quaternion.Euler(m_qRotRight.eulerAngles + m_qRotMove.eulerAngles);
-    //        if (m_model.transform.rotation == qTarget)
-    //        {
-    //            qTarget = Quaternion.Euler(m_qRotRight.eulerAngles - m_qRotMove.eulerAngles);
-    //        }
-    //        m_model.transform.rotation = Quaternion.Lerp(m_model.transform.rotation, qTarget, m_modelRotTime * 0.5f);
-    //    }
-    //}
 }

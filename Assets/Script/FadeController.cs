@@ -116,6 +116,7 @@ public class FadeController : MonoBehaviour
                 if (m_fadeImgL.rectTransform.anchoredPosition.x <= -m_vCanvuaSize.x * 0.5f - m_fFadeMoveSpeed
                     || m_fadeImgR.rectTransform.anchoredPosition.x >= m_vCanvuaSize.x * 1.0f + m_fFadeMoveSpeed)
                 {
+                    Cursor.visible = false;
                     m_status = FADE_STATUS.NONE;
                 }
                 break;
