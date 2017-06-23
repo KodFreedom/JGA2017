@@ -212,7 +212,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -85945520
+  randomSeed: 1563104442
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -359,7 +359,7 @@ ParticleSystem:
       maxColor: {r: 0.44117647, g: 0.25735295, b: 0.15517242, a: 1}
     startSize:
       minMaxState: 0
-      scalar: 0.8
+      scalar: 0.6
       maxCurve:
         serializedVersion: 2
         m_Curve:

@@ -157,8 +157,9 @@ MonoBehaviour:
   m_mat: {fileID: 2100000, guid: 185da89904255d34b96338ee844514d1, type: 2}
   m_phyMat: {fileID: 13400000, guid: 882123130430bea41a4608de6a8e6fda, type: 2}
   m_psLanding: {fileID: 198839654972207820}
-  m_fDamageSpeedMin: 0.5
+  m_fDamageSpeedMin: 1.8
   m_nLife: 2
+  m_hibi: {fileID: 2100000, guid: c12886914c1cf1f4a9c124227bd23ac0, type: 2}
 --- !u!198 &198839654972207820
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -361,7 +362,7 @@ ParticleSystem:
       maxColor: {r: 0.625, g: 1, b: 1, a: 1}
     startSize:
       minMaxState: 0
-      scalar: 0.8
+      scalar: 0.6
       maxCurve:
         serializedVersion: 2
         m_Curve:
