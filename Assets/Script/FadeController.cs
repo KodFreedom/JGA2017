@@ -31,10 +31,12 @@ public class FadeController : MonoBehaviour
     private bool m_bCanChange;
     private FADE_STATUS m_status;
     private Vector2 m_vCanvuaSize;
+	private bool m_bPlayed;
+	private int m_nCntChange;
 
     public void LoadStage(int nIndex)
     {
-        if(m_status == FADE_STATUS.FADE_OUT) { return; }
+		if(m_bCanChange || m_status != FADE_STATUS.NONE) { return; }
 
         //ゲームを停止させる
         Time.timeScale = 0;
@@ -52,7 +54,9 @@ public class FadeController : MonoBehaviour
         gameObject.SetActive(true);
         m_nIdxNextScene = nIndex;
         m_bCanChange = false;
+		m_bPlayed = false;
         m_status = FADE_STATUS.FADE_OUT;
+		m_nCntChange = 0;
 
         //イメージ位置初期化
         m_fadeImgL.rectTransform.anchoredPosition = new Vector2(-m_vCanvuaSize.x * 0.5f - m_fFadeMoveSpeed * 2f, 0f);
@@ -69,7 +73,7 @@ public class FadeController : MonoBehaviour
         m_fadeImgR.gameObject.SetActive(true);
         m_status = FADE_STATUS.FADE_IN;
 
-        //Canvasのサイズを計算する
+        //Canvasのサイズを計算するm
         Canvas canvas = GetComponentInParent<Canvas>();
         m_vCanvuaSize = canvas.GetComponent<CanvasScaler>().referenceResolution;
         
@@ -84,9 +88,19 @@ public class FadeController : MonoBehaviour
     {
         if (m_bCanChange)
         {
-            Time.timeScale = 1;
-            UnloadScene();
-            SceneManager.LoadScene(m_nIdxNextScene);
+			if (!m_bPlayed) {
+				m_bPlayed = true;
+				AkSoundEngine.PostEvent("enter_SE", gameObject);
+			}
+
+			if (m_nCntChange > 0) {
+				m_nCntChange--;
+				if (m_nCntChange == 0) {
+					Time.timeScale = 1;
+					UnloadScene();
+					SceneManager.LoadScene(m_nIdxNextScene);
+				}
+			}
         }
 
         switch (m_status)
@@ -112,11 +126,13 @@ public class FadeController : MonoBehaviour
                 Vector2 vSpeed = new Vector2(m_fFadeMoveSpeed, 0.0f);
                 m_fadeImgL.rectTransform.anchoredPosition += vSpeed;
                 m_fadeImgR.rectTransform.anchoredPosition -= vSpeed;
+
                 if (m_fadeImgL.rectTransform.anchoredPosition.x >= 0.0f - m_fFadeMoveSpeed
                     || m_fadeImgR.rectTransform.anchoredPosition.x <= m_vCanvuaSize.x * 0.5f + m_fFadeMoveSpeed)
                 {
                     m_status = FADE_STATUS.NONE;
                     m_bCanChange = true;
+					m_nCntChange = 30;
                 }
                 break;
             }

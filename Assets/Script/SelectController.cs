@@ -9,7 +9,7 @@ public class SelectController : MonoBehaviour
     public void OnClickStage(int nIndex)
     {
         GameObject.FindGameObjectWithTag("Fade").GetComponent<FadeController>().LoadStage(nIndex);
-        AkSoundEngine.PostEvent("enter_SE", gameObject);
+        
         //LoadingManager.LoadScene(nIndex);
         //SceneManager.LoadScene(nIndex);
     }

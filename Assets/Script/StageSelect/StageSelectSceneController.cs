@@ -20,7 +20,7 @@ public class StageSelectSceneController : MonoBehaviour {
             if(m_mainPanel.activeSelf)
             {
                 //Title
-                m_controller.OnClickStage(0);
+                m_controller.OnClickStage(1);
             }
             else
             {

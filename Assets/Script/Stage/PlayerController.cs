@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     private bool m_bJumpPressed;
     private STATUS m_status;
     private float m_fDistoGround;
+	private int m_nCnt;
 
     public void SetStatusNormal()
     {
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
         if (m_status == STATUS.PLAYER_CLEAR) { return; }
         if (m_status != STATUS.PLAYER_FALLING) { return; }
         m_status = STATUS.PLAYER_LANDING;
+		m_nCnt = 3;
     }
 
     public void SetStatusFalling()
@@ -85,6 +87,7 @@ public class PlayerController : MonoBehaviour
         m_bJump = false;
         m_bJumpPressed = false;
         m_fDistoGround = GetComponent<Collider>().bounds.extents.y;
+		m_nCnt = 0;
     }
 
     private void FixedUpdate()
@@ -94,32 +97,40 @@ public class PlayerController : MonoBehaviour
         Vector3 vMovement = Vector3.zero;
         switch (m_status)
         {
-            case STATUS.PLAYER_NORMAL:
-                m_rb.mass = m_fMassNormal;
-                vMovement = new Vector3(fMoveHorizontal, 0.0f, 0.0f) * m_fMoveSpeedNormal;
-                if (m_bJump && !m_bJumpPressed /*&& m_rb.velocity.y <= 0.0f*/ && Input.GetKey("joystick button 0"))
-                {
-                    m_rb.velocity = new Vector3(m_rb.velocity.x, m_fJumpSpeed, m_rb.velocity.z);
-                    m_bJump = false;
-                    m_bJumpPressed = true;
-                    AkSoundEngine.PostEvent("Jump", gameObject);
-                }
-                m_rb.AddForce(Vector3.down * m_fGravity * m_rb.mass * Time.deltaTime);
-                m_rb.MovePosition(m_rb.position + vMovement);
-
+		case STATUS.PLAYER_NORMAL:
+			m_rb.mass = m_fMassNormal;
+			vMovement = new Vector3 (fMoveHorizontal, 0.0f, 0.0f) * m_fMoveSpeedNormal;
+			if (m_bJump && !m_bJumpPressed /*&& m_rb.velocity.y <= 0.0f*/ && Input.GetKey ("joystick button 0")) {
+				m_rb.velocity = new Vector3 (m_rb.velocity.x, m_fJumpSpeed, m_rb.velocity.z);
+				m_bJump = false;
+				m_bJumpPressed = true;
+				AkSoundEngine.PostEvent ("Jump", gameObject);
+			}
+			m_fGravity = 200.0f;
+			m_rb.AddForce (Vector3.down * m_fGravity * m_rb.mass * Time.deltaTime);
+			m_rb.MovePosition (m_rb.position + vMovement);
                 //Model Rotation
                 RotModel(fMoveHorizontal);
                 break;
-            case STATUS.PLAYER_LANDING:
+        case STATUS.PLAYER_LANDING:
+			if (m_nCnt > 0) {
+				m_nCnt--;
+				m_fGravity = 3000.0f;
+			} else {
+				m_fGravity = 200.0f;
+			}
                 m_rb.mass = m_fMassFalling;
                 m_rb.AddForce(Vector3.down * m_fGravity * m_rb.mass * Time.deltaTime);
                 break;
-            case STATUS.PLAYER_FALLING:
-                if ((fMoveHorizontal != 0.0f || fMoveVertical != 0.0f)){ m_rb.velocity = Vector3.zero; }
-                m_rb.mass = m_fMassFalling;
-                vMovement = new Vector3(fMoveHorizontal * 0.75f, fMoveVertical, 0.0f) * m_fMoveSpeedFalling;
-                m_rb.AddForce(Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
-                m_rb.MovePosition(m_rb.position + vMovement);
+		case STATUS.PLAYER_FALLING:
+			if ((fMoveHorizontal != 0.0f || fMoveVertical != 0.0f)) {
+				m_rb.velocity = Vector3.zero;
+			}
+			m_rb.mass = m_fMassFalling;
+			vMovement = new Vector3 (fMoveHorizontal * 0.75f, fMoveVertical, 0.0f) * m_fMoveSpeedFalling;
+			m_rb.AddForce (Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
+			m_rb.MovePosition (m_rb.position + vMovement);
+
 
                 //ModelRotation
                 RotModel(fMoveHorizontal);
@@ -172,9 +183,9 @@ public class PlayerController : MonoBehaviour
     {
         float fRadius = transform.localScale.x * 0.48f;
         Vector3[] avPos = new Vector3[3];
-        avPos[0] = transform.position - new Vector3(fRadius, 0.0f, 0.0f);
+        avPos[0] = transform.position - new Vector3(fRadius*0.35f, 0.0f, 0.0f);
         avPos[1] = transform.position;
-        avPos[2] = transform.position + new Vector3(fRadius, 0.0f, 0.0f);
+        avPos[2] = transform.position + new Vector3(fRadius*0.35f, 0.0f, 0.0f);
 
         if(Physics.Raycast(avPos[0], -Vector3.up, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore)
             || Physics.Raycast(avPos[1], -Vector3.up, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore)

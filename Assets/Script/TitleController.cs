@@ -9,6 +9,7 @@ public class TitleController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         m_vVelocity = Vector3.zero;
+		Debug.Log ("Title BGN");
         AkSoundEngine.PostEvent("BGM_title_start", gameObject);
     }
 

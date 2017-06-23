@@ -173,7 +173,8 @@ public class StageController : MonoBehaviour
                 m_vVelocity *= 0.0f;
             }
         }
-
+		float fValue = -transform.position.y * 0.1f;
+		AkSoundEngine.SetRTPCValue ("room_height", fValue);
         UpdateUI();
     }
 

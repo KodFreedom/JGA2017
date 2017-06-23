@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IceController : GimicController
 {
@@ -9,10 +10,13 @@ public class IceController : GimicController
     //--------------------------------------------------------------------------
     public float m_fDamageSpeedMin;
     public int m_nLife = 2;
+	public Material m_hibi;
+
 
     //--------------------------------------------------------------------------
     //  変数
     //--------------------------------------------------------------------------
+	private Vector3 m_vVelosityLast;
 
     //--------------------------------------------------------------------------
     //  Public関数
@@ -21,12 +25,20 @@ public class IceController : GimicController
     //--------------------------------------------------------------------------
     //  Protected関数
     //--------------------------------------------------------------------------
+	protected override void FixedUpdate ( )
+	{
+		m_vVelosityLast = m_rb.velocity;
+		base.FixedUpdate ();
+	} 
+
     protected override void OnCollisionEnter(Collision collision)
     {
         //Check Speed
-        if(m_status == STATUS.NORMAL && m_rb.velocity.magnitude >= m_fDamageSpeedMin)
+		if(m_status == STATUS.NORMAL && IsGrounded() && m_vVelosityLast.magnitude >= m_fDamageSpeedMin)
         {
             m_nLife--;
+
+			GetComponent<MeshRenderer>().material = m_hibi;
 
             if(m_nLife == 0)
             {
@@ -44,7 +56,6 @@ public class IceController : GimicController
 
     protected override void PlayHitSound()
     {
-        Debug.Log("Ice Hit");
         AkSoundEngine.PostEvent("ice_hit_wall", gameObject);
     }
 }

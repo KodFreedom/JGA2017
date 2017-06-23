@@ -54,6 +54,9 @@ public class StageSelecter : MonoBehaviour
 
         //Sound
         AkSoundEngine.PostEvent("game_over", gameObject);
+
+		//BGM
+		AkSoundEngine.PostEvent("BGM_play_stop", gameObject);
     }
    
     // Use this for initialization
