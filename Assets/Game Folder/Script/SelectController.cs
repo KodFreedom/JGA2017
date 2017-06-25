@@ -8,10 +8,12 @@ public class SelectController : MonoBehaviour
 {
     public void OnClickStage(int nIndex)
     {
+        GameButtonController bc = gameObject.GetComponentInParent<GameButtonController>();
+        if (bc)
+        {
+            bc.OnClick();
+        }
         GameObject.FindGameObjectWithTag("Fade").GetComponent<FadeController>().LoadStage(nIndex);
-        
-        //LoadingManager.LoadScene(nIndex);
-        //SceneManager.LoadScene(nIndex);
     }
 
     public void OnSelected()

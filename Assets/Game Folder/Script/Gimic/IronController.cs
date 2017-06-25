@@ -9,7 +9,6 @@ public class IronController : GimicController
     //--------------------------------------------------------------------------
     protected override void PlayHitSound()
     {
-        Debug.Log("Ice Hit");
         AkSoundEngine.PostEvent("iron_hit_wall", gameObject);
     }
 }

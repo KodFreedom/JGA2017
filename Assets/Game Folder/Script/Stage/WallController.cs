@@ -47,7 +47,9 @@ public class WallController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if(m_bCanControl)
+        if (!GameManager.m_bPlay) { return; }
+
+        if (m_bCanControl)
         {
             Move();
         }
@@ -84,7 +86,9 @@ public class WallController : MonoBehaviour {
 
     private void Update()
     {
-        if(m_bCanControl)
+        if (!GameManager.m_bPlay) { return; }
+
+        if (m_bCanControl)
         {
             m_fLTValue = Input.GetAxis("LT");
             m_fRTValue = Input.GetAxis("RT");

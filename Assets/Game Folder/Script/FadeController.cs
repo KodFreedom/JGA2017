@@ -39,12 +39,25 @@ public class FadeController : MonoBehaviour
 		if(m_bCanChange || m_status != FADE_STATUS.NONE) { return; }
 
         //ゲームを停止させる
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
+        GameManager.m_bPlay = false;
 
         //Eventsystem停止
         EventSystem es = EventSystem.current;
         if(es)
         {
+            //Effect
+            GameObject obj = es.currentSelectedGameObject;
+            if(obj)
+            {
+                GameButtonController bc = obj.transform.parent.GetComponent<GameButtonController>();
+                if(bc)
+                {
+                    bc.gameObject.SetActive(true);
+                }
+            }
+
+            //Stop
             es.SetSelectedGameObject(null);
         }
 
@@ -66,6 +79,8 @@ public class FadeController : MonoBehaviour
 
     private void Start()
     {
+        GameManager.m_bPlay = true;
+
         //初期化
         m_bCanChange = false;
         m_fadeImgL.canvas.sortingOrder = 1000;

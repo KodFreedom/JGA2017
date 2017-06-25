@@ -23,6 +23,10 @@ public class StageSelecter : MonoBehaviour
     //--------------------------------------------------------------------------
     private bool m_bClear;
     private bool m_bFailed;
+    private InputManager m_Input;
+    private GameObject[] m_aObjs;
+    private Vector3[] m_aVelocity;
+    private bool[] m_aisKinematic;
 
     public void StageClear()
     {
@@ -62,12 +66,12 @@ public class StageSelecter : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        Time.timeScale = 1;
         m_clearPanel.SetActive(false);
         m_failedPanel.SetActive(false);
         m_pausePanel.SetActive(false);
         m_bClear = false;
         m_bFailed = false;
+        m_Input = GameObject.Find("EventSystem").GetComponent<InputManager>();
 
         //BGM
         AkSoundEngine.PostEvent("BGM_play_start", gameObject);
@@ -78,7 +82,7 @@ public class StageSelecter : MonoBehaviour
     {
         if(!m_bClear && !m_bFailed)
         {
-            if (Input.GetKeyDown("joystick button 7") || Input.GetKeyDown(KeyCode.Escape))
+            if (m_Input.GetButtonDown(InputManager.EBUTTON.Pause))
             {
                 if (!m_pausePanel.activeInHierarchy)
                 {
@@ -94,7 +98,8 @@ public class StageSelecter : MonoBehaviour
 
     private void PauseGame()
     {
-        Time.timeScale = 0;
+        GameManager.m_bPlay = false;
+        SaveObjs();
         m_pausePanel.SetActive(true);
         GameObject selectObj = m_pausePanel.transform.FindChild("Retry").gameObject;
         m_eventSystem.SetSelectedGameObject(selectObj);
@@ -107,13 +112,47 @@ public class StageSelecter : MonoBehaviour
 
     private void ContinueGame()
     {
-        Time.timeScale = 1;
+        GameManager.m_bPlay = true;
+        LoadObjs();
         m_eventSystem.SetSelectedGameObject(null);
-        m_pausePanel.SetActive(false);
+        m_pausePanel.GetComponent<GamePanelController>().DisableSelf();
+
         //enable the scripts again
         AkSoundEngine.PostEvent("sound_replay", gameObject);
         AkSoundEngine.PostEvent("fall_replay", gameObject);
         AkSoundEngine.PostEvent("pause_SE", gameObject);
     }
 
+    private void SaveObjs()
+    {
+        m_aObjs = FindObjectsOfType(typeof(GameObject)) as GameObject[];
+        m_aVelocity = new Vector3[m_aObjs.Length];
+        m_aisKinematic = new bool[m_aObjs.Length];
+
+        for(int nCnt = 0;nCnt < m_aObjs.Length;nCnt++)
+        {
+            Rigidbody rb = m_aObjs[nCnt].GetComponent<Rigidbody>();
+            if(rb)
+            {
+                m_aVelocity[nCnt] = rb.velocity;
+                m_aisKinematic[nCnt] = rb.isKinematic;
+                rb.velocity = Vector3.zero;
+                rb.isKinematic = true;
+            }
+        }
+    }
+
+    private void LoadObjs()
+    {
+        for (int nCnt = 0; nCnt < m_aObjs.Length; nCnt++)
+        {
+            if (!m_aObjs[nCnt]) { continue; }
+            Rigidbody rb = m_aObjs[nCnt].GetComponent<Rigidbody>();
+            if (rb)
+            {
+                rb.isKinematic = m_aisKinematic[nCnt];
+                rb.velocity = m_aVelocity[nCnt];
+            }
+        }
+    }
 }

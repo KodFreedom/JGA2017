@@ -27,7 +27,9 @@ public class IceController : GimicController
     //--------------------------------------------------------------------------
 	protected override void FixedUpdate ( )
 	{
-		m_vVelosityLast = m_rb.velocity;
+        if (!GameManager.m_bPlay) { return; }
+
+        m_vVelosityLast = m_rb.velocity;
 		base.FixedUpdate ();
 	} 
 

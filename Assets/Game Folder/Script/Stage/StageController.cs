@@ -89,7 +89,9 @@ public class StageController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(Time.timeScale != 0)
+        if (!GameManager.m_bPlay) { return; }
+
+        //if(Time.timeScale != 0)
         {
             m_fLTOld = m_fLTValue;
             m_fRTOld = m_fRTValue;
@@ -131,7 +133,9 @@ public class StageController : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale != 0)
+        if (!GameManager.m_bPlay) { return; }
+
+        //if (Time.timeScale != 0)
         {
             m_bPushedL = false;
             m_bPushedR = false;

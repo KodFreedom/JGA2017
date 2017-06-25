@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private STATUS m_status;
     private float m_fDistoGround;
 	private int m_nCnt;
+    private InputManager m_Input;
 
     public void SetStatusNormal()
     {
@@ -101,12 +102,15 @@ public class PlayerController : MonoBehaviour
         m_bJumpPressed = false;
         m_fDistoGround = GetComponent<Collider>().bounds.extents.y;
 		m_nCnt = 0;
+        m_Input = GameObject.Find("EventSystem").GetComponent<InputManager>();
     }
 
     private void FixedUpdate()
     {
-        float fMoveHorizontal = Input.GetAxis("Horizontal");
-        float fMoveVertical = Input.GetAxis("Vertical");
+        if (!GameManager.m_bPlay) { return; }
+
+        float fMoveHorizontal = m_Input.GetAxis(InputManager.EBUTTON.Horizontal);
+        float fMoveVertical = m_Input.GetAxis(InputManager.EBUTTON.Vertical);
         Vector3 vMovement = Vector3.zero;
         switch (m_status)
         {
@@ -118,7 +122,8 @@ public class PlayerController : MonoBehaviour
                     //ジャンプ
                     if (m_rb.velocity.y >= -fGravity &&
                         m_bJump && !m_bJumpPressed &&
-                        Input.GetKey("joystick button 0"))
+                        /*Input.GetKey("joystick button 0")*/
+                        m_Input.GetButton(InputManager.EBUTTON.Jump))
                     {
                         m_rb.velocity = new Vector3(m_rb.velocity.x, m_fJumpSpeed, m_rb.velocity.z);
                         m_bJump = false;
@@ -172,30 +177,27 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale != 0)
+        if (!GameManager.m_bPlay) { return; }
+        if (m_status != STATUS.PLAYER_FALLING && IsGrounded())
         {
-            if (m_status != STATUS.PLAYER_FALLING && IsGrounded())
+            m_bJump = true;
+            if (m_status == STATUS.PLAYER_LANDING)
             {
-                m_bJump = true;
-                if (m_status == STATUS.PLAYER_LANDING)
-                {
-                    m_status = STATUS.PLAYER_NORMAL;
-                    m_rb.mass = m_fMassNormal;
-                }
+                m_status = STATUS.PLAYER_NORMAL;
+                m_rb.mass = m_fMassNormal;
             }
-            else
-            {
-                m_bJump = false;
-            }
-
-            /*if (m_status == STATUS.PLAYER_NORMAL)*/ { m_rb.velocity = new Vector3(0f, m_rb.velocity.y, m_rb.velocity.z); }
-            if (Input.GetKeyUp("joystick button 0")) { m_bJumpPressed = false; }
-        }  
+        }
+        else
+        {
+            m_bJump = false;
+        }
+        m_rb.velocity = new Vector3(0f, m_rb.velocity.y, m_rb.velocity.z);
+        if (m_Input.GetButtonUp(InputManager.EBUTTON.Jump)) { m_bJumpPressed = false; }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.CompareTag("Goal") && m_status == STATUS.PLAYER_NORMAL)
+        if (other.gameObject.CompareTag("Goal") && m_status == STATUS.PLAYER_NORMAL)
         {//Stage Clear
             m_rb.constraints = m_constraintsClearMode;
             Vector3 vDir = new Vector3(0.0f, 0.0f, -1.0f);
