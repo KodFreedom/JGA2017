@@ -11,6 +11,8 @@ public class InputManager : MonoBehaviour
     {
         Jump,
         Pause,
+        Submit,
+        Cancel,
         DPadUp,
         DPadLeft,
         DPadRight,
@@ -61,15 +63,14 @@ public class InputManager : MonoBehaviour
 
         m_aButtons[(int)EBUTTON.Jump].fValueNow = Input.GetAxis("Jump");
         m_aButtons[(int)EBUTTON.Pause].fValueNow = Input.GetAxis("Pause");
+        m_aButtons[(int)EBUTTON.Submit].fValueNow = Input.GetAxis("Submit");
+        m_aButtons[(int)EBUTTON.Cancel].fValueNow = Input.GetAxis("Cancel");
         m_aButtons[(int)EBUTTON.DPadUp].fValueNow = fVerticalDpad > 0f ? 1f : 0f;
         m_aButtons[(int)EBUTTON.DPadDown].fValueNow = fVerticalDpad < 0f ? 1f : 0f;
         m_aButtons[(int)EBUTTON.DPadLeft].fValueNow = fHorizontalDpad < 0f ? 1f : 0f;
         m_aButtons[(int)EBUTTON.DPadRight].fValueNow = fHorizontalDpad > 0f ? 1f : 0f;
         m_aButtons[(int)EBUTTON.Horizontal].fValueNow = Mathf.Abs(fHorizontal) >= Mathf.Abs(fHorizontalDpad) ? fHorizontal : fHorizontalDpad;
         m_aButtons[(int)EBUTTON.Vertical].fValueNow = Mathf.Abs(fVertical) >= Mathf.Abs(fVerticalDpad) ? fVertical : fVerticalDpad;
-
-        Debug.Log("Last" + m_aButtons[(int)EBUTTON.Pause].fValueLast.ToString());
-        Debug.Log("Now" + m_aButtons[(int)EBUTTON.Pause].fValueNow.ToString());
     }
 
     public bool GetButtonDown(EBUTTON button)

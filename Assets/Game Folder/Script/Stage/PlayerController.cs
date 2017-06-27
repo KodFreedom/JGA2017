@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private RigidbodyConstraints m_constraintsClearMode = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
     private Quaternion m_qRotLeft = Quaternion.Euler(0f, 270f, 0f);
     private Quaternion m_qRotRight = Quaternion.Euler(0f, 90f, 0f);
+    private const float c_fSpeedYMin = 0.01f;
 
     //--------------------------------------------------------------------------
     //  構造体定義
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
     private float m_fDistoGround;
 	private int m_nCnt;
     private InputManager m_Input;
+    private int m_nCntClear;
 
     public void SetStatusNormal()
     {
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
     {
         if (m_status == STATUS.PLAYER_CLEAR) { return; }
         m_status = STATUS.PLAYER_CLEAR;
+        m_nCntClear = 600;
         Transform[] children = gameObject.GetComponentsInChildren<Transform>();
         for (int nCnt = 0; nCnt < children.Length; nCnt++)
         {
@@ -112,6 +115,7 @@ public class PlayerController : MonoBehaviour
         float fMoveHorizontal = m_Input.GetAxis(InputManager.EBUTTON.Horizontal);
         float fMoveVertical = m_Input.GetAxis(InputManager.EBUTTON.Vertical);
         Vector3 vMovement = Vector3.zero;
+
         switch (m_status)
         {
             case STATUS.PLAYER_NORMAL:
@@ -120,9 +124,8 @@ public class PlayerController : MonoBehaviour
                     float fGravity = m_fGravity * m_rb.mass * Time.deltaTime;
 
                     //ジャンプ
-                    if (m_rb.velocity.y >= -fGravity &&
+                    if (m_rb.velocity.y >= -c_fSpeedYMin &&
                         m_bJump && !m_bJumpPressed &&
-                        /*Input.GetKey("joystick button 0")*/
                         m_Input.GetButton(InputManager.EBUTTON.Jump))
                     {
                         m_rb.velocity = new Vector3(m_rb.velocity.x, m_fJumpSpeed, m_rb.velocity.z);
@@ -139,17 +142,25 @@ public class PlayerController : MonoBehaviour
                     break;
                 }
             case STATUS.PLAYER_LANDING:
-                if(m_nCnt > 0)
                 {
-                    m_nCnt--;
-                    m_fGravity = 1000.0f;
+                    //バグ防止ため加速度を上がる
+                    if (m_nCnt > 0)
+                    {
+                        m_nCnt--;
+                        m_fGravity = 1000.0f;
+                    }
+                    else
+                    {
+                        m_fGravity = 200.0f;
+
+                        //着陸判定
+                        CheckLanded();
+                    }
+
+                    //重力
+                    m_rb.AddForce(Vector3.down * m_fGravity * m_rb.mass * Time.deltaTime);
+                    break;
                 }
-                else
-                {
-                    m_fGravity = 200.0f;
-                }
-                m_rb.AddForce(Vector3.down * m_fGravity * m_rb.mass * Time.deltaTime);
-                break;
             case STATUS.PLAYER_FALLING:
                 {
                     //操作する時速度を0にする
@@ -165,8 +176,16 @@ public class PlayerController : MonoBehaviour
                     break;
                 }
             case STATUS.PLAYER_CLEAR:
-                m_rb.AddForce(Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
-                AkSoundEngine.PostEvent("fall_stop", gameObject);
+                if(m_nCntClear > 0)
+                {
+                    m_rb.AddForce(Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
+                    AkSoundEngine.PostEvent("fall_stop", gameObject);
+                    m_nCntClear--;
+                }
+                else
+                {
+                    m_rb.velocity *= 0.95f;
+                }
                 break;
             case STATUS.PLAYER_GAMEOVER:
                 break;
@@ -178,14 +197,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (!GameManager.m_bPlay) { return; }
-        if (m_status != STATUS.PLAYER_FALLING && IsGrounded())
+        
+        if (m_status == STATUS.PLAYER_NORMAL && IsGrounded())
         {
             m_bJump = true;
-            if (m_status == STATUS.PLAYER_LANDING)
-            {
-                m_status = STATUS.PLAYER_NORMAL;
-                m_rb.mass = m_fMassNormal;
-            }
         }
         else
         {
@@ -209,19 +224,29 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        float fRadius = transform.localScale.x * 0.48f;
+        float fRadius = transform.localScale.x * 0.5f;
         Vector3[] avPos = new Vector3[3];
-        avPos[0] = transform.position - new Vector3(fRadius * 0.5f, 0.0f, 0.0f);
+        avPos[0] = transform.position - new Vector3(fRadius * 0.2f, 0.0f, 0.0f);
         avPos[1] = transform.position;
-        avPos[2] = transform.position + new Vector3(fRadius * 0.5f, 0.0f, 0.0f);
+        avPos[2] = transform.position + new Vector3(fRadius * 0.2f, 0.0f, 0.0f);
 
-        if(Physics.Raycast(avPos[0], -Vector3.up, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore)
-            || Physics.Raycast(avPos[1], -Vector3.up, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore)
-            || Physics.Raycast(avPos[2], -Vector3.up, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore))
+        if(Physics.Raycast(avPos[0], Vector3.down, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore)
+            || Physics.Raycast(avPos[1], Vector3.down, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore)
+            || Physics.Raycast(avPos[2], Vector3.down, m_fDistoGround + 0.005f, -1, QueryTriggerInteraction.Ignore))
         {
             return true;
         }
         return false;
+    }
+
+    private void CheckLanded()
+    {
+        if (IsGrounded() && m_rb.velocity.y >= -c_fSpeedYMin)
+        {
+            
+            m_status = STATUS.PLAYER_NORMAL;
+            m_rb.mass = m_fMassNormal;
+        }
     }
 
     private void RotModel(float fMoveHorizontal)

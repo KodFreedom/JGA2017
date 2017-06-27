@@ -7,15 +7,23 @@ public class StageSelectSceneController : MonoBehaviour {
     public SelectController m_controller;
     public GameObject m_mainPanel;
     public GameObject[] m_subPanels;
+    public GameObject m_lastSelectedObj;
+    private InputManager m_Input;
+
+    public void ObjSelectedNow(GameObject obj)
+    {
+        m_lastSelectedObj = obj;
+    }
 
     // Use this for initialization
-    void Start () {
+    private void Start () {
         AkSoundEngine.PostEvent("BGM_stageselect_start", gameObject);
+        m_Input = GameObject.Find("EventSystem").GetComponent<InputManager>();
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown("joystick button 1") && m_controller && m_mainPanel)
+        if(m_Input.GetButtonDown(InputManager.EBUTTON.Cancel) && m_controller && m_mainPanel)
         {
             if(m_mainPanel.activeSelf)
             {
@@ -33,7 +41,7 @@ public class StageSelectSceneController : MonoBehaviour {
                 }
 
                 m_mainPanel.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(m_mainPanel.transform.GetChild(0).gameObject);
+                EventSystem.current.SetSelectedGameObject(m_lastSelectedObj/*m_mainPanel.transform.GetChild(0).gameObject*/);
             }
         }
     }
