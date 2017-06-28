@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class InputManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class InputManager : MonoBehaviour
         DPadLeft,
         DPadRight,
         DPadDown,
+        KeyUp,
+        KeyLeft,
+        KeyRight,
+        KeyDown,
         Horizontal,
         Vertical,
         B_MAX
@@ -36,6 +41,9 @@ public class InputManager : MonoBehaviour
     //--------------------------------------------------------------------------
     private BUTTON[] m_aButtons;
 
+    //XInput
+    PlayerIndex m_playerIndex;
+
     //--------------------------------------------------------------------------
     //  関数
     //--------------------------------------------------------------------------
@@ -46,6 +54,19 @@ public class InputManager : MonoBehaviour
         {
             m_aButtons[nCnt].fValueLast = 0f;
             m_aButtons[nCnt].fValueNow = 0f;
+        }
+
+        // Find a PlayerIndex, for a single player game
+        // Will find the first controller that is connected ans use it
+        for (int nCnt = 0; nCnt < 4; nCnt++)
+        {
+            PlayerIndex testPlayerIndex = (PlayerIndex)nCnt;
+            GamePadState testState = GamePad.GetState(testPlayerIndex);
+            if (testState.IsConnected)
+            {
+                m_playerIndex = testPlayerIndex;
+                break;
+            }
         }
     }
 
@@ -58,8 +79,15 @@ public class InputManager : MonoBehaviour
 
         float fHorizontal = Input.GetAxis("Horizontal");
         float fHorizontalDpad = Input.GetAxis("HorizontalDpad");
+        float fHorizontalKeyboard = Input.GetAxis("HorizontalKeyboard");
         float fVertical = Input.GetAxis("Vertical");
         float fVerticalDpad = Input.GetAxis("VerticalDpad");
+        float fVerticalKeyboard = Input.GetAxis("VerticalKeyboard");
+
+        fHorizontal = Mathf.Abs(fHorizontal) >= Mathf.Abs(fHorizontalDpad) ? fHorizontal : fHorizontalDpad;
+        fHorizontal = Mathf.Abs(fHorizontal) >= Mathf.Abs(fHorizontalKeyboard) ? fHorizontal : fHorizontalKeyboard;
+        fVertical = Mathf.Abs(fVertical) >= Mathf.Abs(fVerticalDpad) ? fVertical : fVerticalDpad;
+        fVertical = Mathf.Abs(fVertical) >= Mathf.Abs(fVerticalKeyboard) ? fVertical : fVerticalKeyboard;
 
         m_aButtons[(int)EBUTTON.Jump].fValueNow = Input.GetAxis("Jump");
         m_aButtons[(int)EBUTTON.Pause].fValueNow = Input.GetAxis("Pause");
@@ -69,8 +97,12 @@ public class InputManager : MonoBehaviour
         m_aButtons[(int)EBUTTON.DPadDown].fValueNow = fVerticalDpad < 0f ? 1f : 0f;
         m_aButtons[(int)EBUTTON.DPadLeft].fValueNow = fHorizontalDpad < 0f ? 1f : 0f;
         m_aButtons[(int)EBUTTON.DPadRight].fValueNow = fHorizontalDpad > 0f ? 1f : 0f;
-        m_aButtons[(int)EBUTTON.Horizontal].fValueNow = Mathf.Abs(fHorizontal) >= Mathf.Abs(fHorizontalDpad) ? fHorizontal : fHorizontalDpad;
-        m_aButtons[(int)EBUTTON.Vertical].fValueNow = Mathf.Abs(fVertical) >= Mathf.Abs(fVerticalDpad) ? fVertical : fVerticalDpad;
+        m_aButtons[(int)EBUTTON.KeyUp].fValueNow = fVerticalKeyboard > 0f ? 1f : 0f;
+        m_aButtons[(int)EBUTTON.KeyDown].fValueNow = fVerticalKeyboard < 0f ? 1f : 0f;
+        m_aButtons[(int)EBUTTON.KeyLeft].fValueNow = fHorizontalKeyboard < 0f ? 1f : 0f;
+        m_aButtons[(int)EBUTTON.KeyRight].fValueNow = fHorizontalKeyboard > 0f ? 1f : 0f;
+        m_aButtons[(int)EBUTTON.Horizontal].fValueNow = fHorizontal;
+        m_aButtons[(int)EBUTTON.Vertical].fValueNow = fVertical;
     }
 
     public bool GetButtonDown(EBUTTON button)
@@ -103,5 +135,12 @@ public class InputManager : MonoBehaviour
     public float GetAxis(EBUTTON Axis)
     {
         return m_aButtons[(int)Axis].fValueNow;
+    }
+
+    public void Vibration(bool bLeft, bool bRight)
+    {
+        // SetVibration should be sent in a slower rate.
+        // Set vibration according to triggers
+        GamePad.SetVibration(m_playerIndex, bLeft?1f:0f, bRight?1f:0f);
     }
 }

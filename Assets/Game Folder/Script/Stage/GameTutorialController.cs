@@ -27,7 +27,7 @@ public class GameTutorialController : MonoBehaviour
     {
         GameManager.m_bPlay = false;
         m_bChecked = false;
-        m_nCnt = 60;
+        m_nCnt = 120;
         m_status = STATUS.START;
         m_Input = GameObject.Find("EventSystem").GetComponent<InputManager>();
         m_tutorial.rectTransform.anchoredPosition = m_vStartPos;

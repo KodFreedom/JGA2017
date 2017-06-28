@@ -33,6 +33,13 @@ public class FadeController : MonoBehaviour
     private Vector2 m_vCanvuaSize;
 	private bool m_bPlayed;
 	private int m_nCntChange;
+    private bool m_bExit;
+
+    public void ExitApp()
+    {
+        m_bExit = true;
+        LoadStage(0);
+    }
 
     public void LoadStage(int nIndex)
     {
@@ -74,7 +81,6 @@ public class FadeController : MonoBehaviour
         //イメージ位置初期化
         m_fadeImgL.rectTransform.anchoredPosition = new Vector2(-m_vCanvuaSize.x * 0.5f - m_fFadeMoveSpeed * 2f, 0f);
         m_fadeImgR.rectTransform.anchoredPosition = new Vector2(m_vCanvuaSize.x * 1f + m_fFadeMoveSpeed * 2f, 0f);
-
     }
 
     private void Start()
@@ -108,12 +114,22 @@ public class FadeController : MonoBehaviour
 				AkSoundEngine.PostEvent("enter_SE", gameObject);
 			}
 
-			if (m_nCntChange > 0) {
+			if (m_nCntChange > 0)
+            {
 				m_nCntChange--;
-				if (m_nCntChange == 0) {
-					Time.timeScale = 1;
-					UnloadScene();
-					SceneManager.LoadScene(m_nIdxNextScene);
+				if (m_nCntChange == 0)
+                {
+                    if(m_bExit)
+                    {
+                        Application.Quit();
+                        m_bExit = false;
+                    }
+                    else
+                    {
+                        Time.timeScale = 1;
+                        UnloadScene();
+                        SceneManager.LoadScene(m_nIdxNextScene);
+                    }
 				}
 			}
         }

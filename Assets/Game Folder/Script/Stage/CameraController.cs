@@ -22,7 +22,6 @@ public class CameraController : MonoBehaviour
     private Vector3 m_vVelocity;
     private float m_fPlayerPosYLocal;
     private int m_nCntOpening;
-    private int m_nCntShake;
 
     //--------------------------------------------------------------------------
     //  関数
@@ -60,7 +59,7 @@ public class CameraController : MonoBehaviour
             GameObject player = GameObject.Find("Player Fbx");
             if (player)
             {
-                transform.position = player.transform.position;
+                transform.position = player.transform.position + new Vector3(0.0f, 0.0f, -1.0f);
                 m_fPlayerPosYLocal = player.transform.localPosition.y;
                 m_nCntOpening = 240;
             }
@@ -71,24 +70,15 @@ public class CameraController : MonoBehaviour
     {
         if(m_target)
         {
-            Vector3 vShakePos = Vector3.zero;
             Vector3 vPos;
             Vector3 vCurrent = transform.position;
             Vector3 vTarget = m_target.transform.position + m_vDefaultPos;
             Vector3 vTime = Vector3.zero;
 
-            if (m_nCntShake > 0)
-            {
-                Debug.Log("Shake!");
-                float fX = Random.value * 2.0f - 1.0f;
-                vShakePos.x = fX * 0.1f * (m_nCntShake % 10 + 1)                                   ;
-                m_nCntShake--;
-            }
-
             if (m_nCntOpening > 0)
             {
-                vTime.z = 1.5f;
-                vTime.x = 1.5f;
+                vTime.z = 2.0f;
+                vTime.x = 1.0f;
                 vTime.y = 1f;
                 m_fPlayerPosYLocal = Mathf.SmoothDamp(m_fPlayerPosYLocal, 0f, ref m_vVelocity.y, vTime.y);
                 m_nCntOpening--;
@@ -109,7 +99,7 @@ public class CameraController : MonoBehaviour
             //Y
             vPos.y = m_fPlayerPosYLocal + vTarget.y;
 
-            transform.position = vPos + vShakePos;
+            transform.position = vPos;
         }
 	}
 }

@@ -24,6 +24,8 @@ public class StageController : MonoBehaviour
     public GameObject m_objRightWall;
     public GameObject m_objPlane;
     public ParticleSystem[] m_particleWall;
+    public ParticleSystem m_particleFalling;
+    public PhysicMaterial m_gameoverPM;
     
     //UI
     public Image m_imgUIStage;
@@ -46,12 +48,17 @@ public class StageController : MonoBehaviour
     private bool m_bCanControl;
     private bool m_bFirstNipped;
     private bool m_bFirstUnNipped;
+    private bool m_bFirstGameover;
     private Vector3 m_vLeftParticlePos;
     private Vector3 m_vRightParticlePos;
     private int m_nCntUIEffect;
     private int m_nCntEffect500;
     private bool m_bEffected500;
     private bool m_bEffectFinal;
+    private InputManager m_Input;
+    private int m_nCntVibrationL;
+    private int m_nCntVibrationR;
+    private int m_nCntVibrationLR;
 
     public Vector3 GetVelocity()
     {
@@ -71,6 +78,7 @@ public class StageController : MonoBehaviour
         m_bPushedR = false;
         m_bFirstNipped = false;
         m_bFirstUnNipped = false;
+        m_bFirstGameover = true;
         m_fLTValue = 0.0f;
         m_fRTValue = 0.0f;
         m_fLTOld = 0.0f;
@@ -85,6 +93,19 @@ public class StageController : MonoBehaviour
         m_nCntEffect500 = 0;
         m_bEffected500 = false;
         m_bEffectFinal = false;
+
+        //Input
+        m_Input = GameObject.Find("EventSystem").GetComponent<InputManager>();
+        m_nCntVibrationL = 0;
+        m_nCntVibrationR = 0;
+        m_nCntVibrationLR = 0;
+
+        //Particle
+        Vector3 vSize = gameObject.GetComponent<BoxCollider>().size;
+        //m_particleFalling.transform.parent = transform;
+        m_particleFalling.transform.localPosition = new Vector3(0f, vSize.y * 0.5f, 0f);
+        ParticleSystem.ShapeModule shape = m_particleFalling.shape;
+        shape.radius = vSize.x * 0.5f;
     }
 
     private void FixedUpdate()
@@ -112,18 +133,24 @@ public class StageController : MonoBehaviour
             {//Left Wall
                 m_vVelocity = new Vector3(m_fVelocityX, m_vVelocity.y, 0.0f);
 
-                //Effect & Soubd
+                //Effect & Sound
                 PlayWallContactEffect(transform.position + m_vLeftParticlePos, Quaternion.Euler(0f, -90.0f, 0f), EFFECT_IDX.LEFT);
                 AkSoundEngine.PostEvent("left_wall", gameObject);
+
+                //VibrationL
+                m_nCntVibrationL = 10;
             }
 
             if (m_bPushedR && !m_bPushedL && m_fRTValue < 0.0f && m_fRTValue <= m_fRTOld && m_vVelocity.x >= 0.0f)
             {//Right Wall
                 m_vVelocity = new Vector3(-m_fVelocityX, m_vVelocity.y, 0.0f);
 
-                //Effect & Soubd
+                //Effect & Sound
                 PlayWallContactEffect(transform.position + m_vRightParticlePos, Quaternion.Euler(0f, 90.0f, 0f), EFFECT_IDX.RIGHT);
                 AkSoundEngine.PostEvent("right_wall", gameObject);
+
+                //VibrationR
+                m_nCntVibrationR = 10;
             }
 
             m_vVelocity.y -= m_fGravity;
@@ -177,6 +204,12 @@ public class StageController : MonoBehaviour
 
             transform.position += m_vVelocity;
 
+            //地面との距離が10以下だったら挟めない
+            if(transform.position.y <= m_objPlane.transform.position.y + fHeightStage * 0.5f + 10f)
+            {
+                GameObject.FindGameObjectWithTag("StageSelecter").GetComponent<StageSelecter>().PrepareFailed();
+            }
+
             //地面との当たり判定
             if (transform.position.y <= m_objPlane.transform.position.y + fHeightStage * 0.5f)
             {
@@ -192,6 +225,13 @@ public class StageController : MonoBehaviour
         //BGM
 		float fValue = -transform.position.y * 0.1f;
 		AkSoundEngine.SetRTPCValue ("room_height", fValue);
+
+        //Particle
+        ParticleSystem.MainModule main = m_particleFalling.main;
+        main.startSpeed = -m_vVelocity.y * 5.0f;
+
+        //Vibration
+        UpdateVibration();
 
         //UI
         UpdateUI();
@@ -225,6 +265,10 @@ public class StageController : MonoBehaviour
             AkSoundEngine.PostEvent("LR_wall", gameObject);
             Debug.Log("fall stop");
             AkSoundEngine.PostEvent("fall_stop", gameObject);
+            m_particleFalling.Stop();
+
+            //VibrationLR
+            m_nCntVibrationLR = 20;
         }
     }
 
@@ -248,6 +292,9 @@ public class StageController : MonoBehaviour
         {
             m_bFirstUnNipped = true;
             m_bFirstNipped = false;
+            m_particleFalling.Play();
+            ParticleSystem.MainModule main = m_particleFalling.main;
+            main.startSpeed = 0f;
             Debug.Log("fall start");
             AkSoundEngine.PostEvent("fall_start", gameObject);
         }
@@ -255,31 +302,44 @@ public class StageController : MonoBehaviour
 
     private void GameOver()
     {
+        if (!m_bFirstGameover) { return; }
+        m_bFirstGameover = false;
         Transform[] childs = transform.GetComponentsInChildren<Transform>();
         for(int nCnt = 0;nCnt < childs.Length;nCnt++)
         {
+            if(childs[nCnt].name == "group3" || childs[nCnt].name == "polySurface1" || childs[nCnt].name == "polySurface2" || childs[nCnt].name == "polySurface18") { continue; }
             childs[nCnt].SetParent(null, true);
 
-            Rigidbody rb = childs[nCnt].gameObject.GetComponent<Rigidbody>();
-            if (!rb)
-            {
-                rb = childs[nCnt].gameObject.AddComponent<Rigidbody>();
-            }
+            //Collider
+            Collider cd = childs[nCnt].gameObject.GetComponent<Collider>();
+            if (!cd || cd.isTrigger) { continue; }
+            cd.material = m_gameoverPM;
 
+            Rigidbody rb = childs[nCnt].gameObject.GetComponent<Rigidbody>();
+            if (!rb) { rb = childs[nCnt].gameObject.AddComponent<Rigidbody>(); }
             rb.useGravity = true;
             rb.isKinematic = false;
             rb.mass = 1.0f;
-            rb.AddForce(m_vVelocity);
+            
+            rb.AddForce(Vector3.down * 2000.0f);
             rb.constraints = RigidbodyConstraints.None;
+            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         }
 
         Rigidbody srb = gameObject.GetComponent<Rigidbody>();
         if(srb)
         {
-            srb.isKinematic = true;
+            Destroy(srb);
+            //srb.isKinematic = true;
         }
 
         GameObject.FindGameObjectWithTag("StageSelecter").GetComponent<StageSelecter>().StageFailed();
+
+        //Particle
+        m_particleFalling.Stop();
+
+        //Vibration
+        m_nCntVibrationLR = 60;
     }
 
     private void PlayWallContactEffect(Vector3 vPos, Quaternion qRot, EFFECT_IDX idx)
@@ -344,10 +404,38 @@ public class StageController : MonoBehaviour
                 fRate = 1f - (float)(m_nCntUIEffect % nBase) / nBase;
             }
             Color cColor = Color.Lerp(Color.white, Color.red, fRate);
+
+            if(fDis <= 2f)
+            {//GameOver
+                cColor = Color.white;
+            }
             for (int nCnt = 0; nCnt < 3; nCnt++)
             {
                 m_aImgUIStageNum[nCnt].color = cColor;
             }
         }
+    }
+
+    private void UpdateVibration()
+    {
+        bool bLeft = false;
+        bool bRight = false;
+        if (m_nCntVibrationL > 0)
+        {
+            m_nCntVibrationL--;
+            bLeft = true;
+        }
+        if (m_nCntVibrationR > 0)
+        {
+            m_nCntVibrationR--;
+            bRight = true;
+        }
+        if (m_nCntVibrationLR > 0)
+        {
+            m_nCntVibrationLR--;
+            bLeft = true;
+            bRight = true;
+        }
+        m_Input.Vibration(bLeft, bRight);
     }
 }

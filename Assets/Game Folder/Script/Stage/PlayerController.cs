@@ -170,7 +170,6 @@ public class PlayerController : MonoBehaviour
                     vMovement = new Vector3(fMoveHorizontal * 0.75f, fMoveVertical, 0.0f) * m_fMoveSpeedFalling;
                     m_rb.AddForce(Vector3.up * m_fBouyant * m_rb.mass * Time.deltaTime);
                     m_rb.MovePosition(m_rb.position + vMovement);
-
                     //ModelRotation
                     RotModel(fMoveHorizontal);
                     break;
@@ -197,7 +196,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (!GameManager.m_bPlay) { return; }
-        
+        if (m_status == STATUS.PLAYER_GAMEOVER) { return; }
         if (m_status == STATUS.PLAYER_NORMAL && IsGrounded())
         {
             m_bJump = true;

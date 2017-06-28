@@ -44,6 +44,12 @@ public class StageSelecter : MonoBehaviour
         AkSoundEngine.PostEvent("game_clear", gameObject);
     }
 
+    public void PrepareFailed()
+    {
+        m_wall.GetComponent<WallController>().DisableControl();
+        m_stage.GetComponent<StageController>().DisableControl();
+    }
+
     public void StageFailed()
     {
         if (m_bFailed || m_bClear) { return; }

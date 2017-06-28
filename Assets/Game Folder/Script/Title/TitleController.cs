@@ -9,26 +9,20 @@ public class TitleController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         m_vVelocity = Vector3.zero;
-		Debug.Log ("Title BGN");
         AkSoundEngine.PostEvent("BGM_title_start", gameObject);
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-
         if(m_stage)
         {
             m_vVelocity.y += 0.01f;
             m_stage.transform.position -= m_vVelocity;
-            m_vVelocity *= 0.98f;
+            m_vVelocity *= 0.9f;
 
-            if (m_stage.transform.position.y <= -500f)
+            if (m_stage.transform.position.y <= -990f)
             {
-                m_stage.transform.position = Vector3.zero;
+                m_stage.transform.position = new Vector3(m_stage.transform.position.x, 990f, m_stage.transform.position.z);
             }
         }
     }

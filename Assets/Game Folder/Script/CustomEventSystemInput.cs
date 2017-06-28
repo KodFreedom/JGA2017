@@ -19,22 +19,22 @@ public class CustomEventSystemInput : MonoBehaviour {
         AxisEventData currentAxis = new AxisEventData(EventSystem.current);
         GameObject currentButton = EventSystem.current.currentSelectedGameObject;
 
-        if (m_Input.GetButtonDown(InputManager.EBUTTON.DPadUp)) // move up
+        if (m_Input.GetButtonDown(InputManager.EBUTTON.DPadUp) || m_Input.GetButtonDown(InputManager.EBUTTON.KeyUp)) // move up
         {
             currentAxis.moveDir = MoveDirection.Up;
             ExecuteEvents.Execute(currentButton, currentAxis, ExecuteEvents.moveHandler);
         }
-        else if (m_Input.GetButtonDown(InputManager.EBUTTON.DPadDown)) // move down
+        else if (m_Input.GetButtonDown(InputManager.EBUTTON.DPadDown) || m_Input.GetButtonDown(InputManager.EBUTTON.KeyDown)) // move down
         {
             currentAxis.moveDir = MoveDirection.Down;
             ExecuteEvents.Execute(currentButton, currentAxis, ExecuteEvents.moveHandler);
         }
-        else if (m_Input.GetButtonDown(InputManager.EBUTTON.DPadRight)) // move right
+        else if (m_Input.GetButtonDown(InputManager.EBUTTON.DPadRight) || m_Input.GetButtonDown(InputManager.EBUTTON.KeyRight)) // move right
         {
             currentAxis.moveDir = MoveDirection.Right;
             ExecuteEvents.Execute(currentButton, currentAxis, ExecuteEvents.moveHandler);
         }
-        else if (m_Input.GetButtonDown(InputManager.EBUTTON.DPadLeft)) // move left
+        else if (m_Input.GetButtonDown(InputManager.EBUTTON.DPadLeft) || m_Input.GetButtonDown(InputManager.EBUTTON.KeyLeft)) // move left
         {
             currentAxis.moveDir = MoveDirection.Left;
             ExecuteEvents.Execute(currentButton, currentAxis, ExecuteEvents.moveHandler);

@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4342917312304386}
   - component: {fileID: 33881049295719036}
-  - component: {fileID: 64799023225306646}
   - component: {fileID: 23584721124388516}
+  - component: {fileID: 65622553230598858}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Finish
@@ -55,7 +55,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 032e39ff379d3814188a86b53c663654, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,17 +81,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1600903991850604}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64799023225306646
-MeshCollider:
+--- !u!65 &65622553230598858
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1600903991850604}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e509089968b4d58408f166920329994a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 10, y: 100, z: 10}
+  m_Center: {x: 0, y: -50, z: 0}

@@ -9,7 +9,7 @@ public class GomController : GimicController
     //--------------------------------------------------------------------------
     protected override void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Gom"))
+        if (m_status == STATUS.NORMAL && collision.gameObject.CompareTag("Gom"))
         {
             AkSoundEngine.PostEvent("gom_hit_gom", gameObject);
         }
