@@ -177,6 +177,7 @@ public class FadeController : MonoBehaviour
     private void UnloadScene()
     {
         //BGM
+        AkSoundEngine.SetRTPCValue("room_height", 100f);
         AkSoundEngine.PostEvent("BGM_play_stop", gameObject);
         AkSoundEngine.PostEvent("BGM_stageselect_stop", gameObject);
         AkSoundEngine.PostEvent("BGM_title_stop", gameObject);

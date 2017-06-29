@@ -24,6 +24,8 @@ public class InputManager : MonoBehaviour
         KeyDown,
         Horizontal,
         Vertical,
+        LT,
+        RT,
         B_MAX
     }
 
@@ -77,6 +79,7 @@ public class InputManager : MonoBehaviour
             m_aButtons[nCnt].fValueLast = m_aButtons[nCnt].fValueNow;
         }
 
+        //方向キー
         float fHorizontal = Input.GetAxis("Horizontal");
         float fHorizontalDpad = Input.GetAxis("HorizontalDpad");
         float fHorizontalKeyboard = Input.GetAxis("HorizontalKeyboard");
@@ -89,6 +92,16 @@ public class InputManager : MonoBehaviour
         fVertical = Mathf.Abs(fVertical) >= Mathf.Abs(fVerticalDpad) ? fVertical : fVerticalDpad;
         fVertical = Mathf.Abs(fVertical) >= Mathf.Abs(fVerticalKeyboard) ? fVertical : fVerticalKeyboard;
 
+        //LT,RT
+        float fLT = Input.GetAxis("LT");
+        float fLTKeyboard = Input.GetAxis("LTKeyboard");
+        float fRT = Input.GetAxis("RT");
+        float fRTKeyboard = Input.GetAxis("RTKeyboard");
+
+        fLT = Mathf.Abs(fLT) >= Mathf.Abs(fLTKeyboard) ? fLT : fLTKeyboard;
+        fRT = Mathf.Abs(fRT) >= Mathf.Abs(fRTKeyboard) ? fRT : fRTKeyboard;
+
+        //データ更新
         m_aButtons[(int)EBUTTON.Jump].fValueNow = Input.GetAxis("Jump");
         m_aButtons[(int)EBUTTON.Pause].fValueNow = Input.GetAxis("Pause");
         m_aButtons[(int)EBUTTON.Submit].fValueNow = Input.GetAxis("Submit");
@@ -103,6 +116,8 @@ public class InputManager : MonoBehaviour
         m_aButtons[(int)EBUTTON.KeyRight].fValueNow = fHorizontalKeyboard > 0f ? 1f : 0f;
         m_aButtons[(int)EBUTTON.Horizontal].fValueNow = fHorizontal;
         m_aButtons[(int)EBUTTON.Vertical].fValueNow = fVertical;
+        m_aButtons[(int)EBUTTON.LT].fValueNow = fLT;
+        m_aButtons[(int)EBUTTON.RT].fValueNow = fRT;
     }
 
     public bool GetButtonDown(EBUTTON button)

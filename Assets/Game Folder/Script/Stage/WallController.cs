@@ -19,6 +19,7 @@ public class WallController : MonoBehaviour {
     private float m_fLTValue;
     private float m_fRTValue;
     private bool m_bCanControl;
+    private InputManager m_Input;
 
     public void DisableControl()
     {
@@ -43,6 +44,7 @@ public class WallController : MonoBehaviour {
         m_bCanControl = true;
         m_fLTValue = 0.0f;
         m_fRTValue = 0.0f;
+        m_Input = GameObject.Find("EventSystem").GetComponent<InputManager>();
     }
 
     private void FixedUpdate()
@@ -90,8 +92,8 @@ public class WallController : MonoBehaviour {
 
         if (m_bCanControl)
         {
-            m_fLTValue = Input.GetAxis("LT");
-            m_fRTValue = Input.GetAxis("RT");
+            m_fLTValue = m_Input.GetAxis(InputManager.EBUTTON.LT);
+            m_fRTValue = m_Input.GetAxis(InputManager.EBUTTON.RT);
         }
         //else
         //{

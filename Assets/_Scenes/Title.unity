@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 505807950}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &118778745
@@ -1470,6 +1470,7 @@ GameObject:
   - component: {fileID: 1175128445}
   - component: {fileID: 1175128444}
   - component: {fileID: 1175128448}
+  - component: {fileID: 1175128449}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Fade
@@ -1570,6 +1571,19 @@ MonoBehaviour:
   m_fadeImgL: {fileID: 1322507861}
   m_fadeImgR: {fileID: 1109244643}
   m_fFadeMoveSpeed: 25
+--- !u!114 &1175128449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175128443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02fd054064990647a1cd5806e6c5f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_logo: {fileID: 1135011430}
+  m_panel: {fileID: 1759914685}
 --- !u!1 &1322507860
 GameObject:
   m_ObjectHideFlags: 0

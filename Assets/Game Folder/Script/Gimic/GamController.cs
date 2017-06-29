@@ -13,30 +13,36 @@ public class GamController : GimicController
         {
             GameObject obj = collision.gameObject;
             bool bFind = false;
+            FixedJoint jointSelf;
+            FixedJoint jointObj;
+
             //自分と相手のjointがあったらチェックjointの相手が自分かどうか
-            if(gameObject.GetComponent<FixedJoint>())
+            jointSelf = gameObject.GetComponent<FixedJoint>();
+            if (jointSelf)
             {
-                if(gameObject.GetComponent<FixedJoint>().connectedBody.gameObject == obj)
+                if(jointSelf.connectedBody.gameObject == obj)
                 {
                     bFind = true;
                 }
             }
-            if (obj.GetComponent<FixedJoint>())
+
+            jointObj = obj.GetComponent<FixedJoint>();
+            if (jointObj)
             {
-                if(obj.GetComponent<FixedJoint>().connectedBody.gameObject == gameObject)
+                if(jointObj.connectedBody.gameObject == gameObject)
                 {
                     bFind = true;
                 }
             }
 
             //違かったら自分か相手にお互いをくっつく
-            //相手のジョイントをチェック
+            
             if(!bFind)
-            {
+            {//相手のジョイントをチェック
                 for (int nCnt = 0; nCnt < 5; nCnt++)
                 {
                     FixedJoint joint = obj.GetComponent<FixedJoint>();
-                    if (!joint)
+                    if (!joint && obj != gameObject)
                     {
                         obj.AddComponent<FixedJoint>();
                         obj.GetComponent<FixedJoint>().connectedBody = m_rb;
@@ -50,9 +56,9 @@ public class GamController : GimicController
                 }
             }
 
-            //自分のジョイントをチェック
+            
             if (!bFind)
-            {
+            {//自分のジョイントをチェック
                 FixedJoint joint = gameObject.GetComponent<FixedJoint>();
                 if(!joint)
                 {
@@ -65,7 +71,7 @@ public class GamController : GimicController
                     for (int nCnt = 0; nCnt < 5; nCnt++)
                     {
                         joint = obj.GetComponent<FixedJoint>();
-                        if (!joint)
+                        if (!joint && obj != collision.gameObject)
                         {
                             obj.AddComponent<FixedJoint>();
                             obj.GetComponent<FixedJoint>().connectedBody = collision.rigidbody;
@@ -79,33 +85,6 @@ public class GamController : GimicController
                     }
                 }
             }
-
-            ////ジョイントをチェック
-            //FixedJoint joint = gameObject.GetComponent<FixedJoint>();
-            //if (!joint)
-            //{
-            //    gameObject.AddComponent<FixedJoint>();
-            //    gameObject.GetComponent<FixedJoint>().connectedBody = collision.rigidbody;
-            //}
-            //else
-            //{
-            //    //相手のジョイントをチェック
-            //    GameObject obj = collision.gameObject;
-            //    for (int nCnt = 0;nCnt < 10;nCnt++)
-            //    {
-            //        FixedJoint jointC = obj.GetComponent<FixedJoint>();
-            //        if (!jointC)
-            //        {
-            //            obj.AddComponent<FixedJoint>();
-            //            obj.GetComponent<FixedJoint>().connectedBody = m_rb;
-            //            break;
-            //        }
-            //        else
-            //        {
-            //            obj = jointC.connectedBody.gameObject;
-            //        }
-            //    }
-            //}
 
             AkSoundEngine.PostEvent("gam_hit_gam", gameObject);
         }
