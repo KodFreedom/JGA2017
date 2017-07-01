@@ -38,8 +38,13 @@ public class StageSelecter : MonoBehaviour
 
         //Show Clear Effect & UI
         m_clearPanel.SetActive(true);
-        m_eventSystem.SetSelectedGameObject(m_clearPanel.transform.FindChild("Next Stage").gameObject);
 
+        NoMouseEventSystem es = m_eventSystem.GetComponent<NoMouseEventSystem>();
+        if (es)
+        {
+            es.SelectObj(m_clearPanel.transform.FindChild("Next Stage").gameObject);
+        }
+        
         //Sound
         AkSoundEngine.PostEvent("game_clear", gameObject);
     }
@@ -60,7 +65,11 @@ public class StageSelecter : MonoBehaviour
 
         //Show Failed Effect & UI
         m_failedPanel.SetActive(true);
-        m_eventSystem.SetSelectedGameObject(m_failedPanel.transform.FindChild("Retry").gameObject);
+        NoMouseEventSystem es = m_eventSystem.GetComponent<NoMouseEventSystem>();
+        if(es)
+        {
+            es.SelectObj(m_failedPanel.transform.FindChild("Retry").gameObject);
+        }
 
         //Sound
         AkSoundEngine.PostEvent("game_over", gameObject);
@@ -108,19 +117,29 @@ public class StageSelecter : MonoBehaviour
         SaveObjs();
         m_pausePanel.SetActive(true);
         GameObject selectObj = m_pausePanel.transform.FindChild("Retry").gameObject;
-        m_eventSystem.SetSelectedGameObject(selectObj);
+        NoMouseEventSystem es = m_eventSystem.GetComponent<NoMouseEventSystem>();
+        if (es)
+        {
+            es.SelectObj(selectObj);
+        }
         
         //Disable scripts that still work while timescale is set to 0
         AkSoundEngine.PostEvent("sound_pause", gameObject);
         AkSoundEngine.PostEvent("fall_pause", gameObject);
         AkSoundEngine.PostEvent("pause_SE", gameObject);
+
+        m_Input.Vibration(false, false);
     }
 
     private void ContinueGame()
     {
         GameManager.m_bPlay = true;
         LoadObjs();
-        m_eventSystem.SetSelectedGameObject(null);
+        NoMouseEventSystem es = m_eventSystem.GetComponent<NoMouseEventSystem>();
+        if (es)
+        {
+            es.DisableSelect();
+        }
         m_pausePanel.GetComponent<GamePanelController>().DisableSelf();
 
         //enable the scripts again

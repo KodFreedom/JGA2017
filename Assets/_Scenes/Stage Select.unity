@@ -5155,9 +5155,9 @@ MonoBehaviour:
   m_aScreenshot:
   - {fileID: 21300000, guid: a54fb34b29f6ae2439d09a946e4a1870, type: 3}
   - {fileID: 21300000, guid: 7711c3a07c7060b4da81259c68a7861c, type: 3}
-  - {fileID: 21300000, guid: 25957ebee7f0a654b9f5df089d37b776, type: 3}
-  - {fileID: 21300000, guid: 76b097b16a6d549408852261b7a46ddb, type: 3}
-  - {fileID: 21300000, guid: 287b0080289346b42aeff86a1ddbc77a, type: 3}
+  - {fileID: 21300000, guid: ecd298ce899a5fc4bad0837fb3761381, type: 3}
+  - {fileID: 21300000, guid: f1aaae0b78b056e409625457a228d317, type: 3}
+  - {fileID: 21300000, guid: 442a7c6d114a93d42a1739dec30d7acd, type: 3}
   m_aChild:
   - {fileID: 326918804}
   - {fileID: 1038929951}
@@ -6229,6 +6229,7 @@ GameObject:
   - component: {fileID: 1550385924}
   - component: {fileID: 1550385927}
   - component: {fileID: 1550385928}
+  - component: {fileID: 1550385929}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -6301,6 +6302,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2004fc50731e53e49b56fdeab28a1bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1550385929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1550385923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd6bed9e4f512c4ab4ff7685019dc90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1553624944

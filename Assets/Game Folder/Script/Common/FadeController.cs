@@ -65,7 +65,11 @@ public class FadeController : MonoBehaviour
             }
 
             //Stop
-            es.SetSelectedGameObject(null);
+            NoMouseEventSystem nmes = es.gameObject.GetComponent<NoMouseEventSystem>();
+            if(nmes)
+            {
+                es.gameObject.GetComponent<NoMouseEventSystem>().DisableSelect();
+            }
         }
 
         //初期化
@@ -147,7 +151,6 @@ public class FadeController : MonoBehaviour
                 if (m_fadeImgL.rectTransform.anchoredPosition.x <= -m_vCanvuaSize.x * 0.5f - m_fFadeMoveSpeed
                     || m_fadeImgR.rectTransform.anchoredPosition.x >= m_vCanvuaSize.x * 1.0f + m_fFadeMoveSpeed)
                 {
-                    Cursor.visible = false;
                     m_status = FADE_STATUS.NONE;
                 }
                 break;
@@ -177,7 +180,7 @@ public class FadeController : MonoBehaviour
     private void UnloadScene()
     {
         //BGM
-        AkSoundEngine.SetRTPCValue("room_height", 100f);
+        AkSoundEngine.SetRTPCValue("room_height", 0f);
         AkSoundEngine.PostEvent("BGM_play_stop", gameObject);
         AkSoundEngine.PostEvent("BGM_stageselect_stop", gameObject);
         AkSoundEngine.PostEvent("BGM_title_stop", gameObject);

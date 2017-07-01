@@ -22,6 +22,7 @@ public class CameraController : MonoBehaviour
     private Vector3 m_vVelocity;
     private float m_fPlayerPosYLocal;
     private int m_nCntOpening;
+    private Vector3 m_vTime;
 
     //--------------------------------------------------------------------------
     //  関数
@@ -62,6 +63,9 @@ public class CameraController : MonoBehaviour
                 transform.position = player.transform.position + new Vector3(0.0f, 0.0f, -1.0f);
                 m_fPlayerPosYLocal = player.transform.localPosition.y;
                 m_nCntOpening = 240;
+                m_vTime.z = 2.0f;
+                m_vTime.x = 1.0f;
+                m_vTime.y = 1f;
             }
         }
     }
@@ -73,28 +77,31 @@ public class CameraController : MonoBehaviour
             Vector3 vPos;
             Vector3 vCurrent = transform.position;
             Vector3 vTarget = m_target.transform.position + m_vDefaultPos;
-            Vector3 vTime = Vector3.zero;
+            //Vector3 vTime = Vector3.zero;
 
             if (m_nCntOpening > 0)
             {
-                vTime.z = 2.0f;
-                vTime.x = 1.0f;
-                vTime.y = 1f;
-                m_fPlayerPosYLocal = Mathf.SmoothDamp(m_fPlayerPosYLocal, 0f, ref m_vVelocity.y, vTime.y);
+                //vTime.z = 2.0f;
+                //vTime.x = 1.0f;
+                //vTime.y = 1f;
+                m_fPlayerPosYLocal = Mathf.SmoothDamp(m_fPlayerPosYLocal, 0f, ref m_vVelocity.y, 1f);
                 m_nCntOpening--;
             }
             else
             {
-                vTime.z = 0.5f;
-                vTime.x = 0.1f;
+                //vTime.z = 0.5f;
+                //vTime.x = 0.1f;
                 m_fPlayerPosYLocal = 0f;
             }
 
+            m_vTime.z = Mathf.Lerp(m_vTime.z, 0.5f, 0.015f);
+            m_vTime.x = Mathf.Lerp(m_vTime.x, 0.1f, 0.01f);
+
             //Z
-            vPos.z = Mathf.SmoothDamp(vCurrent.z, vTarget.z, ref m_vVelocity.z, vTime.z);
+            vPos.z = Mathf.SmoothDamp(vCurrent.z, vTarget.z, ref m_vVelocity.z, m_vTime.z);
 
             //X
-            vPos.x = Mathf.SmoothDamp(vCurrent.x, vTarget.x, ref m_vVelocity.x, vTime.x);
+            vPos.x = Mathf.SmoothDamp(vCurrent.x, vTarget.x, ref m_vVelocity.x, m_vTime.x);
 
             //Y
             vPos.y = m_fPlayerPosYLocal + vTarget.y;

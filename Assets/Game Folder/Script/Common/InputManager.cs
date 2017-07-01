@@ -70,6 +70,10 @@ public class InputManager : MonoBehaviour
                 break;
             }
         }
+
+        //Cursor
+        Cursor.visible = false;
+        
     }
 
     private void Update()
